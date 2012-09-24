@@ -1,4 +1,19 @@
 #! /bin/zsh
+################################################################################
+# Path setting
+
+# path of macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+export INFOPATH=/opt/local/share/info:$INFOPATH
+
+# path of GNU coreutils
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+# addd include path for C++
+export CPLUS_INCLUDE_PATH=/opt/local/include
+
+################################################################################
 # Path of oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
 
@@ -10,7 +25,6 @@ plugins=()
 
 # check OS
 OS=$(uname)
-echo $OS
 
 if [ "$OS" = 'Linux' ]; then	# Linux
 
@@ -45,24 +59,9 @@ if which pip &> /dev/null; then
 	plugins+=pip
 fi
 
-echo $plugins
-
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
-################################################################################
-# Path setting
-
-# path of macports
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-export MANPATH=/opt/local/share/man:$MANPATH
-export INFOPATH=/opt/local/share/info:$INFOPATH
-
-# path of GNU coreutils
-export PATH=/opt/local/libexec/gnubin:$PATH
-
-# addd include path for C++
-export CPLUS_INCLUDE_PATH=/opt/local/include
 
 ################################################################################
 # history key binding
