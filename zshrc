@@ -29,6 +29,10 @@ fi
 # check git
 if which git &> /dev/null; then
 	plugins+=git
+	# configuration git
+	git config --global user.name "KuoE0"
+	git config --global user.email "kuoe0.tw@gmail.com"
+	git config --global core.editor `which vim`		# let git use the correct vim on Mac
 fi
 
 # check autojump
