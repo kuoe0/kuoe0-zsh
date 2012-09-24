@@ -105,3 +105,8 @@ alias ll="ls -al --color=auto"	# ls is GNU ls not BSD ls
 eval `dircolors ~/.dir_colors`
 
 
+################################################################################
+# start up
+
+# cowsay hello message
+fortune | cowsay | lolcat
