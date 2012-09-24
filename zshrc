@@ -69,4 +69,7 @@ if [ -d $HOME/Dropbox ]; then
 	dbox=$HOME/Dropbox
 fi
 
+# alias
+alias gitst="git status"
+
 
