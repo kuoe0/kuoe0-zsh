@@ -50,6 +50,21 @@ echo $plugins
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
+################################################################################
+# Path setting
+
+# path of macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export MANPATH=/opt/local/share/man:$MANPATH
+export INFOPATH=/opt/local/share/info:$INFOPATH
+
+# path of GNU coreutils
+export PATH=/opt/local/libexec/gnubin:$PATH
+
+# addd include path for C++
+export CPLUS_INCLUDE_PATH=/opt/local/include
+
+################################################################################
 # history key binding
 bindkey ^f  history-incremental-search-backward
 
@@ -61,6 +76,7 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 
+################################################################################
 # language setting
 LC_COLLATE="zh_TW.UTF-8"
 LC_CTYPE="zh_TW.UTF-8"
@@ -76,6 +92,7 @@ export LC_NUMERIC
 export LC_TIME
 export LC_MESSAGES
 
+################################################################################
 # variable setting
 
 # dropbox directory setup
@@ -84,6 +101,7 @@ if [ -d $HOME/Dropbox ]; then
 	dbox=$HOME/Dropbox
 fi
 
+################################################################################
 # alias
 alias gitst="git status"
 alias l="ls --color=auto"	# ls is GNU ls not BSD ls
