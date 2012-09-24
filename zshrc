@@ -31,6 +31,11 @@ if which git &> /dev/null; then
 	plugins+=git
 fi
 
+# check autojump
+if which autojump &> /dev/null; then
+	plugins+=autojump
+fi
+
 echo $plugins
 
 
