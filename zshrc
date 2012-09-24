@@ -52,6 +52,11 @@ if which pip &> /dev/null; then
 	plugins+=pip
 fi
 
+# check pip
+if which gem &> /dev/null; then
+	plugins+=gem
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
