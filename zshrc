@@ -61,6 +61,21 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 
+# language setting
+LC_COLLATE="zh_TW.UTF-8"
+LC_CTYPE="zh_TW.UTF-8"
+LC_MONETARY="zh_TW.UTF-8"
+LC_NUMERIC="zh_TW.UTF-8"
+LC_TIME="zh_TW.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+
+export LC_COLLATE
+export LC_CTYPE
+export LC_MONETARY
+export LC_NUMERIC
+export LC_TIME
+export LC_MESSAGES
+
 # variable setting
 
 # dropbox directory setup
