@@ -61,3 +61,12 @@ setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 
+# variable setting
+
+# dropbox directory setup
+
+if [ -d $HOME/Dropbox ]; then
+	dbox=$HOME/Dropbox
+fi
+
+
