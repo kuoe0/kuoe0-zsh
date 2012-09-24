@@ -36,8 +36,14 @@ if which autojump &> /dev/null; then
 	plugins+=autojump
 fi
 
+# check pip
+if which pip &> /dev/null; then
+	plugins+=pip
+fi
+
 echo $plugins
 
-
+# start to install plugin
+source $ZSH/oh-my-zsh.sh
 
 
