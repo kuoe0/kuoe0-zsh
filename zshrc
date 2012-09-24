@@ -50,4 +50,6 @@ echo $plugins
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
+# history setting
+bindkey ^f  history-incremental-search-backward
 
