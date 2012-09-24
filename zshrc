@@ -50,6 +50,14 @@ echo $plugins
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
-# history setting
+# history key binding
 bindkey ^f  history-incremental-search-backward
+
+# history setting
+setopt EXTENDED_HISTORY
+setopt HIST_FIND_NO_DUPs
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt HIST_IGNORE_SPACE
+setopt HIST_SAVE_NO_DUPS
 
