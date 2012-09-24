@@ -8,20 +8,27 @@ ZSH_THEME="powerline"
 # setup plugin (plugin in .oh-my-zsh/plugin)
 plugins=()
 
+# check OS
 OS=$(uname)
 echo $OS
 
-if [ "$OS" = 'Linux' ]; then
+if [ "$OS" = 'Linux' ]; then	# Linux
 
-elif [ "$OS" = 'Darwin' ]; then
+elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
 	plugins+=osx
+	# check homebrew
+	if which brew &> /dev/null; then
+		plugins+=brew
+	fi
+	# check macports
+	if which port &> /dev/null; then
+		plugins+=port
+	fi
 fi
 
 # check git
 if which git &> /dev/null; then
 	plugins+=git
-else
-	echo "no git"
 fi
 
 echo $plugins
