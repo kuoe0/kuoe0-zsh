@@ -51,6 +51,7 @@ if which git &> /dev/null; then
 	git config --global user.name "KuoE0"
 	git config --global user.email "kuoe0.tw@gmail.com"
 	git config --global core.editor `which vim`		# let git use the correct vim on Mac
+	git config --global color.ui auto # colorize git output
 fi
 
 # check autojump
