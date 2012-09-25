@@ -1,10 +1,25 @@
+#=============================================================================
+#     FileName: zshrc
+#         Desc: install my zshrc
+#       Author: KuoE0
+#        Email: kuoe0.tw@gmail.com
+#     HomePage: http://kuoe0.ch/
+#      Version: 0.0.1
+#   LastChange: 2012-09-25 12:35:39
+#      History:
+#=============================================================================
 #! /bin/zsh
+
+################################################################################
+# get OS name
+OS=$(uname)
 ################################################################################
 # Path setting
 
 # path of GNU coreutils
-export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-
+if [ "$OS" = 'Darwin' ]; then
+	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+fi
 
 ################################################################################
 # Path of oh-my-zsh configuration
@@ -15,9 +30,6 @@ ZSH_THEME="powerline"
 
 # setup plugin (plugin in .oh-my-zsh/plugin)
 plugins=()
-
-# check OS
-OS=$(uname)
 
 if [ "$OS" = 'Linux' ]; then	# Linux
 
