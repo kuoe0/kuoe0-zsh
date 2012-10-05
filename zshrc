@@ -15,6 +15,9 @@ OS=$(uname)
 ################################################################################
 # Path setting
 
+# build by me
+export PATH=/usr/mine/bin:$PATH
+
 # path of GNU coreutils
 if [ "$OS" = 'Darwin' ]; then
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
