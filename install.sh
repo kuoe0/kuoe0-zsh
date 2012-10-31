@@ -51,19 +51,22 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 # download powerline-theme
 git clone git://github.com/KuoE0/Powerline-oh-my-zsh-theme.git ~/.powerline-oh-my-zsh-theme
 
-# create temporary directory
-if [ -f ~/tmp ] || [ -h ~/tmp ] || [ -d ~/tmp ]; then
+
+if ! [ "$OS" != "FreeBSD" ]; then
+	# create temporary directory
+	if [ -f ~/tmp ] || [ -h ~/tmp ] || [ -d ~/tmp ]; then
+		rm -rf ~/tmp
+	fi
+	mkdir ~/tmp
+	# download dircolors-solarized
+	git clone git://github.com/seebi/dircolors-solarized.git ~/tmp/dircolors-solarized
+	# copy color scheme to ~/.dir_colors
+	cp ~/tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
+	# delete temporary files
 	rm -rf ~/tmp
 fi
-mkdir ~/tmp
-# download dircolors-solarized
-git clone git://github.com/seebi/dircolors-solarized.git ~/tmp/dircolors-solarized
 
-cp ~/tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
+# link theme to oh-my-zsh
 ln -s ~/.powerline-oh-my-zsh-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/
-
-# delete temporary files
-rm -rf ~/tmp
-
 source ~/.zshrc
 
