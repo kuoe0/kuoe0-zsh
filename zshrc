@@ -21,6 +21,7 @@ export PATH=/usr/mine/bin:$PATH
 # path of GNU coreutils
 if [ "$OS" = 'Darwin' ]; then
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	export PATH="/usr/local/share/python:$PATH"
 fi
 
 ################################################################################
