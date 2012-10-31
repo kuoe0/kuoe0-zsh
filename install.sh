@@ -11,18 +11,10 @@
 #=============================================================================
 
 OS=$(uname)
-echo $OS
-
-# setting readlink command
-if [ "$OS" = 'Linux' ]; then
-	READLINK='readlink'
-elif [ "$OS" = 'Darwin' ]; then
-	# need GNU Coreutils; sudo port install coreutils
-	READLINK='greadlink'
-fi
+echo "Platform: $OS"
 
 # absolute path of this script, e.g. /home/user/bin/foo.sh
-SCRIPT=`$READLINK -f $0`
+SCRIPT=`realpath $0`
 # absolute path of current directory
 SCRIPTPATH=`dirname $SCRIPT`
 
