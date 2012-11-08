@@ -16,7 +16,7 @@ OS=$(uname)
 # Path setting
 
 # build by me
-export PATH=/usr/mine/bin:$PATH
+export PATH=~/bin:$PATH
 
 # path of GNU coreutils
 if [ "$OS" = 'Darwin' ]; then
