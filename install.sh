@@ -13,10 +13,9 @@
 OS=$(uname)
 echo "Platform: $OS"
 
-# absolute path of this script, e.g. /home/user/bin/foo.sh
-SCRIPT=`realpath $0`
+CD_DIR=$(dirname $0)
 # absolute path of current directory
-SCRIPTPATH=`dirname $SCRIPT`
+SCRIPTPATH=`cd $CD_DIR; pwd`
 
 echo $SCRIPTPATH
 
