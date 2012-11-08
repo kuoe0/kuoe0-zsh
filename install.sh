@@ -43,7 +43,7 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 git clone git://github.com/KuoE0/Powerline-oh-my-zsh-theme.git ~/.powerline-oh-my-zsh-theme
 
 
-if ! [ "$OS" != "FreeBSD" ]; then
+if [ "$OS" != "FreeBSD" ]; then
 	# create temporary directory
 	if [ -f ~/tmp ] || [ -h ~/tmp ] || [ -d ~/tmp ]; then
 		rm -rf ~/tmp
@@ -52,6 +52,9 @@ if ! [ "$OS" != "FreeBSD" ]; then
 	# download dircolors-solarized
 	git clone git://github.com/seebi/dircolors-solarized.git ~/tmp/dircolors-solarized
 	# copy color scheme to ~/.dir_colors
+	if ! [ -d ~/.dir_colors ]; then
+		mkdir ~/.dir_colors
+	fi
 	cp ~/tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
 	# delete temporary files
 	rm -rf ~/tmp
