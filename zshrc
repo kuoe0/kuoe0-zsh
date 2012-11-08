@@ -139,7 +139,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 ################################################################################
 # start up
 
-QUOTE="You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something — your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.\n\n - Steve Jobs"
+QUOTE="You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something - your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.\n\n - Steve Jobs"
 
 
 # cowsay hello message
