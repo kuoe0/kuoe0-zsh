@@ -121,6 +121,11 @@ alias gitst="git status"
 alias l="ls --color=auto"	# ls is GNU ls not BSD ls
 alias ll="ls -al --color=auto"	# ls is GNU ls not BSD ls
 
+if [ $OS = "Linux" ]; then
+	alias pbcopy="xclip -i"
+	alias pbpaste="xclip -o"
+fi
+
 
 ################################################################################
 # others
