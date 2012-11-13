@@ -52,8 +52,8 @@ if [ "$OS" != "FreeBSD" ]; then
 	# download dircolors-solarized
 	git clone git://github.com/seebi/dircolors-solarized.git ~/tmp/dircolors-solarized
 	# copy color scheme to ~/.dir_colors
-	if ! [ -d ~/.dir_colors ]; then
-		mkdir ~/.dir_colors
+	if [ -f ~/.dir_colors ]; then
+		rm ~/.dir_colors
 	fi
 	cp ~/tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
 	# delete temporary files
