@@ -77,7 +77,6 @@ fi
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
-
 ################################################################################
 
 # history setting
@@ -143,7 +142,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 # start up
 
 # auto attach/create tmux-session when ssh remote
-if [ `which tmux` != "" ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
+if `which tmux` &> /dev/null  && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
 	sleep 1
 	( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
 	echo "tmux failed to start"
