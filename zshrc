@@ -79,8 +79,6 @@ source $ZSH/oh-my-zsh.sh
 
 
 ################################################################################
-# history key binding
-bindkey ^f  history-incremental-search-backward
 
 # history setting
 setopt EXTENDED_HISTORY
