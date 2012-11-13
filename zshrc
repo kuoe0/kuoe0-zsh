@@ -137,5 +137,14 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 ################################################################################
 # start up
 
+if [ `which tmux` != "" ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
+	sleep 1
+	( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+	echo "tmux failed to start"
+fi
+
 # cowsay hello message
-fortune | cowsay | lolcat
+if [ `which fortune` != "" ] && [ `which cowsay` != "" ] && [ `which lolcat` != "" ]; then
+	fortune | cowsay | lolcat
+fi
+
