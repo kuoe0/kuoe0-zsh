@@ -157,3 +157,8 @@ if which lolcat &> /dev/null; then
 else
 	echo $QUOTE | cowsay
 fi
+
+################################################################################
+# other
+# Report CPU usage for each command
+REPORTTIME=0
