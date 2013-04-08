@@ -160,4 +160,4 @@ fi
 ################################################################################
 # other
 # Report CPU usage for each command
-REPORTTIME=0
+# REPORTTIME=0
