@@ -15,14 +15,15 @@ OS=$(uname)
 ################################################################################
 # Path setting
 
-# build by me
-export PATH=~/bin:$PATH
-
-# path of GNU coreutils
+# Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
+	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	# use python of homebrew
 	export PATH="/usr/local/share/python:$PATH"
+	# use package of homebrew
 	export PATH="/usr/local/bin:$PATH"
+	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 fi
 
 ################################################################################
