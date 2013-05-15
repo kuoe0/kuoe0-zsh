@@ -42,22 +42,15 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 # download powerline-theme
 git clone git://github.com/KuoE0/Powerline-oh-my-zsh-theme.git ~/.powerline-oh-my-zsh-theme
 
-
+# install solarized  color scheme for dircolors
 if [ "$OS" != "FreeBSD" ]; then
-	# create temporary directory
-	if [ -f ~/tmp ] || [ -h ~/tmp ] || [ -d ~/tmp ]; then
-		rm -rf ~/tmp
-	fi
-	mkdir ~/tmp
 	# download dircolors-solarized
-	git clone git://github.com/seebi/dircolors-solarized.git ~/tmp/dircolors-solarized
+	git clone git://github.com/seebi/dircolors-solarized.git /tmp/dircolors-solarized
 	# copy color scheme to ~/.dir_colors
 	if [ -f ~/.dir_colors ]; then
 		rm ~/.dir_colors
 	fi
-	cp ~/tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
-	# delete temporary files
-	rm -rf ~/tmp
+	cp /tmp/dircolors-solarized/dircolors.256dark ~/.dir_colors
 fi
 
 # install solarized color scheme for gnome-terminal
