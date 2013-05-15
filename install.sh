@@ -60,6 +60,16 @@ if [ "$OS" != "FreeBSD" ]; then
 	rm -rf ~/tmp
 fi
 
+# install solarized color scheme for gnome-terminal
+if [ "$OS" = "Linux" ]; then
+	echo "setting solarized color scheme..."
+	# download color scheme
+	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git /tmp/gnome-terminal-colors-solarized
+	# set color scheme
+	/tmp/gnome-terminal-colors-solarized/set_dark.sh
+fi
+
+
 # link theme to oh-my-zsh
 ln -s ~/.powerline-oh-my-zsh-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/
 source ~/.zshrc
