@@ -14,6 +14,7 @@ export TERM=xterm-256color
 OS=$(uname)
 ################################################################################
 # Path setting
+export PATH="~/Workspace/KuoE0-utils:$PATH"
 
 # Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
@@ -158,6 +159,10 @@ if which lolcat &> /dev/null; then
 	echo $QUOTE | cowsay | lolcat
 else
 	echo $QUOTE | cowsay
+fi
+
+if [ "$OS" == 'Linux' ]; then
+	landscape-sysinfo
 fi
 
 ################################################################################
