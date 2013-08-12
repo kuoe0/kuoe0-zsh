@@ -146,7 +146,7 @@ cless() {
 }
 
 ################################################################################
-# others
+# colourify settings
 eval `dircolors ~/.dir_colors`
 
 # colorize less for manpage
@@ -163,6 +163,24 @@ export GREP_COLOR='4;32'
 
 # setup less raw control
 export LESS="-RMgs"
+
+# auto use grc (Generic Colouriser) to process content
+GRC=`which grc`
+if [ "$TERM" != dumb ] && [ -n "$GRC" ]
+then
+    alias colourify="$GRC -es --colour=on"
+    alias configure='colourify ./configure'
+    alias diff='colourify diff'
+    alias make='colourify make'
+    alias gcc='colourify gcc'
+    alias g++='colourify g++'
+    alias as='colourify as'
+    alias gas='colourify gas'
+    alias ld='colourify ld'
+    alias netstat='colourify netstat'
+    alias ping='colourify ping'
+    alias traceroute='colourify /usr/sbin/traceroute'
+fi
 
 ################################################################################
 # start up
