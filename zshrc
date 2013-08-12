@@ -118,13 +118,15 @@ fi
 
 ################################################################################
 # alias
-alias l="ls --color=auto"	# ls is GNU ls not BSD ls
-alias ll="ls -al --color=auto"	# ls is GNU ls not BSD ls
+alias l="ls --color=always"	# ls is GNU ls not BSD ls
+alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
 
 if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
 	alias pbpaste="xclip -o"
 fi
+
+
 
 ################################################################################
 # function
@@ -156,8 +158,11 @@ export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
 export LESS_TERMCAP_ue=$'\E[0m'           # end underline
 export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
-# settup grep color & style
+# setup grep color & style
 export GREP_COLOR='4;34' 
+
+# setup less raw control
+export LESS=" -R "
 
 ################################################################################
 # start up
