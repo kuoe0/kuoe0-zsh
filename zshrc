@@ -126,6 +126,16 @@ if [ $OS = "Linux" ]; then
 	alias pbpaste="xclip -o"
 fi
 
+################################################################################
+# function
+
+ccat() {
+	source-highlight-esc.sh $1
+}
+
+cless() {
+	ccat $1 | less
+}
 
 ################################################################################
 # others
@@ -161,7 +171,7 @@ else
 	echo $QUOTE | cowsay
 fi
 
-if [ "$OS" == 'Linux' ]; then
+if [ "$OS" = 'Linux' ]; then
 	landscape-sysinfo
 fi
 
@@ -169,3 +179,4 @@ fi
 # other
 # Report CPU usage for each command
 # REPORTTIME=0
+
