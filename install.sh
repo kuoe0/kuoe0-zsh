@@ -61,10 +61,10 @@ if [ "$OS" = "Linux" ]; then
 	/tmp/gnome-terminal-colors-solarized/set_dark.sh
 fi
 
-# install solarized color scheme for iTerm2
+# install solarized color scheme for terminal on OS X
 if [ "$OS" = "Darwin" ]; then
 
-	echo "setting solarized color scheme for iTerm2..."
+	echo "setting solarized color scheme for built-in terminal..."
 	# import color scheme
 	open Solarized\ Dark\ xterm-256color.terminal
 
