@@ -130,7 +130,13 @@ fi
 # function
 
 ccat() {
-	source-highlight-esc.sh $1
+
+	if which source-highlight-esc.sh &> /dev/null; then
+		source-highlight-esc.sh $1
+	else
+		echo "\x1b[31mcommand not found: source-highlight\x1b[0m" 1>&2
+		cat $1
+	fi
 }
 
 cless() {
