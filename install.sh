@@ -42,7 +42,7 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
 # download powerline-theme
 git clone git://github.com/KuoE0/Powerline-oh-my-zsh-theme.git ~/.powerline-oh-my-zsh-theme
 
-# install solarized  color scheme for dircolors
+# install solarized color scheme for dircolors
 if [ "$OS" != "FreeBSD" ]; then
 	# download dircolors-solarized
 	git clone git://github.com/seebi/dircolors-solarized.git /tmp/dircolors-solarized
@@ -55,12 +55,20 @@ fi
 
 # install solarized color scheme for gnome-terminal
 if [ "$OS" = "Linux" ]; then
-	echo "setting solarized color scheme..."
-	# download color scheme
-	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git /tmp/gnome-terminal-colors-solarized
-	# set color scheme
+	echo "setting solarized color scheme for gnome-terminal..."
+	git clone http://github.com/sigurdga/gnome-terminal-colors-solarized.git /tmp/gnome-terminal-colors-solarized
+	# import color scheme
 	/tmp/gnome-terminal-colors-solarized/set_dark.sh
 fi
+
+# install solarized color scheme for iTerm2
+if [ "$OS" = "Darwin" ]; then
+	echo "setting solarized color scheme for iTerm2..."
+	git clone http://github.com/altercation/solarized.git /tmp/solarized
+	# import color scheme
+	open /tmp/solarized/iterm2-colors-solarized/Solarized\ Dark.itermcolors
+fi
+	
 
 
 # link theme to oh-my-zsh
