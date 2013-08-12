@@ -162,7 +162,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 export GREP_COLOR='4;34' 
 
 # setup less raw control
-export LESS=" -R "
+export LESS="-RMgs"
 
 ################################################################################
 # start up
