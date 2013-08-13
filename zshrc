@@ -210,4 +210,5 @@ fi
 # other
 # Report CPU usage for each command
 # REPORTTIME=0
+export HOMEBREW_GITHUB_API_TOKEN=c68984b4b136f75b57644e87fec8e8661d29f84e
 

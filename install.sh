@@ -61,16 +61,24 @@ if [ "$OS" = "Linux" ]; then
 	/tmp/gnome-terminal-colors-solarized/set_dark.sh
 fi
 
-# install solarized color scheme for iTerm2
+# install solarized color scheme for terminal on OS X
 if [ "$OS" = "Darwin" ]; then
-	echo "setting solarized color scheme for iTerm2..."
-	git clone http://github.com/altercation/solarized.git /tmp/solarized
+
+	echo "setting solarized color scheme for built-in terminal..."
 	# import color scheme
-	open /tmp/solarized/iterm2-colors-solarized/Solarized\ Dark.itermcolors
+	open Solarized\ Dark\ xterm-256color.terminal
+
+	if [ -d /Applications/iTerm.app ]; then
+		echo "setting solarized color scheme for iTerm2..."
+
+		# download solarized source
+		git clone http://github.com/altercation/solarized.git /tmp/solarized
+
+		# import color scheme
+		open /tmp/solarized/iterm2-colors-solarized/Solarized\ Dark.itermcolors
+	fi
 fi
 	
-
-
 # link theme to oh-my-zsh
 ln -s ~/.powerline-oh-my-zsh-theme/powerline.zsh-theme ~/.oh-my-zsh/themes/
 source ~/.zshrc
