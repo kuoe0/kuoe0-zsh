@@ -121,6 +121,7 @@ fi
 alias l="ls --color=always"	# ls is GNU ls not BSD ls
 alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
 alias cgrep="grep --color=always" 
+alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
 
 if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
