@@ -120,6 +120,7 @@ fi
 # alias
 alias l="ls --color=always"	# ls is GNU ls not BSD ls
 alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
+alias cgrep="grep --color=always" 
 
 if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
