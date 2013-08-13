@@ -160,6 +160,7 @@ export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
 
 # setup grep color & style
 export GREP_COLOR='4;32' 
+export GREP_OPTIONS='--color=always'
 
 # raw control (-R), highlight search (-g), merge consecutive blank line (-s)
 export LESS="-RMgs"
