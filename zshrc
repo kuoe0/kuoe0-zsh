@@ -34,7 +34,7 @@ fi
 ZSH=$HOME/.oh-my-zsh
 
 # theme name (theme in .oh-my-zsh/theme)
-ZSH_THEME="powerline"
+ZSH_THEME="solarized-powerline"
 
 # setup plugin (plugin in .oh-my-zsh/plugin)
 plugins=()
