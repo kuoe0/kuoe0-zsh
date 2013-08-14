@@ -194,15 +194,23 @@ if [ `which tmux` &> /dev/null ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "$
 	echo "tmux failed to start"
 fi
 
-# cowsay hello message
+KUOE0="
+   __ __          _______ 
+  / //_/_ _____  / __/ _ \\
+ / ,< / // / _ \\/ _// // /
+/_/|_|\\_,_/\\___/___/\\___/ 
+"
 
 QUOTE="You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something - your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.\n\n - Steve Jobs"
 
-if which lolcat &> /dev/null; then
-	echo $QUOTE | cowsay | lolcat
-else
-	echo $QUOTE | cowsay
+if ! which lolcat &> /dev/null; then
+	alias lolcat=cat
 fi
+
+echo $KUOE0 | lolcat
+echo $QUOTE | lolcat
+
+unalias lolcat &> /dev/null
 
 if [ "$OS" = 'Linux' ]; then
 	landscape-sysinfo
