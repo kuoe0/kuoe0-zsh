@@ -208,7 +208,7 @@ if ! which lolcat &> /dev/null; then
 fi
 
 echo $KUOE0 | lolcat
-echo $QUOTE | lolcat
+echo $QUOTE
 
 unalias lolcat &> /dev/null
 
