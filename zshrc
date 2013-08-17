@@ -200,10 +200,10 @@ if [ `which tmux` &> /dev/null ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "$
 fi
 
 KUOE0="
-   __ __          _______    Don't run after success.
-  / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
- / ,< / // / _ \\/ _// // /
-/_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
+       __ __          _______    Don't run after success.
+      / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
+     / ,< / // / _ \\/ _// // /
+    /_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
 "
 
 if ! which lolcat &> /dev/null; then
