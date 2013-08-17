@@ -198,10 +198,10 @@ KUOE0="
    __ __          _______ 
   / //_/_ _____  / __/ _ \\
  / ,< / // / _ \\/ _// // /
-/_/|_|\\_,_/\\___/___/\\___/ 
+/_/|_|\\_,_/\\___/___/\\___/     
 "
 
-QUOTE="You can't connect the dots looking forward; you can only connect them looking backwards. So you have to trust that the dots will somehow connect in your future. You have to trust in something - your gut, destiny, life, karma, whatever. This approach has never let me down, and it has made all the difference in my life.\n\n - Steve Jobs"
+QUOTE="Don't run after success. \x1b[1;35mBe excellent\x1b[0m, success will run after you.\n\n - 3 Idiot"
 
 if ! which lolcat &> /dev/null; then
 	alias lolcat=cat
