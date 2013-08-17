@@ -200,20 +200,17 @@ if [ `which tmux` &> /dev/null ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "$
 fi
 
 KUOE0="
-   __ __          _______ 
-  / //_/_ _____  / __/ _ \\
+   __ __          _______    Don't run after success.
+  / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
  / ,< / // / _ \\/ _// // /
-/_/|_|\\_,_/\\___/___/\\___/     
+/_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
 "
-
-QUOTE="Don't run after success. \x1b[1;35mBe excellent\x1b[0m, success will run after you.\n\n - 3 Idiot"
 
 if ! which lolcat &> /dev/null; then
 	alias lolcat=cat
 fi
 
 echo $KUOE0 | lolcat
-echo $QUOTE
 
 unalias lolcat &> /dev/null
 
