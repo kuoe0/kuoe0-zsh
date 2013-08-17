@@ -132,7 +132,7 @@ if [ $OS = "Linux" ]; then
 fi
 
 # access the online help
-unalias run-help > /dev/null
+unalias run-help &> /dev/null
 autoload run-help
 
 ################################################################################
