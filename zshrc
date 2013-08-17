@@ -29,6 +29,9 @@ if [ "$OS" = 'Darwin' ]; then
 	export DYLD_LIBRARY_PATH=/usr/local/Cellar/gfortran/4.8.0/gfortran/lib/ 
 fi
 
+# access the online help
+HELPDIR=/usr/local/share/zsh/helpfiles
+
 ################################################################################
 # Path of oh-my-zsh configuration
 ZSH=$HOME/.oh-my-zsh
@@ -128,7 +131,9 @@ if [ $OS = "Linux" ]; then
 	alias pbpaste="xclip -o"
 fi
 
-
+# access the online help
+unalias run-help
+autoload run-help
 
 ################################################################################
 # function
