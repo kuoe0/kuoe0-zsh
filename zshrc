@@ -18,12 +18,12 @@ export PATH="~/Workspace/KuoE0-utils:$PATH"
 
 # Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
+	# use package of homebrew
+	export PATH="/usr/local/bin:$PATH"
 	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 	# use python of homebrew
 	export PATH="/usr/local/share/python:$PATH"
-	# use package of homebrew
-	export PATH="/usr/local/bin:$PATH"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 	# add gfortran dynamic lib path to DYLD_LIBRARY_PATH variable
 	export DYLD_LIBRARY_PATH=/usr/local/Cellar/gfortran/4.8.0/gfortran/lib/ 
