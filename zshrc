@@ -193,11 +193,19 @@ fi
 # start up
 
 # auto attach/create tmux-session when ssh remote
-if [ `which tmux` &> /dev/null ] && [ "$PS1" != "" ] && [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
-	sleep 1
+if [ "$TMUX" = "" ]; then
+	ret=""
+	while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
+		read ret\?"launch tmux for remote? [y/n] "
+	done
+fi
+
+if [ `which tmux` &> /dev/null ] && [ "$PS1" != "" ] && [ "$ret" = "y" ] && [ "${SSH_TTY:-x}" != x ]; then
 	( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
 	echo "tmux failed to start"
 fi
+
+unset ret > /dev/null
 
 KUOE0="
        __ __          _______    Don't run after success.
