@@ -57,8 +57,12 @@ memory_usage() {
 		MEM_STAT=$(mac_memory)
 		TOTAL=$(echo $mem_stat | awk -F',' '{for (i=1; i <= NF; ++i) sum+=$i; print sum}')
 		USED=$(($TOTAL - $(echo $mem_stat | cut -d',' -f1)))
-		RET=$(echo $(($USED / $TOTAL * 100)))
-		printf "%.0f" $RET
+		RET=$(printf "%.0f" $(echo $(($USED / $TOTAL * 100))))
+		if [ "$1" = "-f" ]; then
+			echo "Memory Usage: $RET %"
+		else
+			echo -n $RET
+		fi
 	fi
 
 }
