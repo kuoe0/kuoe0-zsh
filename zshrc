@@ -198,13 +198,17 @@ KUOE0="
       / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
      / ,< / // / _ \\/ _// // /
     /_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
-	                         老子：勝人者有力，自勝者強。
 "
 
-echo $KUOE0 
+if ! which lolcat &> /dev/null; then
+	alias lolcat=cat
+fi
+
+echo $KUOE0 | lolcat
 
 unalias lolcat &> /dev/null
 
+echo 
 echo "    System load:        $(cpu_load)\t\tMemory usage:    $(memory_usage) %"
 
 echo "    Users logged in:    $(user_numbers)"
