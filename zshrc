@@ -172,6 +172,10 @@ then
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
 
+
+# function load
+source $HOME/.function.zsh
+
 ################################################################################
 # start up
 
@@ -215,6 +219,3 @@ echo "    Users logged in:    $(user_numbers)"
 # Report CPU usage for each command
 # REPORTTIME=0
 export HOMEBREW_GITHUB_API_TOKEN=c68984b4b136f75b57644e87fec8e8661d29f84e
-
-# function load
-source $HOME/.function.zsh
