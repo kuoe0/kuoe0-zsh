@@ -21,43 +21,48 @@ mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
 # remove orgin .oh-my-zsh
-if [ -f ~/.oh-my-zsh ] || [ -h ~/.oh-my-zsh ] || [ -d ~/.oh-my-zsh ]; then
-	rm -rf ~/.oh-my-zsh
+if [ -f $HOME/.oh-my-zsh ] || [ -h $HOME/.oh-my-zsh ] || [ -d $HOME/.oh-my-zsh ]; then
+	rm -rf $HOME/.oh-my-zsh
 fi
 
 # remove orgin .oh-my-zsh-solarized-powerline-theme
-if [ -f ~/.oh-my-zsh-solarized-powerline-theme ] || [ -h ~/.oh-my-zsh-solarized-powerline-theme ] || [ -d ~/.oh-my-zsh-solarized-powerline-theme ] ; then
-	rm -rf ~/.oh-my-zsh-solarized-powerline-theme
+if [ -f $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -h $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -d $HOME/.oh-my-zsh-solarized-powerline-theme ] ; then
+	rm -rf $HOME/.oh-my-zsh-solarized-powerline-theme
 fi
 
 # remove orgin .zshrc and relink
-if [ -f ~/.zshrc ] || [ -h ~/.zshrc ]; then
-	rm ~/.zshrc
+if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
+	rm $HOME/.zshrc
 fi
 
-ln -s $SCRIPTPATH/zshrc ~/.zshrc
+if [ -f $HOME/.function.zsh ] || [ -h $HOME/.function.zsh ]; then
+	rm $HOME/.function.zsh
+fi
+
+ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
+ln -s $SCRIPTPATH/function.zsh $HOME/.function.zsh
 
 # download oh-my-zsh
 echo "Download \x1b[0;33moh-my-zsh\x1b[0m..."
-git clone https://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh | sed "s/^/    /"
+git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh | sed "s/^/    /"
 
 # download oh-my-zsh-solarized-powerline-theme
 echo "Download \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
-git clone https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme.git ~/.oh-my-zsh-solarized-powerline-theme | sed "s/^/    /"
+git clone https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme.git $HOME/.oh-my-zsh-solarized-powerline-theme | sed "s/^/    /"
 
 # link theme to oh-my-zsh
-ln -s ~/.oh-my-zsh-solarized-powerline-theme/solarized-powerline.zsh-theme ~/.oh-my-zsh/themes/
+ln -s $HOME/.oh-my-zsh-solarized-powerline-theme/solarized-powerline.zsh-theme $HOME/.oh-my-zsh/themes/
 
 # install solarized color scheme for dircolors
 if [ "$OS" != "FreeBSD" ]; then
 	# download dircolors-solarized
 	echo "Download \x1b[0;33mdircolors-solarized\x1b[0m..."
 	git clone https://github.com/seebi/dircolors-solarized.git $TMP_DIR/dircolors-solarized | sed "s/^/    /"
-	# copy color scheme to ~/.dir_colors
-	if [ -f ~/.dir_colors ]; then
-		rm ~/.dir_colors
+	# copy color scheme to $HOME/.dir_colors
+	if [ -f $HOME/.dir_colors ]; then
+		rm $HOME/.dir_colors
 	fi
-	cp $TMP_DIR/dircolors-solarized/dircolors.256dark ~/.dir_colors
+	cp $TMP_DIR/dircolors-solarized/dircolors.256dark $HOME/.dir_colors
 fi
 
 # install solarized color scheme for gnome-terminal
@@ -86,6 +91,6 @@ if [ "$OS" = "Darwin" ]; then
 		open $TMP_DIR/solarized/iterm2-colors-solarized/Solarized\ Dark.itermcolors
 	fi
 fi
-	
-source ~/.zshrc
+
+source $HOME/.zshrc
 
