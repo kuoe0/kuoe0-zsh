@@ -208,9 +208,11 @@ echo $KUOE0 | lolcat
 
 unalias lolcat &> /dev/null
 
-if [ "$OS" = 'Linux' ]; then
-	landscape-sysinfo
-fi
+echo 
+echo "    System load:        $(cpu_load)\t\tMemory usage:    $(memory_usage) %"
+
+echo "    Users logged in:    $(user_numbers)"
+
 
 ################################################################################
 # other
