@@ -113,8 +113,9 @@ get_syslog() {
 		SYSLOGFILE=/var/log/syslog
 	fi
 		
-	if [ -n "$GRC" ]; then
-		grc tail $SYSLOGFILE
+	CCZE=`which ccze`
+	if [ -n "$CCZE" ]; then
+		tail $SYSLOGFILE | ccze -m ansi
 	else
 		tail $SYSLOGFILE
 	fi
