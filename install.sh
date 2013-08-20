@@ -81,7 +81,7 @@ if [ "$OS" = "Darwin" ]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
 
 	# import color scheme for OS X built-in terminal
-	open Solarized\ Dark\ xterm-256color.terminal
+	open Solarized-Dark-xterm-256color.terminal
 
 	if [ -d /Applications/iTerm.app ]; then
 
