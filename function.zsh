@@ -94,14 +94,11 @@ memory_usage() {
 # colourifide cat
 ccat() {
 	if which source-highlight-esc.sh &> /dev/null; then
-		source-highlight-esc.sh $1 2> /tmp/source-highlight-error && return
-		if [ "$?" != 0 ]; then
-			echo "\x1b[0;31m$(cat /tmp/source-highlight-error)\x1b[0m" 1>&2
-		fi
+		source-highlight-esc.sh $1
 	else
-		echo "\x1b[0;31mcommand not found: source-highlight\x1b[0m" 1>&2
+		echo "\x1b[31mcommand not found: source-highlight\x1b[0m" 1>&2
+		cat $1
 	fi
-	cat $1
 }
 
 # colourifide less
