@@ -84,6 +84,9 @@ fi
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
+# function load
+source $HOME/.function.zsh
+
 ################################################################################
 
 # history setting
@@ -134,23 +137,6 @@ fi
 # access the online help
 unalias run-help &> /dev/null
 autoload run-help
-
-################################################################################
-# function
-
-ccat() {
-
-	if which source-highlight-esc.sh &> /dev/null; then
-		source-highlight-esc.sh $1
-	else
-		echo "\x1b[31mcommand not found: source-highlight\x1b[0m" 1>&2
-		cat $1
-	fi
-}
-
-cless() {
-	ccat $1 | less
-}
 
 ################################################################################
 # colourify settings
