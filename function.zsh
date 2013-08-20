@@ -42,12 +42,33 @@ mac_memory() {
 
 	# format output
 	if [ "$1" = "-f" ]; then
-		printf "\x1b[0;32mFree:     %.2lf GB\x1b[m\n" $FREE
-		printf "\x1b[0;31mWired:    %.2lf GB\x1b[m\n" $WIRED
-		printf "\x1b[0;33mActive:   %.2lf GB\x1b[m\n" $ACTIVE
-		printf "\x1b[0;34mInactive: %.2lf GB\x1b[m\n" $INACITVE
+		printf "\x1b[0;32mFree:      %.2lf GB\x1b[m\n" $FREE
+		printf "\x1b[0;31mWired:     %.2lf GB\x1b[m\n" $WIRED
+		printf "\x1b[0;33mActive:    %.2lf GB\x1b[m\n" $ACTIVE
+		printf "\x1b[0;34mInactive:  %.2lf GB\x1b[m\n" $INACITVE
 	else
 		printf "%.2lf,%.2lf,%.2lf,%.2lf" $FREE $WIRED $ACTIVE $INACITVE
+	fi
+}
+
+linux_memory() {
+	FREE_MEM=`vmstat -s | grep "free memory" | awk '{ print $1 }'`
+	BUFFER_MEM=`vmstat -s | grep "buffer memory" | awk '{ print $1 }'`
+	ACTIVE_MEM=`vmstat -s | grep -v "inactive" | grep "active memory" | awk '{ print $1 }'`
+	INACITVE_MEM=`vmstat -s | grep "inactive memory" | awk '{ print $1 }'`
+
+	FREE=$(($FREE_MEM.0 / (1024 * 1024)))
+	BUFFER=$(($BUFFER_MEM.0 / (1024 * 1024)))
+	ACTIVE=$(($ACTIVE_MEM.0 / (1024 * 1024)))
+	INACITVE=$(($INACITVE_MEM.0 / (1024 * 1024)))
+
+	if [ "$1" = "-f" ]; then
+		printf "\x1b[0;32mFree:      %.2lf GB\x1b[m\n" $FREE
+		printf "\x1b[0;31mBuffer:    %.2lf GB\x1b[m\n" $BUFFER
+		printf "\x1b[0;33mActive:    %.2lf GB\x1b[m\n" $ACTIVE
+		printf "\x1b[0;34mInactive:  %.2lf GB\x1b[m\n" $INACITVE
+	else
+		printf "%.2lf,%.2lf,%.2lf,%.2lf" $FREE $BUFFER $ACTIVE $INACITVE
 	fi
 }
 
@@ -55,14 +76,23 @@ memory_usage() {
 
 	if [ "$OS" = "Darwin" ]; then
 		MEM_STAT=$(mac_memory)
-		TOTAL=$(echo $mem_stat | awk -F',' '{for (i=1; i <= NF; ++i) sum+=$i; print sum}')
-		USED=$(($TOTAL - $(echo $mem_stat | cut -d',' -f1)))
-		RET=$(printf "%.0f" $(echo $(($USED / $TOTAL * 100))))
-		if [ "$1" = "-f" ]; then
-			echo "Memory Usage: $RET %"
-		else
-			echo -n $RET
+	elif [ "$OS" = "Linux" ]; then
+		MEM_STAT=$(linux_memory)
+	fi
+
+	TOTAL=$(echo $MEM_STAT | awk -F',' '{ for (i=1; i <= NF; ++i) sum+=$i; print sum }')
+	USED=$(($TOTAL - $(echo $MEM_STAT | cut -d',' -f1)))
+	RET=$(printf "%.0f" $(echo $(($USED / $TOTAL * 100))))
+	if [ "$1" = "-f" ]; then
+		if [ "$OS" = "Darwin" ]; then
+			mac_memory -f
+		elif [ "$OS" = "Linux" ]; then
+			linux_memory -f
 		fi
+
+		echo "Memory Usage: $RET %"
+	else
+		echo -n $RET
 	fi
 
 }
