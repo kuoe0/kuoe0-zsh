@@ -106,6 +106,20 @@ cless() {
 	ccat $1 | less
 }
 
+get_syslog() {
+	if [ "$OS" = "Darwin" ]; then
+		SYSLOGFILE=/var/log/system.log
+	elif [ "$OS" = "Linux" ]; then
+		SYSLOGFILE=/var/log/syslog
+	fi
+		
+	if [ -n "$GRC" ]; then
+		grc tail $SYSLOGFILE
+	else
+		tail $SYSLOGFILE
+	fi
+}
+
 passwd_gen() {
 	len=${2:-16}
 	echo -n $(echo "$1" | sha1sum | cut -c1-"$len" | tr -d ' \n\t')
