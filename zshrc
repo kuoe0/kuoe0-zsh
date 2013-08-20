@@ -84,9 +84,6 @@ fi
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
-# function load
-source $HOME/.function.zsh
-
 ################################################################################
 
 # history setting
@@ -219,3 +216,5 @@ echo "    Users logged in:    $(user_numbers)"
 # REPORTTIME=0
 export HOMEBREW_GITHUB_API_TOKEN=c68984b4b136f75b57644e87fec8e8661d29f84e
 
+# function load
+source $HOME/.function.zsh
