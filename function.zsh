@@ -86,3 +86,8 @@ cless() {
 	ccat $1 | less
 }
 
+passwd_gen() {
+	len=${2:-16}
+	echo -n $(echo "$1" | sha1sum | cut -c1-"$len" | tr -d ' \n\t')
+}
+
