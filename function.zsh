@@ -15,16 +15,6 @@ user_numbers() {
 	echo $@ $(who | cut -d" " -f1 | sort | uniq | wc -l)
 }
 
-ssh_clinet_ip() {
-	if [ "${SSH_CLIENT:-x}" != x ]; then
-		echo $@ $SSH_CLIENT | cut -d" " -f1 | tr -d '\n'
-	fi
-}
-
-host_ip() {
-	echo $@ $(curl -s http://ifconfig.me)
-}
-
 mac_memory() {
 
 	FREE_MEM=`vm_stat| grep free | awk '{ print $3 }' | sed 's/\.//'`
