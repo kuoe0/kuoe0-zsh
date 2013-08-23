@@ -94,31 +94,19 @@ memory_usage() {
 # colourifide cat
 ccat() {
 	if which source-highlight-esc.sh &> /dev/null; then
-		source-highlight-esc.sh $1
+		source-highlight-esc.sh $1 2> /tmp/source-highlight-error && return
+		if [ "$?" != 0 ]; then
+			echo "\x1b[0;31m$(cat /tmp/source-highlight-error)\x1b[0m" 1>&2
+		fi
 	else
-		echo "\x1b[31mcommand not found: source-highlight\x1b[0m" 1>&2
-		cat $1
+		echo "\x1b[0;31mcommand not found: source-highlight\x1b[0m" 1>&2
 	fi
+	cat $1
 }
 
 # colourifide less
 cless() {
 	ccat $1 | less
-}
-
-get_syslog() {
-	if [ "$OS" = "Darwin" ]; then
-		SYSLOGFILE=/var/log/system.log
-	elif [ "$OS" = "Linux" ]; then
-		SYSLOGFILE=/var/log/syslog
-	fi
-		
-	CCZE=`which ccze`
-	if [ -n "$CCZE" ]; then
-		tail $SYSLOGFILE | ccze -m ansi
-	else
-		tail $SYSLOGFILE
-	fi
 }
 
 passwd_gen() {
