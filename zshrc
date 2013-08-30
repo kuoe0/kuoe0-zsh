@@ -13,8 +13,6 @@ export TERM=xterm-256color
 # get OS name
 OS=$(uname)
 ################################################################################
-# Environment Variable
-
 # Path setting
 export PATH="~/Workspace/KuoE0-utils:$PATH"
 # Path config for Mac OS X
@@ -32,24 +30,6 @@ fi
 
 # access the online help
 export HELPDIR=/usr/local/share/zsh/helpfiles
-
-# default editor
-export EDITOR=vim
-
-# language setting
-LC_COLLATE="zh_TW.UTF-8"
-LC_CTYPE="zh_TW.UTF-8"
-LC_MONETARY="zh_TW.UTF-8"
-LC_NUMERIC="zh_TW.UTF-8"
-LC_TIME="zh_TW.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-
-export LC_COLLATE
-export LC_CTYPE
-export LC_MONETARY
-export LC_NUMERIC
-export LC_TIME
-export LC_MESSAGES
 
 ################################################################################
 # Path of oh-my-zsh configuration
@@ -104,8 +84,22 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 ################################################################################
+# environment variable settings
 
+# default editor
+export EDITOR=vim
+
+# language setting
+export LC_COLLATE="zh_TW.UTF-8"
+export LC_CTYPE="zh_TW.UTF-8"
+export LC_MONETARY="zh_TW.UTF-8"
+export LC_NUMERIC="zh_TW.UTF-8"
+export LC_TIME="zh_TW.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+
+################################################################################
 # history setting
+
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPs
 setopt HIST_IGNORE_ALL_DUPS
