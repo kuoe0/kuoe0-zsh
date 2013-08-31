@@ -203,8 +203,8 @@ PADDING=$((($(tput cols) - 70 + 1) / 2))
 WELCOME="
    __ __          _______   Don't run after success.
   / //_/_ _____  / __/ _ \\  Be excellent, success will run after you.
- / ,< / // / _ \\/ _// // /
-/_/|_|\\_,_/\\___/___/\\___/                                   - 3 Idiot
+ / .< / // / _ \\/ _// // /
+/_/|_|\\___/\\___/___/\\___/                                   - 3 Idiot
 
         System load:        $(cpu_load)        Memory usage:    $(memory_usage) %
         Uptime:     $(machine_uptime)"
