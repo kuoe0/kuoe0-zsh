@@ -198,7 +198,7 @@ fi
 
 unset $ret &> /dev/null
 
-PADDING=$((($(tput cols) - 70) / 2))
+PADDING=$((($(tput cols) - 70 + 1) / 2))
 
 WELCOME="
    __ __          _______   Don't run after success.
