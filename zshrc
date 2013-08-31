@@ -214,6 +214,7 @@ echo $KUOE0 | lolcat
 unalias lolcat &> /dev/null
 
 echo "    System load:        $(cpu_load)\t\tMemory usage:    $(memory_usage) %"
+echo "    Uptime:     $(machine_uptime)"
 
 ################################################################################
 # other
