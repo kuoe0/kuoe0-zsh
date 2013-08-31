@@ -15,6 +15,10 @@ user_numbers() {
 	echo $@ $(who | cut -d" " -f1 | sort | uniq | wc -l)
 }
 
+machine_uptime() {
+	echo $@ $(uptime|tr ',' ' ' | sed -E 's/[[:blank:]]+/ /g' | sed -E 's/[[:blank:]]+//' | cut -d ' ' -f3-5)
+}
+
 mac_memory() {
 
 	FREE_MEM=`vm_stat| grep free | awk '{ print $3 }' | sed 's/\.//'`
