@@ -198,23 +198,29 @@ fi
 
 unset $ret &> /dev/null
 
-KUOE0="
-       __ __          _______    Don't run after success.
-      / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
-     / ,< / // / _ \\/ _// // /
-    /_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
-"
+PADDING=$((($(tput cols) - 70) / 2))
+
+WELCOME="
+   __ __          _______   Don't run after success.
+  / //_/_ _____  / __/ _ \\  Be excellent, success will run after you.
+ / ,< / // / _ \\/ _// // /
+/_/|_|\\_,_/\\___/___/\\___/                                   - 3 Idiot
+
+        System load:        $(cpu_load)        Memory usage:    $(memory_usage) %
+        Uptime:     $(machine_uptime)"
+
+for i in $(seq 1 $PADDING);
+do
+	WELCOME=$(echo $WELCOME | sed "s/^/ /")
+done
 
 if ! which lolcat &> /dev/null; then
 	alias lolcat=cat
 fi
 
-echo $KUOE0 | lolcat
+echo $WELCOME | lolcat
 
 unalias lolcat &> /dev/null
-
-echo "    System load:        $(cpu_load)\t\tMemory usage:    $(memory_usage) %"
-echo "    Uptime:     $(machine_uptime)"
 
 ################################################################################
 # other
