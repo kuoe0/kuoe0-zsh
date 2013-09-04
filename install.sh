@@ -78,6 +78,11 @@ if [ "$OS" = "Darwin" ]; then
 	fi
 fi
 
+if [ "$OS" = "Darwin" ]; then
+	curl https://gist.github.com/baopham/1838072/raw/2c0e00770826e651d1e355962e751325edb0f1ee/Monaco+for+Powerline.otf -o /tmp/Monaco-Powerline-OSX.otf
+	mv /tmp/Monaco-Powerline-OSX.otf ~/Library/Fonts/
+fi
+
 ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
 ln -s $SCRIPTPATH/function.zsh $HOME/.function.zsh
 source $HOME/.zshrc
