@@ -23,10 +23,7 @@ if [ "$OS" = 'Darwin' ]; then
 	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 	# use python of homebrew
-	export PATH="/usr/local/share/python:$PATH"
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
-	# add gfortran dynamic lib path to DYLD_LIBRARY_PATH variable
-	export DYLD_LIBRARY_PATH=/usr/local/Cellar/gfortran/4.8.0/gfortran/lib/ 
 fi
 
 # access the online help
