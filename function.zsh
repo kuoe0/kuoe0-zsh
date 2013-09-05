@@ -15,6 +15,10 @@ user_numbers() {
 	echo $@ $(who | cut -d" " -f1 | sort | uniq | wc -l)
 }
 
+machine_uptime() {
+	echo $@ $(uptime|tr ',' ' ' | sed -E 's/[[:blank:]]+/ /g' | sed -E 's/[[:blank:]]+//' | cut -d ' ' -f3-5)
+}
+
 mac_memory() {
 
 	FREE_MEM=`vm_stat| grep free | awk '{ print $3 }' | sed 's/\.//'`
@@ -94,11 +98,14 @@ memory_usage() {
 # colourifide cat
 ccat() {
 	if which source-highlight-esc.sh &> /dev/null; then
-		source-highlight-esc.sh $1
+		source-highlight-esc.sh $1 2> /tmp/source-highlight-error && return
+		if [ "$?" != 0 ]; then
+			echo "\x1b[0;31m$(cat /tmp/source-highlight-error)\x1b[0m" 1>&2
+		fi
 	else
-		echo "\x1b[31mcommand not found: source-highlight\x1b[0m" 1>&2
-		cat $1
+		echo "\x1b[0;31mcommand not found: source-highlight\x1b[0m" 1>&2
 	fi
+	cat $1
 }
 
 # colourifide less
@@ -113,9 +120,8 @@ get_syslog() {
 		SYSLOGFILE=/var/log/syslog
 	fi
 		
-	CCZE=`which ccze`
-	if [ -n "$CCZE" ]; then
-		tail $SYSLOGFILE | ccze -m ansi
+	if [ -n "$GRC" ]; then
+		grc tail $SYSLOGFILE
 	else
 		tail $SYSLOGFILE
 	fi

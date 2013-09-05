@@ -15,19 +15,22 @@ OS=$(uname)
 ################################################################################
 # Path setting
 export PATH="~/Workspace/KuoE0-utils:$PATH"
-
 # Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
 	# use package of homebrew
 	export PATH="/usr/local/bin:$PATH"
 	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-	# use python of homebrew
+
+	# man page for GNU coreutils
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
+
+	# let pkg-config find libxml-2.0 libxslt libexslt libcurl
+	export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.8
 fi
 
 # access the online help
-HELPDIR=/usr/local/share/zsh/helpfiles
+export HELPDIR=/usr/local/share/zsh/helpfiles
 
 ################################################################################
 # Path of oh-my-zsh configuration
@@ -82,30 +85,30 @@ fi
 source $ZSH/oh-my-zsh.sh
 
 ################################################################################
+# environment variable settings
 
+# default editor
+export EDITOR=vim
+
+# language setting
+export LC_COLLATE="en_US.UTF-8"
+export LC_CTYPE="en_US.UTF-8"
+export LC_MONETARY="en_US.UTF-8"
+export LC_NUMERIC="en_US.UTF-8"
+export LC_TIME="en_US.UTF-8"
+export LC_MESSAGES="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+export LC_ALL="en_US.UTF-8"
+
+################################################################################
 # history setting
+
 setopt EXTENDED_HISTORY
 setopt HIST_FIND_NO_DUPs
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_REDUCE_BLANKS
 setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
-
-################################################################################
-# language setting
-LC_COLLATE="zh_TW.UTF-8"
-LC_CTYPE="zh_TW.UTF-8"
-LC_MONETARY="zh_TW.UTF-8"
-LC_NUMERIC="zh_TW.UTF-8"
-LC_TIME="zh_TW.UTF-8"
-LC_MESSAGES="en_US.UTF-8"
-
-export LC_COLLATE
-export LC_CTYPE
-export LC_MONETARY
-export LC_NUMERIC
-export LC_TIME
-export LC_MESSAGES
 
 ################################################################################
 # variable setting
@@ -191,25 +194,29 @@ fi
 
 unset $ret &> /dev/null
 
-KUOE0="
-       __ __          _______    Don't run after success.
-      / //_/_ _____  / __/ _ \\   Be excellent, success will run after you.
-     / ,< / // / _ \\/ _// // /
-    /_/|_|\\_,_/\\___/___/\\___/                                    - 3 Idiot
-"
+PADDING=$((($(tput cols) - 70 + 1) / 2))
+
+WELCOME="
+   __ __          _______   Don't run after success.
+  / //_/_ _____  / __/ _ \\  Be excellent, success will run after you.
+ / .< / // / _ \\/ _// // /
+/_/|_|\\___/\\___/___/\\___/                                   - 3 Idiot
+
+        System load:        $(cpu_load)        Memory usage:    $(memory_usage) %
+        Uptime:     $(machine_uptime)"
+
+for i in $(seq 1 $PADDING);
+do
+	WELCOME=$(echo $WELCOME | sed "s/^/ /")
+done
 
 if ! which lolcat &> /dev/null; then
 	alias lolcat=cat
 fi
 
-echo $KUOE0 | lolcat
+echo $WELCOME | lolcat
 
 unalias lolcat &> /dev/null
-
-echo "    System load:        $(cpu_load)\t\tMemory usage:    $(memory_usage) %"
-
-echo "    Users logged in:    $(user_numbers)"
-
 
 ################################################################################
 # other

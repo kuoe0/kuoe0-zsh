@@ -20,17 +20,20 @@ TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
 mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
-# remove orgin .oh-my-zsh
+# remove origin .oh-my-zsh
 if [ -f $HOME/.oh-my-zsh ] || [ -h $HOME/.oh-my-zsh ] || [ -d $HOME/.oh-my-zsh ]; then
 	rm -rf $HOME/.oh-my-zsh
 fi
 
-# remove orgin .oh-my-zsh-solarized-powerline-theme
+# remove origin .oh-my-zsh-solarized-powerline-theme
 if [ -f $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -h $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -d $HOME/.oh-my-zsh-solarized-powerline-theme ] ; then
 	rm -rf $HOME/.oh-my-zsh-solarized-powerline-theme
 fi
-
-# remove orgin .zshrc and relink
+# remove origin dircolors
+if [ -f $HOME/.dir_colors ]; then
+	rm $HOME/.dir_colors
+fi
+# remove origin .zshrc and relink
 if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
 	rm $HOME/.zshrc
 fi
@@ -39,58 +42,48 @@ if [ -f $HOME/.function.zsh ] || [ -h $HOME/.function.zsh ]; then
 	rm $HOME/.function.zsh
 fi
 
-ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
-ln -s $SCRIPTPATH/function.zsh $HOME/.function.zsh
 
 # download oh-my-zsh
-echo "Download \x1b[0;33moh-my-zsh\x1b[0m..."
-git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh | sed "s/^/    /"
+echo "Install \x1b[0;33moh-my-zsh\x1b[0m..."
+git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 # download oh-my-zsh-solarized-powerline-theme
-echo "Download \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
-git clone https://github.com/KuoE0/oh-my-zsh-solarized-powerline-theme.git $HOME/.oh-my-zsh-solarized-powerline-theme | sed "s/^/    /"
-
-# link theme to oh-my-zsh
-ln -s $HOME/.oh-my-zsh-solarized-powerline-theme/solarized-powerline.zsh-theme $HOME/.oh-my-zsh/themes/
+echo "Install \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
+URL="https://raw.github.com/KuoE0/oh-my-zsh-solarized-powerline-theme/master/solarized-powerline.zsh-theme"
+curl $URL -o $HOME/.oh-my-zsh/themes/solarized-powerline.zsh-theme
 
 # install solarized color scheme for dircolors
-if [ "$OS" != "FreeBSD" ]; then
-	# download dircolors-solarized
-	echo "Download \x1b[0;33mdircolors-solarized\x1b[0m..."
-	git clone https://github.com/seebi/dircolors-solarized.git $TMP_DIR/dircolors-solarized | sed "s/^/    /"
-	# copy color scheme to $HOME/.dir_colors
-	if [ -f $HOME/.dir_colors ]; then
-		rm $HOME/.dir_colors
-	fi
-	cp $TMP_DIR/dircolors-solarized/dircolors.256dark $HOME/.dir_colors
-fi
+echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
+URL="https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark"
+curl $URL -o $HOME/.dir_colors
 
 # install solarized color scheme for gnome-terminal
 if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
-	# for gnome-terminal
-	echo "Download \x1b[0;33mgnome-terminal-colors-solarized\x1b[0m..."
-	git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git $TMP_DIR/gnome-terminal-colors-solarized | sed "s/^/    /"
+	git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git $TMP_DIR/gnome-terminal-colors-solarized
 	# import color scheme
 	$TMP_DIR/gnome-terminal-colors-solarized/set_dark.sh
 fi
 
 # install solarized color scheme for terminal on OS X
 if [ "$OS" = "Darwin" ]; then
-
-	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
-
+	echo "Install \x1b[0;33mTerminal Color Scheme\x1b[0m:"
 	# import color scheme for OS X built-in terminal
 	open Solarized-Dark-xterm-256color.terminal
-
 	if [ -d /Applications/iTerm.app ]; then
-
 		# import color scheme iTerm2
-		echo "Download \x1b[0;33msolarized\x1b[0m..."
-		git clone https://github.com/altercation/solarized.git $TMP_DIR/solarized | sed "s/^/    /"
-		open $TMP_DIR/solarized/iterm2-colors-solarized/Solarized\ Dark.itermcolors
+		URL="https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
+		curl $URL -o "$TMP_DIR/Solarized Dark.itermcolors"
+		open "$TMP_DIR/Solarized Dark.itermcolors"
 	fi
 fi
 
+if [ "$OS" = "Darwin" ]; then
+	curl https://gist.github.com/baopham/1838072/raw/2c0e00770826e651d1e355962e751325edb0f1ee/Monaco+for+Powerline.otf -o /tmp/Monaco-Powerline-OSX.otf
+	mv /tmp/Monaco-Powerline-OSX.otf ~/Library/Fonts/
+fi
+
+ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
+ln -s $SCRIPTPATH/function.zsh $HOME/.function.zsh
 source $HOME/.zshrc
 
