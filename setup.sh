@@ -78,9 +78,19 @@ if [ "$OS" = "Darwin" ]; then
 	fi
 fi
 
+# font installation
 if [ "$OS" = "Darwin" ]; then
-	curl https://gist.github.com/baopham/1838072/raw/2c0e00770826e651d1e355962e751325edb0f1ee/Monaco+for+Powerline.otf -o /tmp/Monaco-Powerline-OSX.otf
+	# Monaco Powerline Patch
+	curl -o /tmp/Monaco-Powerline-OSX.otf https://dl.dropboxusercontent.com/s/xdq4binislozzjw/Monaco-Powerline-OSX.otf
 	mv /tmp/Monaco-Powerline-OSX.otf ~/Library/Fonts/
+
+	# Inconsolata
+	curl -o /tmp/Inconsolata.otf https://dl.dropboxusercontent.com/s/ea5yy2wibo8mld7/Inconsolata.otf
+	mv /tmp/Inconsolata.otf ~/Library/Fonts/
+	
+	# Inconsolata Powerline Patch
+	curl -o /tmp/Inconsolata-Powerline.otf https://dl.dropboxusercontent.com/s/58yuxrth1o584e7/Inconsolata-Powerline.otf
+	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
 ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
