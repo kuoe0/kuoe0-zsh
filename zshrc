@@ -179,6 +179,11 @@ then
     alias traceroute='colourify /usr/sbin/traceroute'
 fi
 
+# use colordiff to replace diff
+if [ -n "$(which colordiff)" ]; then
+	alias diff='colordiff'
+fi
+
 
 # function load
 source $HOME/.function.zsh
