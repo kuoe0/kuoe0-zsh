@@ -167,7 +167,7 @@ if [ "$TERM" != dumb ] && [ -n "$GRC" ]
 then
     alias colourify="$GRC -es --colour=on"
     alias configure='colourify ./configure'
-    alias diff='colourify diff'
+    alias diff='colourify diff -u'
     alias make='colourify make'
     alias gcc='colourify gcc'
     alias g++='colourify g++'
@@ -181,7 +181,7 @@ fi
 
 # use colordiff to replace diff
 if [ -n "$(which colordiff)" ]; then
-	alias diff='colordiff'
+	alias diff='colordiff -u'
 fi
 
 
