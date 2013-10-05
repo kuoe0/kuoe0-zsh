@@ -132,3 +132,14 @@ passwd_gen() {
 	echo -n $(echo "$1" | sha1sum | cut -c1-"$len" | tr -d ' \n\t')
 }
 
+# lookup dictionary
+dict() {
+	curl -s -o /dev/null http://tw.dictionary.yahoo.com/
+	if [ "$?" = 0 ]; then
+		ydict $@
+	else
+		sdcv $@
+	fi
+}
+
+	
