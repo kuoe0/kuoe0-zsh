@@ -186,7 +186,7 @@ fi
 
 
 # function load
-source $HOME/.function.zsh
+source $HOME/.zsh/function.zsh
 
 ################################################################################
 # start up

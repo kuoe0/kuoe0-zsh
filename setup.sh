@@ -93,7 +93,7 @@ if [ "$OS" = "Darwin" ]; then
 	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
-ln -s $SCRIPTPATH/zshrc $HOME/.zshrc
-ln -s $SCRIPTPATH/function.zsh $HOME/.function.zsh
+ln -s $SCRIPTPATH $HOME/.zsh
+ln -s $HOME/.zsh/zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
