@@ -134,7 +134,7 @@ passwd_gen() {
 
 # lookup dictionary
 dict() {
-	curl -s -o /dev/null http://tw.dictionary.yahoo.com/
+	curl -s -o /dev/null --max-time 1 http://tw.dictionary.yahoo.com/
 	if [ "$?" = 0 ]; then
 		ydict $@
 	else
