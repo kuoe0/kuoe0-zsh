@@ -140,6 +140,9 @@ dict() {
 	else
 		sdcv $@
 	fi
+	if which say &> /dev/null; then
+		say $@
+	fi
 }
 
 	
