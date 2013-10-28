@@ -210,7 +210,7 @@ if [ "$TMUX" = "" ]; then
 fi
 
 if [ `which tmux` &> /dev/null ] && [ "$ret" = "y" ]; then
-	if [ "${SSH_TTY}" != x ]; then
+	if [ "${SSH_TTY:-x}" != x ]; then
 		# attach remote session when ssh login
 		( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
 		echo "tmux failed to start"
