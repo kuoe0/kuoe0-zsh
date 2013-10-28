@@ -202,7 +202,10 @@ source $HOME/.zsh/function.zsh
 if [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
 	ret=""
 	while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
-		read -t 30 ret\?"launch tmux for remote? [y/n] " && ret="y"
+		read -t 30 ret\?"launch tmux for remote? [y/n] "
+		if [ "$ret" = "" ]; then
+			ret="y"
+		fi
 	done
 fi
 
