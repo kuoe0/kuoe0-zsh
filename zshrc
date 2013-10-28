@@ -198,11 +198,11 @@ source $HOME/.zsh/function.zsh
 ################################################################################
 # start up
 
-# auto attach/create tmux-session when ssh remote
-if [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
+# auto launch tmux
+if [ "$TMUX" = "" ]; then
 	ret=""
 	while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
-		read -t 30 ret\?"launch tmux for remote? [y/n] "
+		read -t 30 ret\?"launch tmux? [y/n] "
 		if [ "$ret" = "" ]; then
 			ret="y"
 		fi
@@ -210,8 +210,14 @@ if [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
 fi
 
 if [ `which tmux` &> /dev/null ] && [ "$ret" = "y" ]; then
-	( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
-	echo "tmux failed to start"
+	if [ "${SSH_TTY}" != x ]; then
+		# attach remote session when ssh login
+		( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+		echo "tmux failed to start"
+	else
+		# create new tmux-session
+		tmux
+	fi
 fi
 
 unset $ret &> /dev/null
