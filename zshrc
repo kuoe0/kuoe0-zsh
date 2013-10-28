@@ -27,6 +27,13 @@ if [ "$OS" = 'Darwin' ]; then
 
 	# let pkg-config find libxml-2.0 libxslt libexslt libcurl
 	export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.8
+
+	# environment variable of include directory for gnu tool
+	export C_INCLUDE_PATH=/usr/local/include
+	export CPLUS_INCLUDE_PATH=/usr/local/include
+
+	# environment variable of library directory for gnu tool
+	LIBRARY_PATH=/usr/local/lib
 fi
 
 # access the online help
@@ -195,7 +202,7 @@ source $HOME/.zsh/function.zsh
 if [ "$TMUX" = "" ] && [ "${SSH_TTY:-x}" != x ]; then
 	ret=""
 	while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
-		read ret\?"launch tmux for remote? [y/n] "
+		read -t 30 ret\?"launch tmux for remote? [y/n] " && ret="y"
 	done
 fi
 
