@@ -17,6 +17,8 @@ CD_DIR=$(dirname $0)
 # absolute path of current directory
 SCRIPTPATH=`cd $CD_DIR; pwd`
 TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
+ZSH_DIR="$HOME/.zsh"
+
 mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
@@ -33,7 +35,12 @@ fi
 if [ -f $HOME/.dir_colors ]; then
 	rm $HOME/.dir_colors
 fi
-# remove origin .zshrc and relink
+# remove original .zsh directory
+if [ -d $ZSH_DIR ] || [ -f $ZSH_DIR ] || [ -h $ZSH_DIR ]; then
+	rm $ZSH_DIR
+fi
+
+# remove original .zshrc 
 if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
 	rm $HOME/.zshrc
 fi
@@ -93,7 +100,7 @@ if [ "$OS" = "Darwin" ]; then
 	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
-ln -s $SCRIPTPATH $HOME/.zsh
-ln -s $HOME/.zsh/zshrc $HOME/.zshrc
+ln -s $SCRIPTPATH $ZSH_DIR
+ln -s $ZSH_DIR/zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
