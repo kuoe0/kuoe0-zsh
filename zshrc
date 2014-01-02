@@ -231,7 +231,7 @@ WELCOME="
 /_/|_|\\___/\\___/___/\\___/                                   - 3 Idiot
 
         System load:        $(cpu_load)        Memory usage:    $(memory_usage) %
-        Uptime:     $(machine_uptime)"
+        Uptime:             $(machine_uptime)"
 
 for i in $(seq 1 $PADDING);
 do
