@@ -16,7 +16,7 @@ user_numbers() {
 }
 
 machine_uptime() {
-	echo $@ $(uptime|tr ',' ' ' | sed -E 's/[[:blank:]]+/ /g' | sed -E 's/[[:blank:]]+//' | cut -d ' ' -f3-5)
+	echo $@ $(uptime|tr ',' ' ' | sed -E 's/[[:blank:]]+/ /g' | sed -E 's/[[:blank:]]+//' | cut -d ' ' -f3)
 }
 
 mac_memory() {
