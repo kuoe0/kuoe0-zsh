@@ -145,4 +145,9 @@ dict() {
 	fi
 }
 
+jsonfy() {
+	filename=$1
+	cat $filename | python -mjson.tool | tee $filename
+}
+
 	
