@@ -89,6 +89,9 @@ if which gem &> /dev/null; then
 	plugins+=gem
 fi
 
+# load z command
+source `brew --prefix`/etc/profile.d/z.sh
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
