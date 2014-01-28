@@ -94,6 +94,10 @@ if which bower &> /dev/null; then
 	plugins+=bower
 fi
 
+if which mosh &> /dev/null; then
+	plugins+=mosh
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
