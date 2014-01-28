@@ -74,9 +74,12 @@ if which git &> /dev/null; then
 	git config --global color.ui auto # colorize git output
 fi
 
-# check autojump
-if which autojump &> /dev/null; then
-	plugins+=autojump
+if which git-flow &> /dev/null; then
+	plugins+=git-flow
+fi
+
+if which fasd &> /dev/null; then
+	plugins+=fasd
 fi
 
 # check pip
@@ -84,13 +87,10 @@ if which pip &> /dev/null; then
 	plugins+=pip
 fi
 
-# check pip
+# check gem
 if which gem &> /dev/null; then
 	plugins+=gem
 fi
-
-# load z command
-source `brew --prefix`/etc/profile.d/z.sh
 
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
