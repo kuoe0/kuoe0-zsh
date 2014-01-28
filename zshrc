@@ -48,7 +48,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="solarized-powerline"
 
 # setup plugin (plugin in .oh-my-zsh/plugin)
-plugins=(copydir copyfile)
+plugins=(copydir copyfile history)
 
 if [ "$OS" = 'Linux' ]; then	# Linux
 
