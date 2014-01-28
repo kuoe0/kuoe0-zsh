@@ -102,6 +102,10 @@ if which npm &> /dev/null; then
 	plugins+=npm
 fi
 
+if which tmux &> /dev/null; then
+	plugins+=tmux
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
