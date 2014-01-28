@@ -82,14 +82,16 @@ if which fasd &> /dev/null; then
 	plugins+=fasd
 fi
 
-# check pip
 if which pip &> /dev/null; then
 	plugins+=pip
 fi
 
-# check gem
 if which gem &> /dev/null; then
 	plugins+=gem
+fi
+
+if which bower &> /dev/null; then
+	plugins+=bower
 fi
 
 # start to install plugin
