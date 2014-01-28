@@ -98,6 +98,10 @@ if which mosh &> /dev/null; then
 	plugins+=mosh
 fi
 
+if which npm &> /dev/null; then
+	plugins+=npm
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
