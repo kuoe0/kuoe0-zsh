@@ -73,9 +73,9 @@ if which git &> /dev/null; then
 	git config --global color.ui auto # colorize git output
 fi
 
-# check autojump
-if which autojump &> /dev/null; then
-	plugins+=autojump
+# check fasd
+if which fasd &> /dev/null; then
+	plugins+=fasd
 fi
 
 # check pip
