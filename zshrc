@@ -14,7 +14,7 @@ export TERM=xterm-256color
 OS=$(uname)
 ################################################################################
 # Path setting
-export PATH="~/Workspace/KuoE0-utils:$PATH"
+export PATH="/sbin:/usr/sbin:$PATH"
 # Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
 	# use package of homebrew
