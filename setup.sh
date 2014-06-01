@@ -16,7 +16,7 @@ echo "Platform: \x1b[0;32m$OS\x1b[0m"
 CD_DIR=$(dirname $0)
 # absolute path of current directory
 SCRIPTPATH=`cd $CD_DIR; pwd`
-TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
+TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
 ZSH_DIR="$HOME/.zsh"
 
 mkdir $TMP_DIR
@@ -56,12 +56,12 @@ git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 # download oh-my-zsh-solarized-powerline-theme
 echo "Install \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
-URL="https://raw.github.com/KuoE0/oh-my-zsh-solarized-powerline-theme/master/solarized-powerline.zsh-theme"
+URL="https://raw.githubusercontent.com/KuoE0/oh-my-zsh-solarized-powerline-theme/master/solarized-powerline.zsh-theme"
 curl $URL -o $HOME/.oh-my-zsh/themes/solarized-powerline.zsh-theme
 
 # install solarized color scheme for dircolors
 echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
-URL="https://raw.github.com/seebi/dircolors-solarized/master/dircolors.256dark"
+URL="https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark"
 curl $URL -o $HOME/.dir_colors
 
 # install solarized color scheme for gnome-terminal
@@ -79,7 +79,7 @@ if [ "$OS" = "Darwin" ]; then
 	open Solarized-Dark-xterm-256color.terminal
 	if [ -d /Applications/iTerm.app ]; then
 		# import color scheme iTerm2
-		URL="https://raw.github.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
+		URL="https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
 		curl $URL -o "$TMP_DIR/Solarized Dark.itermcolors"
 		open "$TMP_DIR/Solarized Dark.itermcolors"
 	fi
@@ -88,15 +88,18 @@ fi
 # font installation
 if [ "$OS" = "Darwin" ]; then
 	# Monaco Powerline Patch
-	curl -o /tmp/Monaco-Powerline-OSX.otf https://dl.dropboxusercontent.com/s/xdq4binislozzjw/Monaco-Powerline-OSX.otf
+	echo "Download \x1b[0;33mMonaco Powerline Patched Font\x1b[0m:"
+	curl -o /tmp/Monaco-Powerline-OSX.otf https://dl.dropboxusercontent.com/s/gqnbn10c566wqpq/Monaco-Powerline-OSX.otf
 	mv /tmp/Monaco-Powerline-OSX.otf ~/Library/Fonts/
 
 	# Inconsolata
-	curl -o /tmp/Inconsolata.otf https://dl.dropboxusercontent.com/s/ea5yy2wibo8mld7/Inconsolata.otf
+	echo "Download \x1b[0;33mInconsolata Font\x1b[0m:"
+	curl -o /tmp/Inconsolata.otf https://dl.dropboxusercontent.com/s/38m1pqyukxk3rvb/Inconsolata.otf
 	mv /tmp/Inconsolata.otf ~/Library/Fonts/
 	
 	# Inconsolata Powerline Patch
-	curl -o /tmp/Inconsolata-Powerline.otf https://dl.dropboxusercontent.com/s/58yuxrth1o584e7/Inconsolata-Powerline.otf
+	echo "Download \x1b[0;33mInconsolata Powerline Patched Font\x1b[0m:"
+	curl -o /tmp/Inconsolata-Powerline.otf https://dl.dropboxusercontent.com/s/lfc0xzhldhucwad/Inconsolata-Powerline.otf
 	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
