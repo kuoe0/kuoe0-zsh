@@ -88,9 +88,24 @@ if which pip &> /dev/null; then
 	plugins+=pip
 fi
 
-# check pip
+# check gem
 if which gem &> /dev/null; then
 	plugins+=gem
+fi
+
+# check bower
+if which bower &> /dev/null; then
+	plugins+=bower
+fi
+
+# check mosh
+if which mosh &> /dev/null; then
+	plugins+=mosh
+fi
+
+# check npm
+if which npm &> /dev/null; then
+	plugins+=npm
 fi
 
 # start to install plugin
