@@ -73,6 +73,11 @@ if which git &> /dev/null; then
 	git config --global color.ui auto # colorize git output
 fi
 
+# check git-flow
+if which git-flow &> /dev/null; then
+	plugins+=git-flow
+fi
+
 # check fasd
 if which fasd &> /dev/null; then
 	plugins+=fasd
