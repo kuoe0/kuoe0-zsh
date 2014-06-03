@@ -218,19 +218,8 @@ source $HOME/.zsh/function.zsh
 ################################################################################
 # start up
 
-# auto launch tmux
-if [ "$TMUX" = "" ]; then
-	ret=""
-	while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
-		read -t 30 ret\?"launch tmux? [y/n] "
-		if [ "$ret" = "" ]; then
-			ret="y"
-		fi
-	done
-fi
-
 if [ `which tmux` &> /dev/null ]; then
-	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
+	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" == "" ]; then
 		ret=""
 		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
 			read -t 30 ret\?"Launch tmux? [y/n] "
@@ -238,14 +227,15 @@ if [ `which tmux` &> /dev/null ]; then
 				ret="y"
 			fi
 		done
+
 		# attach remote session when ssh login
 		if [ "$ret" == "y" ]; then
 			( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
 		fi
+		unset $ret &> /dev/null
 		echo "tmux failed to start"
+	fi
 fi
-
-unset $ret &> /dev/null
 
 PADDING=$((($(tput cols) - 70 + 1) / 2))
 
