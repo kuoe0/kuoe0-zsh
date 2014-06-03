@@ -229,15 +229,20 @@ if [ "$TMUX" = "" ]; then
 	done
 fi
 
-if [ `which tmux` &> /dev/null ] && [ "$ret" = "y" ]; then
-	if [ "${SSH_TTY:-x}" != x ]; then
+if [ `which tmux` &> /dev/null ]; then
+	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
+		ret=""
+		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
+			read -t 30 ret\?"Launch tmux? [y/n] "
+			if [ "$ret" = "" ]; then
+				ret="y"
+			fi
+		done
 		# attach remote session when ssh login
-		( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+		if [ "$ret" == "y" ]; then
+			( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+		fi
 		echo "tmux failed to start"
-	else
-		# create new tmux-session
-		tmux
-	fi
 fi
 
 unset $ret &> /dev/null
