@@ -57,6 +57,12 @@ elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
 	if which brew &> /dev/null; then
 		plugins+=brew
 	fi
+
+	# check homebrew cask
+	if which brew-cask &> /dev/null; then
+		plugins+=brew-cask
+	fi
+	
 	# check macports
 	if which port &> /dev/null; then
 		plugins+=port
