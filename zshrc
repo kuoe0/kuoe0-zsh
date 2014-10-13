@@ -18,7 +18,7 @@ export PATH="/sbin:/usr/sbin:$PATH"
 # Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
 	# use package of homebrew
-	export PATH="/usr/local/bin:$PATH"
+	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 
