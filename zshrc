@@ -59,8 +59,9 @@ elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
 	fi
 
 	# check homebrew cask
-	if which brew-cask &> /dev/null; then
+	if which brew-cask.rb &> /dev/null; then
 		plugins+=brew-cask
+		export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 	fi
 	
 	# check macports
