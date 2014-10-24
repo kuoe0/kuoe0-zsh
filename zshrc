@@ -226,7 +226,7 @@ source $HOME/.zsh/function.zsh
 # start up
 
 if [ `which tmux` &> /dev/null ]; then
-	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" == "" ]; then
+	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
 		ret=""
 		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
 			read -t 30 ret\?"Launch tmux? [y/n] "
@@ -236,11 +236,10 @@ if [ `which tmux` &> /dev/null ]; then
 		done
 
 		# attach remote session when ssh login
-		if [ "$ret" == "y" ]; then
+		if [ "$ret" = "y" ]; then
 			( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
 		fi
 		unset $ret &> /dev/null
-		echo "tmux failed to start"
 	fi
 fi
 
