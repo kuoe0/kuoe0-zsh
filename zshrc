@@ -132,14 +132,14 @@ bindkey '^[[1;9D' backward-word
 export EDITOR=vim
 
 # language setting
-export LC_COLLATE="en_US.UTF-8"
-export LC_CTYPE="en_US.UTF-8"
-export LC_MONETARY="en_US.UTF-8"
-export LC_NUMERIC="en_US.UTF-8"
-export LC_TIME="en_US.UTF-8"
-export LC_MESSAGES="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-export LC_ALL="en_US.UTF-8"
+export LC_COLLATE="zh_TW.UTF-8"
+export LC_CTYPE="zh_TW.UTF-8"
+export LC_MONETARY="zh_TW.UTF-8"
+export LC_NUMERIC="zh_TW.UTF-8"
+export LC_TIME="zh_TW.UTF-8"
+export LC_MESSAGES="zh_TW.UTF-8"
+export LANG="zh_TW.UTF-8"
+export LC_ALL="zh_TW.UTF-8"
 
 ################################################################################
 # history setting
