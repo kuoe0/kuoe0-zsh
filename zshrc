@@ -167,6 +167,7 @@ alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
 alias llh="ls -alh --color=always"	# ls is GNU ls not BSD ls
 alias cgrep="grep --color=always" 
 alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
+alias ivm="vim"
 
 if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
@@ -230,7 +231,7 @@ if [ `which tmux` &> /dev/null ]; then
 	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
 		ret=""
 		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
-			read -t 30 ret\?"Launch tmux? [y/n] "
+			read -t 30 ret\?"Launch tmux? [Y/n] "
 			if [ "$ret" = "" ]; then
 				ret="y"
 			fi
