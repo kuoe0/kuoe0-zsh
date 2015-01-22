@@ -5,3 +5,10 @@ Requirement
 - grc (Generic Colouriser)
 - landscape-sysinfo (for Linux)
 
+
+Install Requirement
+-------------------
+
+- curl
+
+
