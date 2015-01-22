@@ -145,4 +145,7 @@ dict() {
 	fi
 }
 
-	
+# change directory to root of git repo
+g~() {
+	cd "$(git rev-parse --show-toplevel)"
+}
