@@ -68,6 +68,16 @@ echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
 URL="https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark"
 curl $URL -o $HOME/.dir_colors
 
+# install fasd on Linux
+if [ "$OS" = "Linux" ]; then
+	echo "Install \x1b[0;33mfasd\x1b[0m..."
+	wget -O $TMP_DIR/fasd-1.0.1.tar.gz https://github.com/clvv/fasd/archive/1.0.1.tar.gz
+	tar -zxf $TMP_DIR/fasd-1.0.1.tar.gz -C $TMP_DIR
+	cd $TMP_DIR/fasd-1.0.1
+	sudo make install
+	# eval $(fasd --init auto)
+fi
+
 # install solarized color scheme for gnome-terminal
 if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
@@ -106,6 +116,7 @@ if [ "$OS" = "Darwin" ]; then
 	curl -o /tmp/Inconsolata-Powerline.otf https://dl.dropboxusercontent.com/s/lfc0xzhldhucwad/Inconsolata-Powerline.otf
 	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
+
 
 ln -s $SCRIPTPATH $ZSH_DIR
 ln -s $ZSH_DIR/zshrc $HOME/.zshrc
