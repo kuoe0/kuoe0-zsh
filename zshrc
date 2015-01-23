@@ -78,6 +78,12 @@ if which git &> /dev/null; then
 	git config --global user.email "kuoe0.tw@gmail.com"
 	git config --global core.editor `which vim`		# let git use the correct vim on Mac
 	git config --global color.ui auto # colorize git output
+	git config --global alias.check checkout
+	git config --global alias.hgp "show --format=\"From: %an <%ae>%n%s%n%b\" -U8" # hg format patch
+	git config --global alias.unstage "reset HEAD --"
+	git config --global alias.discard "checkout -- ." # checkout all modified files
+	git config --global alias.cleanup "clean -df"
+	git config --global alias.last 'log -1 HEAD'
 fi
 
 # check git-flow
