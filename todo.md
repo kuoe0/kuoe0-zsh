@@ -1,3 +1,4 @@
+Put fonts into repo
 
 Enhance the information on login screen.
 
