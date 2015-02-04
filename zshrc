@@ -80,7 +80,7 @@ if which git &> /dev/null; then
 	git config --global color.ui auto			# colorize git output
 	git config --global push.default simple
 	git config --global alias.check checkout
-	git config --global alias.moz-patch "format-patch -U8 --stdout" # Mozilla style patch
+	git config --global alias.moz-patch "format-patch -U8 -k --stdout" # Mozilla style patch
 	git config --global alias.unstage "reset HEAD --"
 	git config --global alias.discard "checkout -- ." # checkout all modified files
 	git config --global alias.cleanup "clean -df"
