@@ -79,6 +79,7 @@ if which git &> /dev/null; then
 	git config --global core.editor `which vim` # let git use the correct vim on Mac
 	git config --global color.ui auto			# colorize git output
 	git config --global push.default simple
+	git config --global branch.autosetuprebase always
 	git config --global alias.check checkout
 	git config --global alias.moz-patch "format-patch -U8 -k --stdout" # Mozilla style patch
 	git config --global alias.unstage "reset HEAD --"
