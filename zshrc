@@ -174,7 +174,10 @@ alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
 alias llh="ls -alh --color=always"	# ls is GNU ls not BSD ls
 alias cgrep="grep --color=always" 
 alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
+
+# usually typo
 alias ivm="vim"
+alias k="l"
 
 if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
