@@ -50,7 +50,7 @@ ZSH_THEME="solarized-powerline"
 plugins=(copydir copyfile history history-substring-search web-search urltools)
 
 if [ "$OS" = 'Linux' ]; then	# Linux
-
+	plugins+=command-not-found
 elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
 	plugins+=osx
 	# check homebrew
