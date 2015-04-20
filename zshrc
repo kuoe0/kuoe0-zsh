@@ -128,12 +128,6 @@ fi
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
-# fzf support
-# Ctrl-T: file search
-# Ctrl-R: recent command search
-# Option-C: directory search
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 ################################################################################
 # environment variable settings
 
@@ -189,6 +183,16 @@ fi
 # access the online help
 unalias run-help &> /dev/null
 autoload run-help
+
+################################################################################
+# fzf (https://github.com/junegunn/fzf)
+################################################################################
+# Ctrl-T: file search
+# Ctrl-R: recent command search
+# Option-C: directory search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# enable extended mode
+export FZF_DEFAULT_OPTS='--extended'
 
 ################################################################################
 # colourify settings
