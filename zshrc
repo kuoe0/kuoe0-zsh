@@ -21,6 +21,8 @@ if [ "$OS" = 'Darwin' ]; then
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 	# path of GNU coreutils
 	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+	# path of GNU tar
+	export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
 
 	# man page for GNU coreutils
 	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
@@ -281,6 +283,4 @@ unalias lolcat &> /dev/null
 
 ################################################################################
 # other
-# Report CPU usage for each command
-# REPORTTIME=0
 export HOMEBREW_GITHUB_API_TOKEN=c68984b4b136f75b57644e87fec8e8661d29f84e
