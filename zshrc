@@ -282,5 +282,10 @@ echo $WELCOME | lolcat
 unalias lolcat &> /dev/null
 
 ################################################################################
-# other
+# Other
+################################################################################
+
+# Report CPU usage for each command
+REPORTTIME=10
+# Github API token for homebrew
 export HOMEBREW_GITHUB_API_TOKEN=c68984b4b136f75b57644e87fec8e8661d29f84e
