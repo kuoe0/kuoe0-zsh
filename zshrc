@@ -126,6 +126,12 @@ fi
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
+# fzf support
+# Ctrl-T: file search
+# Ctrl-R: recent command search
+# Option-C: directory search
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 ################################################################################
 # environment variable settings
 
