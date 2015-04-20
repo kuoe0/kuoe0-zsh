@@ -117,6 +117,9 @@ if [ "$OS" = "Darwin" ]; then
 	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
+# instal fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+echo '\n\n' | ~/.fzf/install
 
 ln -s $SCRIPTPATH $ZSH_DIR
 ln -s $ZSH_DIR/zshrc $HOME/.zshrc
