@@ -149,3 +149,11 @@ dict() {
 g~() {
 	cd "$(git rev-parse --show-toplevel)"
 }
+
+# open file with fzf
+fopen() {
+	local file
+	file=$(fzf --query="$1" --select-1 --exit-0)
+	[ -n "$file" ] && open "$file"
+}
+
