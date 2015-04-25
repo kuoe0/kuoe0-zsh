@@ -47,6 +47,8 @@ ZSH=$HOME/.oh-my-zsh
 
 # theme name (theme in .oh-my-zsh/theme)
 ZSH_THEME="solarized-powerline"
+# solarized-powerline theme variable
+export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
 
 # setup plugin (plugin in .oh-my-zsh/plugin)
 plugins=(copydir copyfile history history-substring-search web-search urltools)
@@ -143,6 +145,7 @@ export LC_TIME="zh_TW.UTF-8"
 export LC_MESSAGES="zh_TW.UTF-8"
 export LANG="zh_TW.UTF-8"
 export LC_ALL="zh_TW.UTF-8"
+
 
 ################################################################################
 # history setting
