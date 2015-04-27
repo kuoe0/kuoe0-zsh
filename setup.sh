@@ -31,22 +31,9 @@ if [ -f $HOME/.oh-my-zsh ] || [ -h $HOME/.oh-my-zsh ] || [ -d $HOME/.oh-my-zsh ]
 	rm -rf $HOME/.oh-my-zsh
 fi
 
-# remove origin .oh-my-zsh-solarized-powerline-theme
-if [ -f $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -h $HOME/.oh-my-zsh-solarized-powerline-theme ] || [ -d $HOME/.oh-my-zsh-solarized-powerline-theme ] ; then
-	rm -rf $HOME/.oh-my-zsh-solarized-powerline-theme
-fi
 # remove origin dircolors
 if [ -f $HOME/.dir_colors ]; then
 	rm $HOME/.dir_colors
-fi
-# remove original .zsh directory
-if [ -d $ZSH_DIR ] || [ -f $ZSH_DIR ] || [ -h $ZSH_DIR ]; then
-	rm $ZSH_DIR
-fi
-
-# remove original .zshrc 
-if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
-	rm $HOME/.zshrc
 fi
 
 if [ -f $HOME/.function.zsh ] || [ -h $HOME/.function.zsh ]; then
@@ -120,6 +107,16 @@ fi
 # instal fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 echo '\n\n' | ~/.fzf/install
+
+# remove original .zsh directory
+if [ -d $ZSH_DIR ] || [ -f $ZSH_DIR ] || [ -h $ZSH_DIR ]; then
+	rm $ZSH_DIR
+fi
+
+# remove original .zshrc 
+if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
+	rm $HOME/.zshrc
+fi
 
 ln -s $SCRIPTPATH $ZSH_DIR
 ln -s $ZSH_DIR/zshrc $HOME/.zshrc
