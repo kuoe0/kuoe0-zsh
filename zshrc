@@ -252,6 +252,7 @@ if [ `which tmux` &> /dev/null ]; then
 		ret=""
 		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
 			read -t 30 ret\?"Launch tmux? [Y/n] "
+			ret=$(echo $ret | tr '[:upper:]' '[:lower:]')
 			if [ "$ret" = "" ]; then
 				ret="y"
 			fi
