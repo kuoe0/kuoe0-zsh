@@ -49,6 +49,7 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="solarized-powerline"
 # solarized-powerline theme variable
 export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
+export ZSH_POWERLINE_SHOW_USER=false
 
 # setup plugin (plugin in .oh-my-zsh/plugin)
 plugins=(copydir copyfile history history-substring-search web-search urltools)
