@@ -91,6 +91,7 @@ if which git &> /dev/null; then
 	git config --global alias.discard "checkout -- ." # checkout all modified files
 	git config --global alias.cleanup "clean -df"
 	git config --global alias.last 'log -1 HEAD'
+	git config --global alias.ls-conflict "diff --name-only --diff-filter=U"
 fi
 
 # check git-flow
