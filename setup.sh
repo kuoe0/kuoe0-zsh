@@ -122,3 +122,14 @@ ln -s $SCRIPTPATH $ZSH_DIR
 ln -s $ZSH_DIR/zshrc $HOME/.zshrc
 source $HOME/.zshrc
 
+# iTerm2 preference
+if [ -d /Applications/iTerm.app ]; then
+	killall iTerm
+	ITERM_PREF="$USER/Library/Preferences/com.googlecode.iterm2.plist"
+	if [ -f $ITERM_PREF ]; then
+		defaults delete com.googlecode.iterm2
+	fi
+	cp "$(basename $ITERM_PREF)" "$ITERM_PREF"
+	defaults read -app iTerm
+fi
+
