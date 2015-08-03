@@ -89,19 +89,11 @@ fi
 # font installation
 if [ "$OS" = "Darwin" ]; then
 	# Monaco Powerline Patch
-	echo "Download \x1b[0;33mMonaco Powerline Patched Font\x1b[0m:"
-	curl -o /tmp/Monaco-Powerline-OSX.otf https://dl.dropboxusercontent.com/s/gqnbn10c566wqpq/Monaco-Powerline-OSX.otf
-	mv /tmp/Monaco-Powerline-OSX.otf ~/Library/Fonts/
-
+	cp Monaco-Powerline-OSX.otf ~/Library/Fonts/
 	# Inconsolata
-	echo "Download \x1b[0;33mInconsolata Font\x1b[0m:"
-	curl -o /tmp/Inconsolata.otf https://dl.dropboxusercontent.com/s/38m1pqyukxk3rvb/Inconsolata.otf
-	mv /tmp/Inconsolata.otf ~/Library/Fonts/
-	
+	cp Inconsolata.otf ~/Library/Fonts/
 	# Inconsolata Powerline Patch
-	echo "Download \x1b[0;33mInconsolata Powerline Patched Font\x1b[0m:"
-	curl -o /tmp/Inconsolata-Powerline.otf https://dl.dropboxusercontent.com/s/lfc0xzhldhucwad/Inconsolata-Powerline.otf
-	mv /tmp/Inconsolata-Powerline.otf ~/Library/Fonts/
+	cp Inconsolata-Powerline.otf ~/Library/Fonts/
 fi
 
 # instal fzf
