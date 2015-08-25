@@ -129,6 +129,11 @@ if which npm &> /dev/null; then
 	plugins+=npm
 fi
 
+# check autoenv
+if [ -e /usr/local/opt/autoenv/activate.sh ]; then
+	plugins+=autoenv
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
