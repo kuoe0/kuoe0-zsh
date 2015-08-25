@@ -158,3 +158,10 @@ fopen() {
 	[ -n "$file" ] && open "$file"
 }
 
+# dd with progress
+pdd() {
+	INPUT=$1
+	OUTPUT=$2
+	dd if=$INPUT bs=4M | pv $INPUT | sudo dd of=$OUTPUT bs=4M
+}
+
