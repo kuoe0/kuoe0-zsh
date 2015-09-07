@@ -252,6 +252,7 @@ source $HOME/.zsh/function.zsh
 
 ################################################################################
 # start up
+################################################################################
 
 if [ `which tmux` &> /dev/null ]; then
 	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
@@ -271,30 +272,6 @@ if [ `which tmux` &> /dev/null ]; then
 		unset $ret &> /dev/null
 	fi
 fi
-
-PADDING=$((($(tput cols) - 70 + 1) / 2))
-
-WELCOME="
-   __ __          _______   Don't run after success.
-  / //_/_ _____  / __/ _ \\  Be excellent, success will run after you.
- / .< / // / _ \\/ _// // /
-/_/|_|\\___/\\___/___/\\___/                                   - 3 Idiot
-
-        System load:        $(cpu_load)        Memory usage:    $(memory_usage) %
-        Uptime:             $(machine_uptime)"
-
-for i in $(seq 1 $PADDING);
-do
-	WELCOME=$(echo $WELCOME | sed "s/^/ /")
-done
-
-if ! which lolcat &> /dev/null; then
-	alias lolcat=cat
-fi
-
-echo $WELCOME | lolcat
-
-unalias lolcat &> /dev/null
 
 ################################################################################
 # Other
