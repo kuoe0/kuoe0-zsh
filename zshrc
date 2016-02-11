@@ -64,7 +64,8 @@ elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
 	fi
 
 	# check homebrew cask
-	if which brew-cask &> /dev/null; then
+	brew cask &> /dev/null
+	if [ "$?" = "0" ]; then
 		plugins+=brew-cask
 		export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 	fi
