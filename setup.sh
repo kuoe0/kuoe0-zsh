@@ -40,7 +40,6 @@ if [ -f $HOME/.function.zsh ] || [ -h $HOME/.function.zsh ]; then
 	rm $HOME/.function.zsh
 fi
 
-
 # download oh-my-zsh
 echo "Install \x1b[0;33moh-my-zsh\x1b[0m..."
 git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
@@ -92,8 +91,8 @@ if [ "$OS" = "Darwin" ]; then
 	cp Monaco-Powerline-OSX.otf ~/Library/Fonts/
 	# Inconsolata
 	cp Inconsolata.otf ~/Library/Fonts/
-	# Inconsolata Powerline Patch
-	cp Inconsolata-Powerline.otf ~/Library/Fonts/
+	# Inconsolata Nerd Font Patch (https://github.com/ryanoasis/nerd-fonts)
+	cp Inconsolata-for-Powerline-Nerd-Font-Complete.otf ~/Library/Fonts/
 fi
 
 # instal fzf
@@ -124,4 +123,3 @@ if [ -d /Applications/iTerm.app ]; then
 	cp "$(basename $ITERM_PREF)" "$ITERM_PREF"
 	defaults read -app iTerm
 fi
-
