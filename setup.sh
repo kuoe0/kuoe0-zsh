@@ -50,7 +50,7 @@ fi
 
 # download oh-my-zsh
 echo "Install \x1b[0;33moh-my-zsh\x1b[0m..."
-git clone git://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
 
 # download oh-my-zsh-solarized-powerline-theme
 echo "Install \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
@@ -59,7 +59,7 @@ curl $URL -o $HOME/.oh-my-zsh/themes/solarized-powerline.zsh-theme
 
 # download zsh-autosuggesions
 echo "Install \x1b[0;33mzsh-autosuggestions\x1b[0m..."
-git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # install solarized color scheme for dircolors
 echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
@@ -78,7 +78,7 @@ fi
 # install solarized color scheme for gnome-terminal
 if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
-	git clone git://github.com/sigurdga/gnome-terminal-colors-solarized.git $TMP_DIR/gnome-terminal-colors-solarized
+	git clone --depth 1 https://github.com/sigurdga/gnome-terminal-colors-solarized.git $TMP_DIR/gnome-terminal-colors-solarized
 	# import color scheme
 	$TMP_DIR/gnome-terminal-colors-solarized/set_dark.sh
 fi
