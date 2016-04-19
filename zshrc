@@ -47,6 +47,7 @@ ZSH=$HOME/.oh-my-zsh
 
 # theme name (theme in .oh-my-zsh/theme)
 ZSH_THEME="solarized-powerline"
+ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
 # solarized-powerline theme variable
 export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
 export ZSH_POWERLINE_SHOW_USER=false
@@ -135,6 +136,10 @@ if [ -e /usr/local/opt/autoenv/activate.sh ]; then
 	plugins+=autoenv
 fi
 
+if [ -e $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
+	plugins+=zsh-autosuggestions
+fi
+
 # start to install plugin
 source $ZSH/oh-my-zsh.sh
 
@@ -153,7 +158,6 @@ export LC_TIME="zh_TW.UTF-8"
 export LC_MESSAGES="zh_TW.UTF-8"
 export LANG="zh_TW.UTF-8"
 export LC_ALL="zh_TW.UTF-8"
-
 
 ################################################################################
 # history setting
@@ -247,7 +251,6 @@ if [ -n "$(which colordiff)" ]; then
 	alias diff='colordiff -u'
 fi
 
-
 # function load
 source $HOME/.zsh/function.zsh
 
@@ -277,6 +280,7 @@ fi
 ################################################################################
 # Other
 ################################################################################
-
+# zsh-autosuggestions highlight style
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2" # green color
 # Report CPU usage for each command
 REPORTTIME=10

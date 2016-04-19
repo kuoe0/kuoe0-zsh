@@ -55,6 +55,10 @@ echo "Install \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
 URL="https://raw.githubusercontent.com/KuoE0/oh-my-zsh-solarized-powerline-theme/master/solarized-powerline.zsh-theme"
 curl $URL -o $HOME/.oh-my-zsh/themes/solarized-powerline.zsh-theme
 
+# download zsh-autosuggesions
+echo "Install \x1b[0;33mzsh-autosuggestions\x1b[0m..."
+git clone git://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+
 # install solarized color scheme for dircolors
 echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
 URL="https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark"
