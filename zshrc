@@ -8,10 +8,55 @@
 #   LastChange: 2012-09-25 12:35:39
 #      History:
 #=============================================================================
+
 export TERM=xterm-256color
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# solarized-powerline theme variable
+export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
+export ZSH_POWERLINE_SHOW_USER=false
+if [ -n "${TMUX+x}" ]; then
+	# In tmux, double line can not be highlighted for entire line.
+	export ZSH_POWERLINE_SINGLE_LINE=true
+fi
+
+# zgen start
+source $HOME/.zgen/zgen.zsh
+
+zgen oh-my-zsh
+zgen oh-my-zsh plugins/autoenv
+zgen oh-my-zsh plugins/bower
+zgen oh-my-zsh plugins/brew
+zgen oh-my-zsh plugins/brew-cask
+zgen oh-my-zsh plugins/command-not-found
+zgen oh-my-zsh plugins/copydir
+zgen oh-my-zsh plugins/copyfile
+zgen oh-my-zsh plugins/fasd
+zgen oh-my-zsh plugins/gem
+zgen oh-my-zsh plugins/git
+zgen oh-my-zsh plugins/git-flow
+zgen oh-my-zsh plugins/history
+zgen oh-my-zsh plugins/history-substring-search
+zgen oh-my-zsh plugins/mosh
+zgen oh-my-zsh plugins/npm
+zgen oh-my-zsh plugins/osx
+zgen oh-my-zsh plugins/pip
+zgen oh-my-zsh plugins/tmux
+zgen oh-my-zsh plugins/urltools
+zgen oh-my-zsh plugins/web-search
+
+# zsh-syntax-highlight **MUST** be end!!!
+zgen load zsh-users/zsh-syntax-highlighting
+
+# Zsh theme
+zgen load KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline.zsh-theme
+
+# zgen end
+
 ################################################################################
 # get OS name
 OS=$(uname)
+
 ################################################################################
 # Path setting
 export PATH="/sbin:/usr/sbin:$PATH"
@@ -42,45 +87,8 @@ fi
 export HELPDIR=/usr/local/share/zsh/helpfiles
 
 ################################################################################
-# Path of oh-my-zsh configuration
-ZSH=$HOME/.oh-my-zsh
-
-# theme name (theme in .oh-my-zsh/theme)
-ZSH_THEME="solarized-powerline"
-ZSH_CUSTOM="$HOME/.oh-my-zsh/custom"
-# solarized-powerline theme variable
-export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
-export ZSH_POWERLINE_SHOW_USER=false
-
-# setup plugin (plugin in .oh-my-zsh/plugin)
-plugins=(copydir copyfile history history-substring-search web-search urltools)
-
-if [ "$OS" = 'Linux' ]; then	# Linux
-	plugins+=command-not-found
-elif [ "$OS" = 'Darwin' ]; then		# Mac OS X
-	plugins+=osx
-	# check homebrew
-	if which brew &> /dev/null; then
-		plugins+=brew
-	fi
-
-	# check homebrew cask
-	brew cask &> /dev/null
-	if [ "$?" = "0" ]; then
-		plugins+=brew-cask
-		export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-	fi
-	
-	# check macports
-	if which port &> /dev/null; then
-		plugins+=port
-	fi
-fi
-
-# check git
+# Git configuration
 if which git &> /dev/null; then
-	plugins+=git
-	# configuration git
 	git config --global user.name "KuoE0"
 	git config --global user.email "kuoe0.tw@gmail.com"
 	git config --global core.editor `which vim` # let git use the correct vim on Mac
@@ -95,54 +103,6 @@ if which git &> /dev/null; then
 	git config --global alias.last 'log -1 HEAD'
 	git config --global alias.ls-conflict "diff --name-only --diff-filter=U"
 fi
-
-# check git-flow
-if which git-flow &> /dev/null; then
-	plugins+=git-flow
-fi
-
-# check fasd
-if which fasd &> /dev/null; then
-	plugins+=fasd
-fi
-
-# check pip
-if which pip &> /dev/null; then
-	plugins+=pip
-fi
-
-# check gem
-if which gem &> /dev/null; then
-	plugins+=gem
-fi
-
-# check bower
-if which bower &> /dev/null; then
-	plugins+=bower
-fi
-
-# check mosh
-if which mosh &> /dev/null; then
-	plugins+=mosh
-fi
-
-# check npm
-if which npm &> /dev/null; then
-	plugins+=npm
-fi
-
-# check autoenv
-if [ -e /usr/local/opt/autoenv/activate.sh ]; then
-	plugins+=autoenv
-fi
-
-if [ -e $ZSH_CUSTOM/plugins/zsh-autosuggestions ]; then
-	plugins+=zsh-autosuggestions
-fi
-
-# start to install plugin
-source $ZSH/oh-my-zsh.sh
-
 ################################################################################
 # environment variable settings
 
@@ -170,8 +130,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 
 ################################################################################
-# variable setting
-
 # dropbox directory setup
 
 if [ -d $HOME/Dropbox ]; then
@@ -281,7 +239,5 @@ fi
 ################################################################################
 # Other
 ################################################################################
-# zsh-autosuggestions highlight style
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline" # underline
 # Report CPU usage for each command
 REPORTTIME=10

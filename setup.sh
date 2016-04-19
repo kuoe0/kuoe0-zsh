@@ -34,9 +34,9 @@ ZSH_DIR="$HOME/.zsh"
 mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
-# remove origin .oh-my-zsh
-if [ -f $HOME/.oh-my-zsh ] || [ -h $HOME/.oh-my-zsh ] || [ -d $HOME/.oh-my-zsh ]; then
-	rm -rf $HOME/.oh-my-zsh
+# remove existed zgen
+if [ -f $HOME/.zgen ] || [ -h $HOME/.zgen ] || [ -d $HOME/.zgen ]; then
+	rm -rf $HOME/.zgen
 fi
 
 # remove origin dircolors
@@ -44,22 +44,9 @@ if [ -f $HOME/.dir_colors ]; then
 	rm $HOME/.dir_colors
 fi
 
-if [ -f $HOME/.function.zsh ] || [ -h $HOME/.function.zsh ]; then
-	rm $HOME/.function.zsh
-fi
-
 # download oh-my-zsh
-echo "Install \x1b[0;33moh-my-zsh\x1b[0m..."
-git clone --depth 1 https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
-
-# download oh-my-zsh-solarized-powerline-theme
-echo "Install \x1b[0;33moh-my-zsh-solarized-powerline-theme\x1b[0m..."
-URL="https://raw.githubusercontent.com/KuoE0/oh-my-zsh-solarized-powerline-theme/master/solarized-powerline.zsh-theme"
-curl $URL -o $HOME/.oh-my-zsh/themes/solarized-powerline.zsh-theme
-
-# download zsh-autosuggesions
-echo "Install \x1b[0;33mzsh-autosuggestions\x1b[0m..."
-git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+echo "Install \x1b[0;33mzgen\x1b[0m..."
+git clone --depth 1 https://github.com/tarjoilija/zgen $HOME/.zgen
 
 # install solarized color scheme for dircolors
 echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
@@ -130,7 +117,7 @@ if [ -d $ZSH_DIR ] || [ -f $ZSH_DIR ] || [ -h $ZSH_DIR ]; then
 	rm $ZSH_DIR
 fi
 
-# remove original .zshrc 
+# remove original .zshrc
 if [ -f $HOME/.zshrc ] || [ -h $HOME/.zshrc ]; then
 	rm $HOME/.zshrc
 fi
