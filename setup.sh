@@ -1,4 +1,4 @@
-#! /bin/zsh
+#!/usr/bin/env zsh
 #=============================================================================
 #     FileName: install.sh
 #         Desc: install my zsh setting
