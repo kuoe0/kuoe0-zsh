@@ -18,15 +18,14 @@ fi
 OS=$(uname)
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
 
-CD_DIR=$(dirname $0)
 # absolute path of current directory
-SCRIPTPATH=`cd $CD_DIR; pwd`
 if [ "$OS" = "Darwin" ]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
 else
 	TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
 fi
 ZSH_DIR="$HOME/.zsh"
+SCRIPTPATH=$(realpath $0 | xargs dirname)
 
 mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
