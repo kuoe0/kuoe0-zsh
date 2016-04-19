@@ -21,6 +21,8 @@ echo "Platform: \x1b[0;32m$OS\x1b[0m"
 # absolute path of current directory
 if [ "$OS" = "Darwin" ]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
+	ITERM_PREF_NAME="com.googlecode.iterm2.plist"
+	ITERM_PREF_LOCATION="$HOME/Library/Preferences"
 else
 	TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
 fi
@@ -82,10 +84,12 @@ if [ "$OS" = "Darwin" ]; then
 	# import color scheme for OS X built-in terminal
 	open Solarized-Dark-xterm-256color.terminal
 	if [ -d /Applications/iTerm.app ]; then
-		# import color scheme iTerm2
-		URL="https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
-		curl $URL -o "$TMP_DIR/Solarized Dark.itermcolors"
-		open "$TMP_DIR/Solarized Dark.itermcolors"
+		if [ $(grep Solarized "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]; then
+			# import color scheme iTerm2
+			URL="https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
+			curl $URL -o "$TMP_DIR/Solarized Dark.itermcolors"
+			open "$TMP_DIR/Solarized Dark.itermcolors"
+		fi
 	fi
 fi
 
@@ -120,10 +124,9 @@ source $HOME/.zshrc
 # iTerm2 preference
 if [ -d /Applications/iTerm.app ]; then
 	killall iTerm
-	ITERM_PREF="$USER/Library/Preferences/com.googlecode.iterm2.plist"
-	if [ -f $ITERM_PREF ]; then
+	if [ -f "$ITERM_PREF_LOCATION/$ITERM_PREF" ]; then
 		defaults delete com.googlecode.iterm2
 	fi
-	cp "$(basename $ITERM_PREF)" "$ITERM_PREF"
+	cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
 	defaults read -app iTerm
 fi
