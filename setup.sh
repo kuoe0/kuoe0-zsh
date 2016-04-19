@@ -119,8 +119,11 @@ elif [ "$OS" = "Linux" ]; then
 fi
 
 # instal fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-echo '\n\n' | ~/.fzf/install
+if [ -d "$HOME/.fzf" ]; then
+	rm -rf $HOME/.fzf
+fi
+git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.fzf
+echo '\n\n' | $HOME/.fzf/install
 
 # remove original .zsh directory
 if [ -d $ZSH_DIR ] || [ -f $ZSH_DIR ] || [ -h $ZSH_DIR ]; then
