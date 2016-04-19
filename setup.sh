@@ -21,13 +21,15 @@ echo "Platform: \x1b[0;32m$OS\x1b[0m"
 # absolute path of current directory
 if [ "$OS" = "Darwin" ]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
+	SCRIPTPATH=$(realpath $0 | xargs dirname)
 	ITERM_PREF_NAME="com.googlecode.iterm2.plist"
 	ITERM_PREF_LOCATION="$HOME/Library/Preferences"
 else
 	TMP_DIR="/tmp/$(date +%s | md5sum | head -c 10)"
+	SCRIPTPATH=$(readlink -f $0 | xargs dirname)
 fi
+
 ZSH_DIR="$HOME/.zsh"
-SCRIPTPATH=$(realpath $0 | xargs dirname)
 
 mkdir $TMP_DIR
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
