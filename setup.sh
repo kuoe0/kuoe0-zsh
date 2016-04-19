@@ -102,11 +102,21 @@ fi
 # font installation
 if [ "$OS" = "Darwin" ]; then
 	# Monaco Powerline Patch
-	cp Monaco-Powerline-OSX.otf ~/Library/Fonts/
+	cp $SCRIPTPATH/Monaco-Powerline-OSX.otf ~/Library/Fonts/
 	# Inconsolata
-	cp Inconsolata.otf ~/Library/Fonts/
+	cp $SCRIPTPATH/Inconsolata.otf ~/Library/Fonts/
 	# Inconsolata Nerd Font Patch (https://github.com/ryanoasis/nerd-fonts)
-	cp Inconsolata-for-Powerline-Nerd-Font-Complete.otf ~/Library/Fonts/
+	cp $SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete.otf ~/Library/Fonts/
+	cp $SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete-Mono.otf ~/Library/Fonts/
+elif [ "$OS" = "Linux" ]; then
+	mkdir -p ~/.local/share/fonts
+	# Inconsolata
+	cp $SCRIPTPATH/Inconsolata.otf ~/.local/share/fonts
+	# Inconsolata Nerd Font Patch (https://github.com/ryanoasis/nerd-fonts)
+	cp $SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete.otf ~/.local/share/fonts
+	cp $SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete-Mono.otf ~/.local/share/fonts
+	# Update font cache
+	fc-cache -fv
 fi
 
 # instal fzf
