@@ -282,6 +282,6 @@ fi
 # Other
 ################################################################################
 # zsh-autosuggestions highlight style
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=2" # green color
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline" # underline
 # Report CPU usage for each command
 REPORTTIME=10
