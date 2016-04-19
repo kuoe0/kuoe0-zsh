@@ -6,7 +6,6 @@
 #     HomePage: http://kuoe0.ch/
 #=============================================================================
 
-
 cpu_load() {
 	echo $@ $(uptime | awk -F'load average:' '{ print $2 }' | sed "s/ //g" | cut -d"," -f1)
 }
@@ -164,4 +163,3 @@ pdd() {
 	OUTPUT=$2
 	dd if=$INPUT bs=4M | pv $INPUT | sudo dd of=$OUTPUT bs=4M
 }
-
