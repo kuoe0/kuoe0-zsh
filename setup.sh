@@ -10,6 +10,11 @@
 #      History:
 #=============================================================================
 
+if [ -n "${ITERM_PROFILE+x}" ]; then
+	echo "DO NOT setup in iTerm!"
+	exit 1
+fi
+
 OS=$(uname)
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
 
