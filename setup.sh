@@ -69,11 +69,10 @@ curl $URL -o $HOME/.dir_colors
 # install fasd on Linux
 if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;33mfasd\x1b[0m..."
-	wget -O $TMP_DIR/fasd-1.0.1.tar.gz https://github.com/clvv/fasd/archive/1.0.1.tar.gz
-	tar -zxf $TMP_DIR/fasd-1.0.1.tar.gz -C $TMP_DIR
-	cd $TMP_DIR/fasd-1.0.1
+	git clone --depth 1 https://github.com/catesandrew/fasd $TMP_DIR/fasd
+	cd $TMP_DIR/fasd
 	sudo make install
-	# eval $(fasd --init auto)
+	cd $SCRIPTPATH
 fi
 
 # install solarized color scheme for gnome-terminal
