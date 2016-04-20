@@ -108,6 +108,8 @@ fi
 
 # default editor
 export EDITOR=vim
+# vim colorscheme
+export VIM_COLORSCHEME="solarized"
 
 # language setting
 export LC_COLLATE="zh_TW.UTF-8"
