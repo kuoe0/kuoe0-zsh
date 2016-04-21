@@ -8,7 +8,7 @@
 #   LastChange: 2012-09-25 12:35:39
 #      History:
 #=============================================================================
-
+export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export TERM=xterm-256color
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -45,6 +45,12 @@ zgen oh-my-zsh plugins/tmux
 zgen oh-my-zsh plugins/urltools
 zgen oh-my-zsh plugins/web-search
 
+# XXX
+# Only load on Linux, it make Zsh crash if it enabled with zsh-syntax-highlight.
+if [ "$OS" = "linux" ]; then
+	zgen load zsh-users/zsh-autosuggestions
+fi
+
 # zsh-syntax-highlight **MUST** be end!!!
 zgen load zsh-users/zsh-syntax-highlighting
 
@@ -54,14 +60,10 @@ zgen load KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline.zsh-them
 # zgen end
 
 ################################################################################
-# get OS name
-OS=$(uname)
-
-################################################################################
 # Path setting
 export PATH="/sbin:/usr/sbin:$PATH"
 # Path config for Mac OS X
-if [ "$OS" = 'Darwin' ]; then
+if [ "$OS" = 'darwin' ]; then
 	# use package of homebrew
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 	# path of GNU coreutils
@@ -151,7 +153,7 @@ alias gdiff="git diff"
 alias ivm="vim"
 alias k="l"
 
-if [ $OS = "Linux" ]; then
+if [ $OS = "linux" ]; then
 	alias pbcopy="xclip -i"
 	alias pbpaste="xclip -o"
 fi
@@ -243,3 +245,4 @@ fi
 ################################################################################
 # Report CPU usage for each command
 REPORTTIME=10
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline" # underline
