@@ -9,7 +9,6 @@
 #      History:
 #=============================================================================
 export OS=$(uname | tr '[:upper:]' '[:lower:]')
-export TERM=xterm-256color
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # solarized-powerline theme variable
@@ -84,7 +83,7 @@ fi
 # default editor
 export EDITOR=vim
 # vim colorscheme
-export VIM_COLORSCHEME="solarized"
+export VIM_COLORSCHEME="base16-tomorrow"
 
 # language setting
 export LC_COLLATE="zh_TW.UTF-8"
