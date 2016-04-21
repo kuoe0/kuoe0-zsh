@@ -1,6 +1,7 @@
 [ "$OS" = "linux" ] && zgen load zsh-users/zsh-autosuggestions # XXX crash if it enabled with zsh-syntax-highlight on OS X
-zgen load KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline.zsh-theme # Zsh theme
 zgen load chriskempson/base16-shell base16-tomorrow.dark.sh # base16-tomorrow color support
+zgen load mafredri/zsh-async async.plugin.zsh # Must be used for pure theme
+zgen load sindresorhus/pure pure.plugin.zsh # Zsh theme
 zgen oh-my-zsh plugins/adb
 zgen oh-my-zsh plugins/autoenv
 zgen oh-my-zsh plugins/autopep8
