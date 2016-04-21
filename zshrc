@@ -11,14 +11,6 @@
 export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# solarized-powerline theme variable
-export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
-export ZSH_POWERLINE_SHOW_USER=false
-if [ -n "${TMUX+x}" ]; then
-	# In tmux, double line can not be highlighted for entire line.
-	export ZSH_POWERLINE_SINGLE_LINE=true
-fi
-
 # zgen start
 source $HOME/.zgen/zgen.zsh
 
@@ -211,5 +203,4 @@ fi
 # Other
 ################################################################################
 # Report CPU usage for each command
-REPORTTIME=10
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline" # underline

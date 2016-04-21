@@ -1,7 +1,6 @@
 [ "$OS" = "linux" ] && zgen load zsh-users/zsh-autosuggestions # XXX crash if it enabled with zsh-syntax-highlight on OS X
 zgen load chriskempson/base16-shell base16-tomorrow.dark.sh # base16-tomorrow color support
-zgen load mafredri/zsh-async async.plugin.zsh # Must be used for pure theme
-zgen load sindresorhus/pure pure.plugin.zsh # Zsh theme
+zgen load mafredri/zsh-async async.plugin.zsh && zgen load kuoe0/pure pure.plugin.zsh # My custom pure theme (pure theme need zsh-async)
 zgen oh-my-zsh plugins/adb
 zgen oh-my-zsh plugins/autoenv
 zgen oh-my-zsh plugins/autopep8
