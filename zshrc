@@ -90,11 +90,11 @@ export HELPDIR=/usr/local/share/zsh/helpfiles
 
 ################################################################################
 # Git configuration
-if which git &> /dev/null; then
+if command -v git &> /dev/null; then
 	git config --global user.name "KuoE0"
 	git config --global user.email "kuoe0.tw@gmail.com"
-	git config --global core.editor `which vim` # let git use the correct vim on Mac
-	git config --global color.ui auto			# colorize git output
+	git config --global core.editor `command -v vim` # let git use the correct vim on Mac
+	git config --global color.ui auto # colorize git output
 	git config --global push.default simple
 	git config --global branch.autosetuprebase always
 	git config --global alias.check checkout
@@ -192,10 +192,8 @@ export GREP_COLOR='4;32'
 export LESS="-RMgs"
 
 # auto use grc (Generic Colouriser) to process content
-GRC=`which grc`
-if [ "$TERM" != dumb ] && [ -n "$GRC" ]
-then
-    alias colourify="$GRC -es --colour=on"
+if [ "$TERM" != dumb ] && command -v grc &> /dev/null; then
+    alias colourify="grc -es --colour=on"
     alias configure='colourify ./configure'
     alias diff='colourify diff -u'
     alias make='colourify make'
@@ -210,7 +208,7 @@ then
 fi
 
 # use colordiff to replace diff
-if [ -n "$(which colordiff)" ]; then
+if command -v colordiff &> /dev/null; then
 	alias diff='colordiff -u'
 fi
 
@@ -221,7 +219,7 @@ source $HOME/.zsh/function.zsh
 # start up
 ################################################################################
 
-if [ `which tmux` &> /dev/null ]; then
+if command -v tmux &> /dev/null; then
 	if [ "${SSH_TTY:-x}" != x ] && [ "$TMUX" = "" ]; then
 		ret=""
 		while [ "$ret" != "y" ] && [ "$ret" != "n" ]; do
