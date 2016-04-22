@@ -46,7 +46,6 @@ remove_by_path "$HOME/.zgen"
 echo "Install \x1b[0;33mzgen\x1b[0m..."
 git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
 
-# install fasd on Linux
 if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;33mautoenv\x1b[0m..."
 	# remove existed autoenv
