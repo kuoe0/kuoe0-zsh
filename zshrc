@@ -71,9 +71,13 @@ if command -v git &> /dev/null; then
 fi
 ################################################################################
 # environment variable settings
-
 # default editor
 export EDITOR=vim
+# base16 support or not
+export BASE16_SUPPORT=${BASE16_SUPPORT:-0}
+if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
+	export BASE16_SUPPORT=1
+fi
 # vim colorscheme
 export VIM_COLORSCHEME="base16-tomorrow"
 
