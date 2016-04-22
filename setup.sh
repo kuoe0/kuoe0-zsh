@@ -39,19 +39,9 @@ if [ -f $HOME/.zgen ] || [ -h $HOME/.zgen ] || [ -d $HOME/.zgen ]; then
 	rm -rf $HOME/.zgen
 fi
 
-# remove origin dircolors
-if [ -f $HOME/.dir_colors ]; then
-	rm $HOME/.dir_colors
-fi
-
 # download oh-my-zsh
 echo "Install \x1b[0;33mzgen\x1b[0m..."
 git clone --depth 1 https://github.com/tarjoilija/zgen $HOME/.zgen
-
-# install solarized color scheme for dircolors
-echo "Install \x1b[0;33mdircolors-solarized\x1b[0m..."
-URL="https://raw.githubusercontent.com/seebi/dircolors-solarized/master/dircolors.256dark"
-curl $URL -o $HOME/.dir_colors
 
 # install fasd on Linux
 if [ "$OS" = "Linux" ]; then

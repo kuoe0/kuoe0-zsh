@@ -173,9 +173,6 @@ autoload run-help
 export FZF_DEFAULT_OPTS='--extended'
 
 ################################################################################
-# colourify settings
-eval `dircolors ~/.dir_colors`
-
 # colorize less for manpage
 export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
 export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
