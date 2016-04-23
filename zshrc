@@ -68,6 +68,11 @@ if command -v git &> /dev/null; then
 	git config --global alias.cleanup "clean -df"
 	git config --global alias.last 'log -1 HEAD'
 	git config --global alias.ls-conflict "diff --name-only --diff-filter=U"
+	if [ "$BASE16_SUPPORT" = "1" ]; then
+		git config --global tig.color.cursor "default color18 underline"
+	else
+		git config --global tig.color.cursor "default color08 underline"
+	fi
 fi
 ################################################################################
 # environment variable settings
