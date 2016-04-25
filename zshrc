@@ -68,6 +68,8 @@ if command -v git &> /dev/null; then
 	git config --global alias.cleanup "clean -df"
 	git config --global alias.last 'log -1 HEAD'
 	git config --global alias.ls-conflict "diff --name-only --diff-filter=U"
+	git config --global tig.color.title-focus 'default color00 bold'
+	git config --global tig.color.title-blur 'default color00 dim'
 fi
 ################################################################################
 # environment variable settings
