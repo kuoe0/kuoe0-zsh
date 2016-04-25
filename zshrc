@@ -82,11 +82,13 @@ export EDITOR=vim
 export BASE16_SUPPORT=${BASE16_SUPPORT:-0}
 # vim colorscheme
 export VIM_COLORSCHEME="Tomorrow-Night"
+export VIM_AIRLINE_THEME="tomorrow"
 
 # iTerm support 256 color space to use base 16
 if [ "$TERM_PROGRAM" = "iTerm.app" ]; then
 	export BASE16_SUPPORT=1
 	export VIM_COLORSCHEME="base16-tomorrow"
+	export VIM_AIRLINE_THEME="base16"
 fi
 
 # language setting
