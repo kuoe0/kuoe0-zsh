@@ -127,3 +127,9 @@ if [ -d /Applications/iTerm.app ]; then
 	cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
 	defaults read -app iTerm
 fi
+
+# development environment
+if [ -e "$SCRIPTPATH/.git/hooks/pre-commit" ]; then
+	rm "$SCRIPTPATH/.git/hooks/pre-commit"
+fi
+ln -s ../../dev/pre-commit "$SCRIPTPATH/.git/hooks/pre-commit"
