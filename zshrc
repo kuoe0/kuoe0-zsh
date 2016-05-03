@@ -9,8 +9,22 @@
 #      History:
 #=============================================================================
 export OS=$(uname | tr '[:upper:]' '[:lower:]')
-export TERM=xterm-256color
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# BASE16_SUPPORT default is 0, except it is already set. (e.g. SendEnv / AcceptEnv in ssh)
+export BASE16_SUPPORT=${BASE16_SUPPORT:-0}
+# iTerm support 256 color space to use base 16
+if [[ "$TERM_PROGRAM" = "iTerm.app" ]]; then
+	export BASE16_SUPPORT=1
+fi
+
+# vim colorscheme
+export VIM_COLORSCHEME="Tomorrow-Night"
+export VIM_AIRLINE_THEME="tomorrow"
+if [[ "$BASE16_SUPPORT" = "1" ]]; then
+	export VIM_COLORSCHEME="base16-tomorrow"
+	export VIM_AIRLINE_THEME="base16"
+fi
 
 # zgen start
 source $HOME/.zgen/zgen.zsh
@@ -57,8 +71,6 @@ export HELPDIR=/usr/local/share/zsh/helpfiles
 
 # default editor
 export EDITOR=vim
-# vim colorscheme
-export VIM_COLORSCHEME="solarized"
 
 # language setting
 export LC_COLLATE="zh_TW.UTF-8"

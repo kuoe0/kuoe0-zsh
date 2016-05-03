@@ -1,3 +1,6 @@
+# --- Plugin List ---
+zgen load chriskempson/base16-shell base16-tomorrow.dark.sh # base16-tomorrow color support
+
 # --- Prezto Settings ---
 zgen prezto '*:*' color 'yes' # default to turn on color for commands
 zgen prezto 'editor' dot-expansion 'yes' # expand .... to ../..
@@ -28,3 +31,4 @@ zgen prezto spectrum
 zgen prezto syntax-highlighting && zgen prezto history-substring-search && zgen prezto prompt
 zgen prezto tmux
 zgen prezto utility && zgen prezto gnu-utility
+
