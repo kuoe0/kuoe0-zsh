@@ -1,32 +1,30 @@
-[ "$OS" = "linux" ] && zgen load zsh-users/zsh-autosuggestions # XXX crash if it enabled with zsh-syntax-highlight on OS X
-zgen load KuoE0/oh-my-zsh-solarized-powerline-theme solarized-powerline.zsh-theme # Zsh theme
-zgen oh-my-zsh plugins/adb
-zgen oh-my-zsh plugins/autoenv
-zgen oh-my-zsh plugins/autopep8
-zgen oh-my-zsh plugins/bower
-zgen oh-my-zsh plugins/brew
-zgen oh-my-zsh plugins/brew-cask
-zgen oh-my-zsh plugins/colorize
-zgen oh-my-zsh plugins/command-not-found
-zgen oh-my-zsh plugins/copydir
-zgen oh-my-zsh plugins/copyfile
-zgen oh-my-zsh plugins/cp
-zgen oh-my-zsh plugins/emoji
-zgen oh-my-zsh plugins/fasd
-zgen oh-my-zsh plugins/gem
-zgen oh-my-zsh plugins/git
-zgen oh-my-zsh plugins/git-flow
-zgen oh-my-zsh plugins/gnu-utils
-zgen oh-my-zsh plugins/history
-zgen oh-my-zsh plugins/history-substring-search
-zgen oh-my-zsh plugins/man
-zgen oh-my-zsh plugins/mosh
-zgen oh-my-zsh plugins/npm
-zgen oh-my-zsh plugins/osx
-zgen oh-my-zsh plugins/pip
-zgen oh-my-zsh plugins/sudo
-zgen oh-my-zsh plugins/tmux
-zgen oh-my-zsh plugins/ubuntu
-zgen oh-my-zsh plugins/urltools
-zgen oh-my-zsh plugins/web-search
-zgen load zsh-users/zsh-syntax-highlighting # zsh-syntax-highlight **MUST** be end!!!
+# --- Prezto Settings ---
+zgen prezto '*:*' color 'yes' # default to turn on color for commands
+zgen prezto 'editor' dot-expansion 'yes' # expand .... to ../..
+zgen prezto 'history-substring-search' globbing-flags 'l' # See http://zsh.sourceforge.net/Doc/Release/Expansion.html#Globbing-Flags
+zgen prezto 'history-substring-search:color' found 'underline'
+zgen prezto 'history-substring-search:color' not-found 'bg=red'
+zgen prezto prompt theme 'pure'
+
+# --- Prezto Plugin List ---
+zgen prezto
+zgen prezto archive
+zgen prezto command-not-found
+zgen prezto completion
+zgen prezto directory
+zgen prezto dpkg
+zgen prezto editor
+zgen prezto environment
+zgen prezto fasd
+zgen prezto git
+zgen prezto history
+zgen prezto homebrew
+zgen prezto node
+zgen prezto osx
+zgen prezto python
+zgen prezto rsync
+zgen prezto ruby
+zgen prezto spectrum
+zgen prezto syntax-highlighting && zgen prezto history-substring-search && zgen prezto prompt
+zgen prezto tmux
+zgen prezto utility && zgen prezto gnu-utility

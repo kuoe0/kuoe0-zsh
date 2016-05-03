@@ -24,7 +24,6 @@ fi
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
-	zgen oh-my-zsh
 	source $HOME/.zsh/plugin-list.zsh
 	# save all to init script
 	zgen save
