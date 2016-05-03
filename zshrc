@@ -12,14 +12,6 @@ export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export TERM=xterm-256color
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
-# solarized-powerline theme variable
-export ZSH_POWERLINE_SHOW_GIT_BRANCH_ONLY=true
-export ZSH_POWERLINE_SHOW_USER=false
-if [ -n "${TMUX+x}" ]; then
-	# In tmux, double line can not be highlighted for entire line.
-	export ZSH_POWERLINE_SINGLE_LINE=true
-fi
-
 # zgen start
 source $HOME/.zgen/zgen.zsh
 
@@ -61,23 +53,6 @@ fi
 export HELPDIR=/usr/local/share/zsh/helpfiles
 
 ################################################################################
-# Git configuration
-if command -v git &> /dev/null; then
-	git config --global user.name "KuoE0"
-	git config --global user.email "kuoe0.tw@gmail.com"
-	git config --global core.editor `command -v vim` # let git use the correct vim on Mac
-	git config --global color.ui auto # colorize git output
-	git config --global push.default simple
-	git config --global branch.autosetuprebase always
-	git config --global alias.check checkout
-	git config --global alias.moz-patch "format-patch -U8 -kp --stdout -1" # Mozilla style patch
-	git config --global alias.unstage "reset HEAD --"
-	git config --global alias.discard "checkout -- ." # checkout all modified files
-	git config --global alias.cleanup "clean -df"
-	git config --global alias.last 'log -1 HEAD'
-	git config --global alias.ls-conflict "diff --name-only --diff-filter=U"
-fi
-################################################################################
 # environment variable settings
 
 # default editor
@@ -114,10 +89,6 @@ fi
 
 ################################################################################
 # alias
-alias l="ls --color=always"			# ls is GNU ls not BSD ls
-alias ll="ls -al --color=always"	# ls is GNU ls not BSD ls
-alias llh="ls -alh --color=always"	# ls is GNU ls not BSD ls
-alias cgrep="grep --color=always" 
 alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
 alias gdiff="git diff"
 
@@ -162,23 +133,12 @@ export LESS="-RMgs"
 
 # auto use grc (Generic Colouriser) to process content
 if [ "$TERM" != dumb ] && command -v grc &> /dev/null; then
-    alias colourify="grc -es --colour=on"
-    alias configure='colourify ./configure'
-    alias diff='colourify diff -u'
-    alias make='colourify make'
-    alias gcc='colourify gcc'
-    alias g++='colourify g++'
-    alias as='colourify as'
-    alias gas='colourify gas'
-    alias ld='colourify ld'
-    alias netstat='colourify netstat'
-    alias ping='colourify ping'
-    alias traceroute='colourify /usr/sbin/traceroute'
-fi
-
-# use colordiff to replace diff
-if command -v colordiff &> /dev/null; then
-	alias diff='colordiff -u'
+	alias grc="nocorrect grc"
+	alias colourify="grc -es --colour=on"
+	alias configure='colourify ./configure'
+	alias netstat='colourify netstat'
+	alias ping='colourify ping'
+	alias traceroute='colourify /usr/sbin/traceroute'
 fi
 
 # function load
@@ -212,4 +172,4 @@ fi
 ################################################################################
 # Report CPU usage for each command
 REPORTTIME=10
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline" # underline
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
