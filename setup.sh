@@ -10,14 +10,14 @@
 #      History:
 #=============================================================================
 
-if [ -n "${ITERM_PROFILE+x}" ]; then
+if [[ -n "${ITERM_PROFILE+x}" ]]; then
 	echo "DO NOT setup in iTerm!"
 	exit 1
 fi
 
 remove_by_path() {
 	TARGET="$1"
-	if [ -f "$TARGET" ] || [ -h "$TARGET" ] || [ -d "$TARGET" ]; then
+	if [[ -f "$TARGET" ]] || [[ -h "$TARGET" ]] || [[ -d "$TARGET" ]]; then
 		rm -rf "$TARGET"
 	fi
 }
@@ -26,7 +26,7 @@ OS="$(uname)"
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
 
 # absolute path of current directory
-if [ "$OS" = "Darwin" ]; then
+if [[ "$OS" = "Darwin" ]]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
 	SCRIPTPATH=$(realpath "$0" | xargs -0 dirname)
 	ITERM_PREF_NAME="com.googlecode.iterm2.plist"
@@ -46,7 +46,7 @@ remove_by_path "$HOME/.zgen"
 echo "Install \x1b[0;33mzgen\x1b[0m..."
 git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
 
-if [ "$OS" = "Linux" ]; then
+if [[ "$OS" = "Linux" ]]; then
 	echo "Install \x1b[0;33mautoenv\x1b[0m..."
 	# remove existed autoenv
 	remove_by_path "$HOME/.autoenv"
@@ -60,7 +60,7 @@ if [ "$OS" = "Linux" ]; then
 fi
 
 # install solarized color scheme for gnome-terminal
-if [ "$OS" = "Linux" ]; then
+if [[ "$OS" = "Linux" ]]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
 	git clone --depth 1 https://github.com/sigurdga/gnome-terminal-colors-solarized.git "$TMP_DIR/gnome-terminal-colors-solarized"
 	# import color scheme
@@ -68,12 +68,12 @@ if [ "$OS" = "Linux" ]; then
 fi
 
 # install solarized color scheme for terminal on OS X
-if [ "$OS" = "Darwin" ]; then
+if [[ "$OS" = "Darwin" ]]; then
 	echo "Install \x1b[0;33mTerminal Color Scheme\x1b[0m:"
 	# import color scheme for OS X built-in terminal
 	open Solarized-Dark-xterm-256color.terminal
-	if [ -d /Applications/iTerm.app ]; then
-		if [ $(grep Solarized "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]; then
+	if [[ -d /Applications/iTerm.app ]]; then
+		if [[ $(grep Solarized "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]]; then
 			# import color scheme iTerm2
 			URL="https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
 			curl "$URL" -o "$TMP_DIR/Solarized Dark.itermcolors"
@@ -83,7 +83,7 @@ if [ "$OS" = "Darwin" ]; then
 fi
 
 # font installation
-if [ "$OS" = "Darwin" ]; then
+if [[ "$OS" = "Darwin" ]]; then
 	# Monaco Powerline Patch
 	cp "$SCRIPTPATH/Monaco-Powerline-OSX.otf" ~/Library/Fonts/
 	# Inconsolata
@@ -91,7 +91,7 @@ if [ "$OS" = "Darwin" ]; then
 	# Inconsolata Nerd Font Patch (https://github.com/ryanoasis/nerd-fonts)
 	cp "$SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete.otf" ~/Library/Fonts/
 	cp "$SCRIPTPATH/Inconsolata-for-Powerline-Nerd-Font-Complete-Mono.otf" ~/Library/Fonts/
-elif [ "$OS" = "Linux" ]; then
+elif [[ "$OS" = "Linux" ]]; then
 	mkdir -p ~/.local/share/fonts
 	# Inconsolata
 	cp "$SCRIPTPATH/Inconsolata.otf" ~/.local/share/fonts
@@ -118,9 +118,9 @@ ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
 source "$HOME/.zshrc"
 
 # iTerm2 preference
-if [ -d /Applications/iTerm.app ]; then
+if [[ -d /Applications/iTerm.app ]]; then
 	killall iTerm
-	if [ -f "$ITERM_PREF_LOCATION/$ITERM_PREF" ]; then
+	if [[ -f "$ITERM_PREF_LOCATION/$ITERM_PREF" ]]; then
 		defaults delete com.googlecode.iterm2
 	fi
 	cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
@@ -128,7 +128,7 @@ if [ -d /Applications/iTerm.app ]; then
 fi
 
 # development environment
-if [ -e "$SCRIPTPATH/.git/hooks/pre-commit" ]; then
+if [[ -e "$SCRIPTPATH/.git/hooks/pre-commit" ]]; then
 	rm "$SCRIPTPATH/.git/hooks/pre-commit"
 fi
 ln -s ../../dev/pre-commit "$SCRIPTPATH/.git/hooks/pre-commit"
