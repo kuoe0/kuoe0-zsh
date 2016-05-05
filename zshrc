@@ -1,12 +1,7 @@
 #=============================================================================
 #     FileName: zshrc
-#         Desc: install my zshrc
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
-#     HomePage: http://kuoe0.ch/
-#      Version: 0.0.1
-#   LastChange: 2012-09-25 12:35:39
-#      History:
 #=============================================================================
 export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
