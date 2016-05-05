@@ -34,6 +34,8 @@ if [[ "$BASE16_SUPPORT" = "1" ]]; then
 	export VIM_AIRLINE_THEME="base16"
 fi
 
+# Custom prompt for pure.zsh
+local PROMPT="%(?.%F{magenta}.%F{red}%?${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f "
 
 ################################################################################
 # Path setting
