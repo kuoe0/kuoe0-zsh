@@ -3,6 +3,19 @@
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
+
+# zgen start
+source $HOME/.zgen/zgen.zsh
+
+if ! zgen saved; then
+	source $HOME/.zsh/plugin-list.zsh
+	# save all to init script
+	zgen save
+fi
+
+# zgen end
+
+# --- Environment Variables ---
 export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -21,16 +34,6 @@ if [[ "$BASE16_SUPPORT" = "1" ]]; then
 	export VIM_AIRLINE_THEME="base16"
 fi
 
-# zgen start
-source $HOME/.zgen/zgen.zsh
-
-if ! zgen saved; then
-	source $HOME/.zsh/plugin-list.zsh
-	# save all to init script
-	zgen save
-fi
-
-# zgen end
 
 ################################################################################
 # Path setting
