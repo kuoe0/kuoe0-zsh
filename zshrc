@@ -8,6 +8,7 @@
 source $HOME/.zgen/zgen.zsh
 
 if ! zgen saved; then
+	export ZGEN_PREZTO_LOAD_DEFAULT=0 # *DON'T* load default prezto setting
 	source $HOME/.zsh/plugin-list.zsh
 	# save all to init script
 	zgen save
