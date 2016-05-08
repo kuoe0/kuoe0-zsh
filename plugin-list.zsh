@@ -20,6 +20,7 @@ zgen prezto editor
 zgen prezto environment
 zgen prezto fasd
 zgen prezto git
+zgen prezto gnu-utility && zgen prezto utility
 zgen prezto history
 zgen prezto homebrew
 zgen prezto node
@@ -30,5 +31,3 @@ zgen prezto ruby
 zgen prezto spectrum
 zgen prezto syntax-highlighting && zgen prezto history-substring-search && zgen prezto prompt
 zgen prezto tmux
-zgen prezto utility && zgen prezto gnu-utility
-
