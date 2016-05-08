@@ -101,6 +101,7 @@ fi
 
 ################################################################################
 # alias
+alias z="fasd_cd"
 alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
 alias gdiff="git diff"
 
