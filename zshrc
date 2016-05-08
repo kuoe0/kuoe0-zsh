@@ -45,13 +45,6 @@ export PATH="/sbin:/usr/sbin:$PATH"
 if [ "$OS" = 'darwin' ]; then
 	# use package of homebrew
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	# path of GNU coreutils
-	export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
-	# path of GNU tar
-	export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
-
-	# man page for GNU coreutils
-	export MANPATH="/usr/local/opt/coreutils/libexec/gnuman:$MANPATH"
 
 	# let pkg-config find libxml-2.0 libxslt libexslt libcurl
 	export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.8
