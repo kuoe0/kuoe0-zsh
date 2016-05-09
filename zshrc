@@ -94,10 +94,13 @@ if [ -d $HOME/Dropbox ]; then
 fi
 
 ################################################################################
-unalias rm
-unalias z
+# clear alias
+which myip 2>/dev/null 1>/dev/null && unalias myip
+which rm   2>/dev/null 1>/dev/null && unalias rm
+which z    2>/dev/null 1>/dev/null && unalias z
+
 # alias
-alias ip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
+alias myip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
 alias rm='nocorrect rm -I'
 alias z="fasd_cd"
 
