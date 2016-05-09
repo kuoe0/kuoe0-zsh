@@ -94,10 +94,12 @@ if [ -d $HOME/Dropbox ]; then
 fi
 
 ################################################################################
+unalias rm
+unalias z
 # alias
+alias ip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
+alias rm='nocorrect rm -I'
 alias z="fasd_cd"
-alias getip="curl -s http://ipecho.net/plain || echo -n 'no internet connection' ; echo"
-alias gdiff="git diff"
 
 # usually typo
 alias ivm="vim"
