@@ -32,3 +32,8 @@ In `/etc/ssh/sshd_config` (remote):
 ```
 AcceptEnv BASE16_SUPPORT
 ```
+
+Autoenv support
+----
+
+Put `.autoenv.zsh` to load automatically.

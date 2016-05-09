@@ -1,5 +1,6 @@
 # --- Plugin List ---
 zgen load chriskempson/base16-shell base16-tomorrow.dark.sh # base16-tomorrow color support
+zgen load tarrasch/zsh-autoenv
 
 # --- Prezto Settings ---
 zgen prezto '*:*' color 'yes' # default to turn on color for commands
