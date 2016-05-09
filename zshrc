@@ -3,6 +3,7 @@
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
+export OS=$(uname | tr '[:upper:]' '[:lower:]')
 
 # zgen start
 source $HOME/.zgen/zgen.zsh
@@ -17,7 +18,6 @@ fi
 # zgen end
 
 # --- Environment Variables ---
-export OS=$(uname | tr '[:upper:]' '[:lower:]')
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # BASE16_SUPPORT default is 0, except it is already set. (e.g. SendEnv / AcceptEnv in ssh)

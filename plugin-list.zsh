@@ -25,9 +25,10 @@ zgen prezto history
 zgen prezto homebrew
 zgen prezto node
 zgen prezto osx
+zgen prezto prompt
 zgen prezto python
 zgen prezto rsync
 zgen prezto ruby
 zgen prezto spectrum
-zgen prezto syntax-highlighting && zgen prezto history-substring-search && zgen prezto prompt
+zgen prezto syntax-highlighting && zgen prezto history-substring-search && [[ "$OS" = "linux" ]] && zgen prezto autosuggestions
 zgen prezto tmux
