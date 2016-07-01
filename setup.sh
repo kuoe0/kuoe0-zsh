@@ -75,9 +75,10 @@ if [[ "$OS" = "Darwin" ]]; then
 	if [[ -d /Applications/iTerm.app ]]; then
 		if [[ $(grep Solarized "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]]; then
 			# import color scheme iTerm2
-			URL="https://raw.githubusercontent.com/altercation/solarized/master/iterm2-colors-solarized/Solarized%20Dark.itermcolors"
-			curl "$URL" -o "$TMP_DIR/Solarized Dark.itermcolors"
-			open "$TMP_DIR/Solarized Dark.itermcolors"
+			URL="https://raw.githubusercontent.com/chriskempson/base16-iterm2/master/base16-tomorrow.dark.256.itermcolors"
+			THEME=$(basename "$URL")
+			curl "$URL" -o "$TMP_DIR/$THEME"
+			open "$TMP_DIR/$THEME"
 		fi
 	fi
 fi
