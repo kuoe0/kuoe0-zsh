@@ -120,9 +120,9 @@ autoload run-help
 # Ctrl-T: file search
 # Ctrl-R: recent command search
 # Option-C: directory search
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 # enable extended mode
 export FZF_DEFAULT_OPTS='--extended'
+source '/usr/local/opt/fzf/shell/key-bindings.zsh'
 
 ################################################################################
 # colorize less for manpage

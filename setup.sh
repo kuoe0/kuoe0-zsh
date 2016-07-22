@@ -103,11 +103,6 @@ elif [[ "$OS" = "Linux" ]]; then
 	fc-cache -fv
 fi
 
-# instal fzf
-remove_by_path "$HOME/.fzf"
-git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-yes | "$HOME/.fzf/install"
-
 ZSH_DIR="$HOME/.zsh"
 # remove original .zsh directory
 remove_by_path "$ZSH_DIR"
