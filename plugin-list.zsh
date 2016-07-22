@@ -1,6 +1,6 @@
 # --- Plugin List ---
 zgen load bobthecow/git-flow-completion git-flow-completion.zsh # completion for git-flow
-zgen load chriskempson/base16-shell base16-tomorrow.dark.sh # base16-tomorrow color support
+zgen load chriskempson/base16-shell scripts/base16-tomorrow-night.sh # base16 tomorrow color support
 zgen load djui/alias-tips # remind me of my alias
 zgen load tarrasch/zsh-autoenv
 
