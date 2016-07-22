@@ -9,6 +9,7 @@ Install Requirement
 -------------------
 
 - curl
+- fzf
 
 Reference
 ---------
