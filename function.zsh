@@ -161,5 +161,5 @@ fopen() {
 pdd() {
 	INPUT=$1
 	OUTPUT=$2
-	dd if=$INPUT bs=4M | pv $INPUT | sudo dd of=$OUTPUT bs=4M
+	dd if=$INPUT bs=4096 | pv $INPUT | sudo dd of=$OUTPUT bs=4096
 }
