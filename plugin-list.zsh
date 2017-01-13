@@ -5,6 +5,7 @@ zgen load chriskempson/base16-shell scripts/base16-tomorrow-night.sh # base16 to
 zgen load djui/alias-tips # remind me of my alias
 zgen load supercrabtree/k # directory listing for zsh with git features
 zgen load tarrasch/zsh-autoenv
+zgen load unixorn/git-extra-commands # a collection of useful extra git scripts
 
 # --- Prezto Settings ---
 zgen prezto '*:*' color 'yes' # default to turn on color for commands
