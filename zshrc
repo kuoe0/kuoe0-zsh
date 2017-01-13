@@ -14,7 +14,6 @@ if ! zgen saved; then
 	# save all to init script
 	zgen save
 fi
-
 # zgen end
 
 # --- Environment Variables ---
