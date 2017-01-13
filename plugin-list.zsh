@@ -3,6 +3,7 @@ zgen load unixorn/autoupdate-zgen # auto update for zgen
 zgen load bobthecow/git-flow-completion git-flow-completion.zsh # completion for git-flow
 zgen load chriskempson/base16-shell scripts/base16-tomorrow-night.sh # base16 tomorrow color support
 zgen load djui/alias-tips # remind me of my alias
+zgen load supercrabtree/k # directory listing for zsh with git features
 zgen load tarrasch/zsh-autoenv
 
 # --- Prezto Settings ---
