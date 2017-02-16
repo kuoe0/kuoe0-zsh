@@ -52,6 +52,10 @@ if [ "$OS" = 'darwin' ]; then
 	export C_INCLUDE_PATH=/usr/local/include
 	export CPLUS_INCLUDE_PATH=/usr/local/include
 
+	if [ -d "/usr/local/opt/llvm" ]; then
+		export PATH="/usr/local/opt/llvm/bin:$PATH"
+	fi
+
 	# environment variable of library directory for gnu tool
 	LIBRARY_PATH=/usr/local/lib
 fi
