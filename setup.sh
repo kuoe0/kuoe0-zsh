@@ -67,11 +67,16 @@ if [[ "$OS" = "Linux" ]]; then
 	"$TMP_DIR/gnome-terminal-colors-solarized/set_dark.sh"
 fi
 
-# install solarized color scheme for terminal on OS X
+# install color scheme for terminal on OS X
 if [[ "$OS" = "Darwin" ]]; then
 	echo "Install \x1b[0;33mTerminal Color Scheme\x1b[0m:"
 	# import color scheme for OS X built-in terminal
 	open Solarized-Dark-xterm-256color.terminal
+	URL="https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night.terminal"
+	THEME=$(basename "$URL")
+	curl "$URL" -o "$TMP_DIR/$THEME"
+	open "$TMP_DIR/$THEME"
+
 	if [[ -d /Applications/iTerm.app ]]; then
 		if [[ $(grep Solarized "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]]; then
 			# import color scheme iTerm2
