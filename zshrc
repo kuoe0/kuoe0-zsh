@@ -17,8 +17,6 @@ fi
 # zgen end
 
 # --- Environment Variables ---
-export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-
 # BASE16_SUPPORT default is 0, except it is already set. (e.g. SendEnv / AcceptEnv in ssh)
 export BASE16_SUPPORT=${BASE16_SUPPORT:-0}
 # iTerm support 256 color space to use base 16
