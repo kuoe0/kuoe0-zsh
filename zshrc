@@ -37,7 +37,7 @@ local PROMPT="%(?.%F{magenta}.%F{red}%?${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${P
 
 ################################################################################
 # Path setting
-export PATH="/sbin:/usr/sbin:$PATH"
+export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
 # Path config for Mac OS X
 if [ "$OS" = 'darwin' ]; then
 	# use package of homebrew
