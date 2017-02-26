@@ -67,6 +67,16 @@ if [[ "$OS" = "Linux" ]]; then
 	"$TMP_DIR/gnome-terminal-colors-solarized/set_dark.sh"
 fi
 
+ZSH_DIR="$HOME/.zsh"
+# remove original .zsh directory
+remove_if_exists "$ZSH_DIR"
+# remove original .zshrc
+remove_if_exists "$HOME/.zshrc"
+
+ln -s "$SCRIPTPATH" "$ZSH_DIR"
+ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
+source "$HOME/.zshrc"
+
 # install color scheme for terminal on OS X
 if [[ "$OS" = "Darwin" ]]; then
 	echo "Install \x1b[0;33mTerminal Color Scheme\x1b[0m:"
@@ -87,16 +97,6 @@ if [[ "$OS" = "Darwin" ]]; then
 		fi
 	fi
 fi
-
-ZSH_DIR="$HOME/.zsh"
-# remove original .zsh directory
-remove_if_exists "$ZSH_DIR"
-# remove original .zshrc
-remove_if_exists "$HOME/.zshrc"
-
-ln -s "$SCRIPTPATH" "$ZSH_DIR"
-ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
-source "$HOME/.zshrc"
 
 # iTerm2 preference
 if [[ -d /Applications/iTerm.app ]]; then
