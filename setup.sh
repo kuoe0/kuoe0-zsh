@@ -15,7 +15,7 @@ if [[ -n "${ITERM_PROFILE+x}" ]]; then
 	exit 1
 fi
 
-remove_by_path() {
+remove_if_exists() {
 	TARGET="$1"
 	if [[ -f "$TARGET" ]] || [[ -h "$TARGET" ]] || [[ -d "$TARGET" ]]; then
 		rm -rf "$TARGET"
@@ -40,7 +40,7 @@ mkdir "$TMP_DIR"
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
 # remove existed zgen
-remove_by_path "$HOME/.zgen"
+remove_if_exists "$HOME/.zgen"
 
 # download zgen
 echo "Install \x1b[0;33mzgen\x1b[0m..."
@@ -49,7 +49,7 @@ git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
 if [[ "$OS" = "Linux" ]]; then
 	echo "Install \x1b[0;33mautoenv\x1b[0m..."
 	# remove existed autoenv
-	remove_by_path "$HOME/.autoenv"
+	remove_if_exists "$HOME/.autoenv"
 	git clone --depth 1 https://github.com/kennethreitz/autoenv "$HOME/.autoenv"
 	# install fasd on Linux
 	echo "Install \x1b[0;33mfasd\x1b[0m..."
@@ -90,9 +90,9 @@ fi
 
 ZSH_DIR="$HOME/.zsh"
 # remove original .zsh directory
-remove_by_path "$ZSH_DIR"
+remove_if_exists "$ZSH_DIR"
 # remove original .zshrc
-remove_by_path "$HOME/.zshrc"
+remove_if_exists "$HOME/.zshrc"
 
 ln -s "$SCRIPTPATH" "$ZSH_DIR"
 ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
