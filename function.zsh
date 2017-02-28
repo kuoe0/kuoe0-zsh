@@ -132,16 +132,13 @@ passwd_gen() {
 }
 
 # lookup dictionary
-dict() {
+lookup() {
 	# check network state
 	curl -s -o /dev/null --max-time 1 http://tw.dictionary.yahoo.com/
 	if [ "$?" = 0 ]; then
 		ydict.js $@
 	else
 		sdcv $@
-	fi
-	if which say &> /dev/null; then
-		say $@
 	fi
 }
 
