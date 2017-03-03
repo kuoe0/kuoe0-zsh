@@ -10,6 +10,7 @@ Install Requirement
 
 - curl
 - fzf
+- zdict
 
 Reference
 ---------

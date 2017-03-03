@@ -132,14 +132,20 @@ passwd_gen() {
 }
 
 # lookup dictionary
-lookup() {
-	# check network state
-	curl -s -o /dev/null --max-time 1 http://tw.dictionary.yahoo.com/
-	if [ "$?" = 0 ]; then
-		ydict.js $@
-	else
-		sdcv $@
-	fi
+ydict() {
+	zdict $@
+}
+
+mdict() {
+	zdict --dict moe $@
+}
+
+udict() {
+	zdict --dict urban $@
+}
+
+jdict() {
+	zdict --dict jisho $@
 }
 
 # change directory to root of git repo

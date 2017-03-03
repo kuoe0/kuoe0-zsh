@@ -6,6 +6,7 @@ zgen load djui/alias-tips # remind me of my alias
 zgen load supercrabtree/k # directory listing for zsh with git features
 zgen load tarrasch/zsh-autoenv
 zgen load unixorn/git-extra-commands # a collection of useful extra git scripts
+zgen load zdict/zdict.sh # zdict completion scripts
 
 # --- Prezto Settings ---
 zgen prezto '*:*' color 'yes' # default to turn on color for commands
