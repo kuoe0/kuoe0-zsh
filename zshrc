@@ -190,3 +190,4 @@ fi
 # Report CPU usage for each command
 REPORTTIME=10
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
+eval "$(thefuck --alias)"
