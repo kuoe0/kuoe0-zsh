@@ -37,5 +37,5 @@ zgen prezto python
 zgen prezto rsync
 zgen prezto ruby
 zgen prezto spectrum
-zgen prezto syntax-highlighting && zgen prezto history-substring-search && [[ "$OS" = "linux" ]] && zgen prezto autosuggestions
+zgen prezto syntax-highlighting && zgen prezto history-substring-search
 zgen prezto tmux
