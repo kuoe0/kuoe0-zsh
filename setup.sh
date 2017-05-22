@@ -56,6 +56,9 @@ if [[ "$OS" = "Linux" ]]; then
 	git clone --depth 1 https://github.com/catesandrew/fasd "$TMP_DIR/fasd"
 	cd "$TMP_DIR/fasd"
 	sudo make install
+	# install fzf on Linux
+	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+	"$HOME/.fzf/install"
 	cd "$SCRIPTPATH"
 fi
 
