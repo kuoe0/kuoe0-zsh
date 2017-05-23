@@ -3,7 +3,7 @@
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
-export OS=$(uname | tr '[:upper:]' '[:lower:]')
+export OS=$(uname)
 
 # zgen start
 source "$HOME/.zgen/zgen.zsh"
@@ -39,7 +39,7 @@ local PROMPT="%(?.%F{magenta}.%F{red}%?${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${P
 # Path setting
 export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
 # Path config for Mac OS X
-if [ "$OS" = 'darwin' ]; then
+if [ "$OS" = 'Darwin' ]; then
 	# use package of homebrew
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
 
@@ -106,7 +106,7 @@ alias rm='nocorrect rm -I'
 alias z="fasd_cd"
 which nvim 2>/dev/null 1>/dev/null && alias vim="nvim"
 
-if [ $OS = "linux" ]; then
+if [ $OS = "Linux" ]; then
 	alias pbcopy="xclip -i"
 	alias pbpaste="xclip -o"
 fi
@@ -123,7 +123,7 @@ autoload run-help
 # Option-C: directory search
 # enable extended mode
 export FZF_DEFAULT_OPTS='--extended'
-if [ $OS = "linux" ]; then
+if [ $OS = "Linux" ]; then
 	source "$HOME/.fzf.zsh"
 	source "$HOME/.fzf/shell/key-bindings.zsh"
 else
