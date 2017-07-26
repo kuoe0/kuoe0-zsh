@@ -1,4 +1,5 @@
 # --- Plugin List ---
+zgen load mafredri/zsh-async # perform task asynchronously (needed by pure theme)
 zgen load unixorn/autoupdate-zgen # auto update for zgen
 zgen load bobthecow/git-flow-completion git-flow-completion.zsh # completion for git-flow
 zgen load chriskempson/base16-shell scripts/base16-tomorrow-night.sh # base16 tomorrow color support
