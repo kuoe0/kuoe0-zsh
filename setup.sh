@@ -75,9 +75,12 @@ ZSH_DIR="$HOME/.zsh"
 remove_if_exists "$ZSH_DIR"
 # remove original .zshrc
 remove_if_exists "$HOME/.zshrc"
+# remove original .zshenv
+remove_if_exists "$HOME/.zshenv"
 
 ln -s "$SCRIPTPATH" "$ZSH_DIR"
 ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
+ln -s "$ZSH_DIR/zshenv" "$HOME/.zshenv"
 source "$HOME/.zshrc"
 
 # install color scheme for terminal on OS X
