@@ -162,7 +162,8 @@ fopen() {
 
 # dd with progress
 pdd() {
-	INPUT=$1
-	OUTPUT=$2
-	dd if=$INPUT bs=4096 | pv $INPUT | sudo dd of=$OUTPUT bs=4096
+	INPUT="$1"
+	OUTPUT="$2"
+	sudo dd if="$INPUT" bs=4096 | sudo pv "$INPUT" | sudo dd of="$OUTPUT" bs=4096
+
 }
