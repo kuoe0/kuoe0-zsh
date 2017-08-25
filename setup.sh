@@ -110,6 +110,6 @@ if [[ -d /Applications/iTerm.app ]]; then
 	if [[ -f "$ITERM_PREF_LOCATION/$ITERM_PREF" ]]; then
 		defaults delete com.googlecode.iterm2
 	fi
-	cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
+	yes | cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
 	defaults read -app iTerm
 fi
