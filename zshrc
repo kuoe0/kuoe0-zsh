@@ -135,4 +135,3 @@ fi
 # Other
 ################################################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
-eval "$(thefuck --alias)"
