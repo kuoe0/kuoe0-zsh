@@ -58,7 +58,7 @@ if [[ "$OS" = "Linux" ]]; then
 	sudo make install
 	# install fzf on Linux
 	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-	"$HOME/.fzf/install"
+	"$HOME/.fzf/install --no-update-rc"
 	cd "$SCRIPTPATH"
 fi
 
