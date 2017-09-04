@@ -39,28 +39,38 @@ fi
 mkdir "$TMP_DIR"
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
+# install fasd
+if ! which fasd &> /dev/null; then
+	# install fasd
+	echo "Install \x1b[0;33mfasd\x1b[0m..."
+	if [[ "$OS" = "Darwin" ]]; then
+		brew install fasd
+	else
+		git clone --depth 1 https://github.com/catesandrew/fasd "$TMP_DIR/fasd"
+		cd "$TMP_DIR/fasd"
+		sudo make install
+		cd "$SCRIPTPATH"
+	fi
+fi
+
+# install fzf
+if ! which fzf &> /dev/null; then
+	# install fzf
+	echo "Install \x1b[0;33mfzf\x1b[0m..."
+	if [[ "$OS" = "Darwin" ]]; then
+		brew install fzf
+	else
+		git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
+		"$HOME/.fzf/install --no-update-rc"
+	fi
+fi
+
 # remove existed zgen
 remove_if_exists "$HOME/.zgen"
 
 # download zgen
 echo "Install \x1b[0;33mzgen\x1b[0m..."
 git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
-
-if [[ "$OS" = "Linux" ]]; then
-	echo "Install \x1b[0;33mautoenv\x1b[0m..."
-	# remove existed autoenv
-	remove_if_exists "$HOME/.autoenv"
-	git clone --depth 1 https://github.com/kennethreitz/autoenv "$HOME/.autoenv"
-	# install fasd on Linux
-	echo "Install \x1b[0;33mfasd\x1b[0m..."
-	git clone --depth 1 https://github.com/catesandrew/fasd "$TMP_DIR/fasd"
-	cd "$TMP_DIR/fasd"
-	sudo make install
-	# install fzf on Linux
-	git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-	"$HOME/.fzf/install --no-update-rc"
-	cd "$SCRIPTPATH"
-fi
 
 # install solarized color scheme for gnome-terminal
 if [[ "$OS" = "Linux" ]]; then
