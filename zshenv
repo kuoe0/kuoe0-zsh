@@ -4,7 +4,8 @@ export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
 if [ "$OS" = 'Darwin' ]; then
 	# use package of homebrew
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-
+	# use coreutils with prefix
+	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 	# let pkg-config find libxml-2.0 libxslt libexslt libcurl
 	export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.8
 
@@ -19,6 +20,7 @@ if [ "$OS" = 'Darwin' ]; then
 	# environment variable of library directory for gnu tool
 	export LIBRARY_PATH=/usr/local/lib
 	export MANPATH=/usr/local/share/man:$MANPATH
+	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
 fi
 
 # access the online help
