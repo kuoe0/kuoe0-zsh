@@ -167,3 +167,8 @@ pdd() {
 	sudo dd if="$INPUT" bs=4096 | sudo pv "$INPUT" | sudo dd of="$OUTPUT" bs=4096
 
 }
+
+weather() {
+	LOCATION="$1"
+	curl "wttr.in/$LOCATION"
+}
