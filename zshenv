@@ -55,6 +55,7 @@ export LC_NUMERIC="zh_TW.UTF-8"
 export LC_TIME="zh_TW.UTF-8"
 export LC_MESSAGES="zh_TW.UTF-8"
 export LANG="zh_TW.UTF-8"
+export LANGUAGE="zh_TW.UTF-8"
 export LC_ALL="zh_TW.UTF-8"
 
 # Report CPU usage for each command
