@@ -21,6 +21,9 @@ if [ "$OS" = 'Darwin' ]; then
 	export LIBRARY_PATH=/usr/local/lib
 	export MANPATH=/usr/local/share/man:$MANPATH
 	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
+elif [ "$OS" = 'Linux' ]; then
+	# use package of linuxbrew
+	export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
 fi
 
 # access the online help
