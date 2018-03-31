@@ -1,33 +1,38 @@
+export OS=$(uname)
 export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
 
-# Path config for Mac OS X
 if [ "$OS" = 'Darwin' ]; then
+	export HOMEBREW="/usr/local/bin/brew"
+else
+	export HOMEBREW="/home/.linuxbrew/linuxbrew/bin/brew"
+fi
+export HOMEBREW_PREFIX=$($HOMEBREW --prefix)
+
+if [ -d "$HOMEBREW_PREFIX" ]; then
 	# use package of homebrew
-	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	# use coreutils with prefix
-	export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
-	# let pkg-config find libxml-2.0 libxslt libexslt libcurl
-	export PKG_CONFIG_PATH=/usr/local/Library/ENV/pkgconfig/10.8
-
-	# environment variable of include directory for gnu tool
-	export C_INCLUDE_PATH=/usr/local/include
-	export CPLUS_INCLUDE_PATH=/usr/local/include
-
-	if [ -d "/usr/local/opt/llvm" ]; then
-		export PATH="/usr/local/opt/llvm/bin:$PATH"
-	fi
+	export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 	# environment variable of library directory for gnu tool
-	export LIBRARY_PATH=/usr/local/lib
-	export MANPATH=/usr/local/share/man:$MANPATH
-	export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:$MANPATH
-elif [ "$OS" = 'Linux' ]; then
-	# use package of linuxbrew
-	export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-fi
+	export LIBRARY_PATH="$HOMEBREW_PREFIX/lib"
+	export MANPATH="$HOMEBREW_PREFIX/share/man:$MANPATH"
 
-# access the online help
-export HELPDIR=/usr/local/share/zsh/helpfiles
+	# environment variable of include directory for gnu tool
+	export C_INCLUDE_PATH="$HOMEBREW_PREFIX/include"
+	export CPLUS_INCLUDE_PATH="$HOMEBREW_PREFIX/include"
+
+	if [ -d "$HOMEBREW_PREFIX/opt/llvm" ]; then
+		export PATH="$HOMEBREW_PREFIX/opt/llvm/bin:$PATH"
+	fi
+
+	if [ "$OS" = 'Darwin' ]; then
+		# use coreutils with prefix
+		export PATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:$PATH"
+		export MANPATH="$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:$MANPATH"
+
+		# access the online help
+		export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles"
+	fi
+fi
 
 # default editor
 export EDITOR=vim

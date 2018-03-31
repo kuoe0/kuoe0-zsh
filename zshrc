@@ -65,12 +65,7 @@ autoload run-help
 # Option-C: directory search
 # enable extended mode
 export FZF_DEFAULT_OPTS='--extended'
-if [ $OS = "Linux" ]; then
-	source "$HOME/.fzf.zsh"
-	source "$HOME/.fzf/shell/key-bindings.zsh"
-else
-	source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-fi
+source "$HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh"
 
 ################################################################################
 # colorize less for manpage
