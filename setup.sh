@@ -57,12 +57,7 @@ fi
 if ! which fzf &> /dev/null; then
 	# install fzf
 	echo "Install \x1b[0;33mfzf\x1b[0m..."
-	if [[ "$OS" = "Darwin" ]]; then
-		brew install fzf
-	else
-		git clone --depth 1 https://github.com/junegunn/fzf.git "$HOME/.fzf"
-		"$HOME/.fzf/install --no-update-rc"
-	fi
+	brew install fzf
 fi
 
 # remove existed zgen
