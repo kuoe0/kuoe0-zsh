@@ -4,7 +4,7 @@ export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
 if [ "$OS" = 'Darwin' ]; then
 	export HOMEBREW="/usr/local/bin/brew"
 else
-	export HOMEBREW="/home/linuxbrew/.linuxbrew/bin/brew"
+	export HOMEBREW="$(linuxbrew --prefix)/bin/brew"
 fi
 export HOMEBREW_PREFIX=$($HOMEBREW --prefix)
 
