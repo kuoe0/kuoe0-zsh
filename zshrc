@@ -130,3 +130,6 @@ fi
 # Other
 ################################################################################
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
+
+# fix the issue of hanging when doing completion
+unsetopt cdablevars
