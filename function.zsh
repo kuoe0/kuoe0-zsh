@@ -174,6 +174,11 @@ weather() {
 }
 
 sync-dir() {
+	VERSION=$(rsync --version | head -n1 | tr -s ' ' | cut -d ' ' -f6)
+	if (( $VERSION <= 31 )); then
+		echo "Need rsync 3.1.0+."
+		return
+	fi
 	SOURCE="$1"
 	TARGET="$2"
 	TMP="$3"
