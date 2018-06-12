@@ -43,14 +43,7 @@ echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 if ! which fasd &> /dev/null; then
 	# install fasd
 	echo "Install \x1b[0;33mfasd\x1b[0m..."
-	if [[ "$OS" = "Darwin" ]]; then
-		brew install fasd
-	else
-		git clone --depth 1 https://github.com/catesandrew/fasd "$TMP_DIR/fasd"
-		cd "$TMP_DIR/fasd"
-		sudo make install
-		cd "$SCRIPTPATH"
-	fi
+	brew install fasd
 fi
 
 # install fzf
