@@ -133,3 +133,6 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 
 # fix the issue of hanging when doing completion
 unsetopt cdablevars
+
+# just warning when no match found
+setopt +o nomatch
