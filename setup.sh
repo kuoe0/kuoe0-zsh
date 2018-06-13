@@ -39,19 +39,17 @@ fi
 mkdir "$TMP_DIR"
 echo "TMP Directory: \x1b[0;32m$TMP_DIR\x1b[0m"
 
-# install fasd
-if ! which fasd &> /dev/null; then
-	# install fasd
-	echo "Install \x1b[0;33mfasd\x1b[0m..."
-	brew install fasd
-fi
+###
+# Install Prerequisite Packages
+###
 
-# install fzf
-if ! which fzf &> /dev/null; then
-	# install fzf
-	echo "Install \x1b[0;33mfzf\x1b[0m..."
-	brew install fzf
-fi
+PKG_LIST=(fasd fzf)
+for PKG in $PKG_LIST; do
+	if ! which $PKG &> /dev/null; then
+		echo "Install \x1b[0;33m$PKG\x1b[0m..."
+		brew install $PKG
+	fi
+done
 
 # remove existed zgen
 remove_if_exists "$HOME/.zgen"
