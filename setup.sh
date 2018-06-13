@@ -15,6 +15,10 @@ if [[ -n "${ITERM_PROFILE+x}" ]]; then
 	exit 1
 fi
 
+###
+# Basic Setup for Installation
+###
+
 remove_if_exists() {
 	TARGET="$1"
 	if [[ -f "$TARGET" ]] || [[ -h "$TARGET" ]] || [[ -d "$TARGET" ]]; then
@@ -51,6 +55,10 @@ for PKG in $PKG_LIST; do
 	fi
 done
 
+###
+# Install zgen (plugin manager for zsh)
+###
+
 # remove existed zgen
 remove_if_exists "$HOME/.zgen"
 
@@ -58,15 +66,9 @@ remove_if_exists "$HOME/.zgen"
 echo "Install \x1b[0;33mzgen\x1b[0m..."
 git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
 
-# install color scheme for gnome-terminal
-if [[ "$OS" = "Linux" ]]; then
-	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
-	URL="https://raw.githubusercontent.com/aaron-williamson/base16-gnome-terminal/master/color-scripts/base16-tomorrow-256.sh"
-	THEME=$(basename "$URL")
-	curl "$URL" -o "$TMP_DIR/$THEME"
-	# import color scheme
-	bash "$TMP_DIR/$THEME"
-fi
+###
+# Setup Profile Location
+###
 
 ZSH_DIR="$HOME/.zsh"
 # remove original .zsh directory
@@ -79,7 +81,20 @@ remove_if_exists "$HOME/.zshenv"
 ln -s "$SCRIPTPATH" "$ZSH_DIR"
 ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
 ln -s "$ZSH_DIR/zshenv" "$HOME/.zshenv"
-source "$HOME/.zshrc"
+
+###
+# Install Color scheme
+###
+
+# install color scheme for gnome-terminal
+if [[ "$OS" = "Linux" ]]; then
+	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
+	URL="https://raw.githubusercontent.com/aaron-williamson/base16-gnome-terminal/master/color-scripts/base16-tomorrow-256.sh"
+	THEME=$(basename "$URL")
+	curl "$URL" -o "$TMP_DIR/$THEME"
+	# import color scheme
+	bash "$TMP_DIR/$THEME"
+fi
 
 # install color scheme for terminal on OS X
 if [[ "$OS" = "Darwin" ]]; then
@@ -110,3 +125,5 @@ if [[ -d /Applications/iTerm.app ]]; then
 	yes | cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
 	defaults read -app iTerm
 fi
+
+source "$HOME/.zshrc"
