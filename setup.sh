@@ -79,8 +79,8 @@ remove_if_exists "$HOME/.zshrc"
 remove_if_exists "$HOME/.zshenv"
 
 ln -s "$SCRIPTPATH" "$ZSH_DIR"
-ln -s "$ZSH_DIR/zshrc" "$HOME/.zshrc"
-ln -s "$ZSH_DIR/zshenv" "$HOME/.zshenv"
+ln -s "$SCRIPTPATH/zshrc" "$HOME/.zshrc"
+ln -s "$SCRIPTPATH/zshenv" "$HOME/.zshenv"
 
 ###
 # Install Color scheme
@@ -126,4 +126,5 @@ if [[ -d /Applications/iTerm.app ]]; then
 	defaults read -app iTerm
 fi
 
+source "$HOME/.zshenv"
 source "$HOME/.zshrc"

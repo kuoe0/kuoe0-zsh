@@ -3,14 +3,12 @@
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
-export OS=$(uname)
-
 # zgen start
 source "$HOME/.zgen/zgen.zsh"
 
 if ! zgen saved; then
 	export ZGEN_PREZTO_LOAD_DEFAULT=0 # *DON'T* load default prezto setting
-	source "$HOME/.zsh/plugin-list.zsh"
+	source "$KUOE0_ZSH/plugin-list.zsh"
 	# save all to init script
 	zgen save
 fi
@@ -94,7 +92,7 @@ if [ "$TERM" != dumb ] && command -v grc &> /dev/null; then
 fi
 
 # function load
-source $HOME/.zsh/function.zsh
+source $KUOE0_ZSH/function.zsh
 
 ################################################################################
 # start up
