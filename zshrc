@@ -134,3 +134,7 @@ unsetopt cdablevars
 
 # just warning when no match found
 setopt +o nomatch
+
+# allow bash completion function to work
+autoload bashcompinit
+bashcompinit
