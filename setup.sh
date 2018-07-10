@@ -30,7 +30,7 @@ OS="$(uname)"
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
 
 # absolute path of current directory
-if [[ "$OS" = "Darwin" ]]; then
+if [ "$OS" = "Darwin" ]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
 	SCRIPTPATH=$(realpath "$0" | xargs -0 dirname)
 	ITERM_PREF_NAME="com.googlecode.iterm2.plist"
@@ -87,7 +87,7 @@ ln -s "$SCRIPTPATH/zshenv" "$HOME/.zshenv"
 ###
 
 # install color scheme for gnome-terminal
-if [[ "$OS" = "Linux" ]]; then
+if [ "$OS" = "Linux" ]; then
 	echo "Install \x1b[0;34mTerminal Color Scheme\x1b[0m:"
 	URL="https://raw.githubusercontent.com/aaron-williamson/base16-gnome-terminal/master/color-scripts/base16-tomorrow-256.sh"
 	THEME=$(basename "$URL")
@@ -97,7 +97,7 @@ if [[ "$OS" = "Linux" ]]; then
 fi
 
 # install color scheme for terminal on OS X
-if [[ "$OS" = "Darwin" ]]; then
+if [ "$OS" = "Darwin" ]; then
 	echo "Install \x1b[0;33mTerminal Color Scheme\x1b[0m:"
 	# import color scheme for OS X built-in terminal
 	URL="https://raw.githubusercontent.com/chriskempson/tomorrow-theme/master/OS%20X%20Terminal/Tomorrow%20Night.terminal"
@@ -105,7 +105,7 @@ if [[ "$OS" = "Darwin" ]]; then
 	curl "$URL" -o "$TMP_DIR/$THEME"
 	open "$TMP_DIR/$THEME"
 
-	if [[ -d /Applications/iTerm.app ]]; then
+	if [ -d /Applications/iTerm.app ]; then
 		if [[ $(grep "base16-tomorrow" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]]; then
 			# import color scheme iTerm2
 			URL="https://raw.githubusercontent.com/chriskempson/base16-iterm2/master/base16-tomorrow.dark.256.itermcolors"
