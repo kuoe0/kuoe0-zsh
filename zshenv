@@ -34,6 +34,16 @@ if [ -d "$HOMEBREW_PREFIX" ]; then
 		# access the online help
 		export HELPDIR="$HOMEBREW_PREFIX/share/zsh/helpfiles"
 	fi
+
+	# source completion functions
+	if [ -d "$HOMEBREW_PREFIX/share/zsh-completions" ]; then
+		fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
+	fi
+
+	# need to install `zsh-completions`
+	if [ -d "$HOMEBREW_PREFIX/share/zsh-completions" ]; then
+		fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)
+	fi
 fi
 
 # default editor
