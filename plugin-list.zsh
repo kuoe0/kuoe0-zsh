@@ -1,41 +1,35 @@
-# --- Plugin List ---
-zgen load mafredri/zsh-async # perform task asynchronously (needed by pure theme)
-zgen load unixorn/autoupdate-zgen # auto update for zgen
-zgen load bobthecow/git-flow-completion git-flow-completion.zsh # completion for git-flow
-zgen load chriskempson/base16-shell scripts/base16-tomorrow-night.sh # base16 tomorrow color support
-zgen load djui/alias-tips # remind me of my alias
-zgen load tarrasch/zsh-autoenv
-zgen load unixorn/git-extra-commands # a collection of useful extra git scripts
-zgen load zdict/zdict.sh # zdict completion scripts
-
-# --- Prezto Settings ---
-zgen prezto '*:*' color 'yes' # default to turn on color for commands
-zgen prezto 'editor' dot-expansion 'yes' # expand .... to ../..
-zgen prezto 'history-substring-search' globbing-flags 'l' # See http://zsh.sourceforge.net/Doc/Release/Expansion.html#Globbing-Flags
-zgen prezto 'history-substring-search:color' found 'underline'
-zgen prezto 'history-substring-search:color' not-found 'bg=red'
-zgen prezto prompt theme 'pure'
-
-# --- Prezto Plugin List ---
-zgen prezto
-zgen prezto archive
-zgen prezto command-not-found
-zgen prezto completion
-zgen prezto directory
-zgen prezto dpkg
-zgen prezto editor
-zgen prezto environment
-zgen prezto fasd
-zgen prezto git
-zgen prezto gnu-utility && zgen prezto utility
-zgen prezto history
-zgen prezto homebrew
-zgen prezto node
-zgen prezto osx
-zgen prezto prompt
-zgen prezto python
-zgen prezto rsync
-zgen prezto ruby
-zgen prezto spectrum
-zgen prezto syntax-highlighting && zgen prezto history-substring-search
-zgen prezto tmux
+zplug "bobthecow/git-flow-completion", use:"git-flow-completion.zsh" # completion for git-flow
+zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh" # base16 tomorrow color support
+zplug "djui/alias-tips" # remind me of my alias
+zplug "mafredri/zsh-async" # perform task asynchronously (needed by pure theme)
+zplug "modules/archive", from:prezto
+zplug "modules/command-not-found", from:prezto, if:"[ \"$(uname -s)\" = \"Linux\" ]"
+zplug "modules/completion", from:prezto # auto-completion with menu
+zplug "modules/directory", from:prezto
+zplug "modules/dpkg", from:prezto, if:"[ \"$(uname -s)\" = \"Linux\" ]"
+zplug "modules/editor", from:prezto
+zplug "modules/environment", from:prezto
+zplug "modules/fasd", from:prezto
+zplug "modules/git", from:prezto
+zplug "modules/gnu-utility", from:prezto
+zplug "modules/history", from:prezto
+zplug "modules/homebrew", from:prezto
+zplug "modules/node", from:prezto
+zplug "modules/osx", from:prezto
+zplug "modules/python", from:prezto
+zplug "modules/rsync", from:prezto
+zplug "modules/ruby", from:prezto
+zplug "modules/spectrum", from:prezto
+zplug "modules/tmux", from:prezto
+zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
+zplug "sindresorhus/pure", use:"pure.zsh", as:theme
+zplug "tarrasch/zsh-autoenv"
+zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
+zplug "zdict/zdict.sh" # zdict completion scripts
+zplug "zsh-users/zsh-history-substring-search", defer:2 # avoid the setting overwritten by zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting"
+zstyle ':prezto:module:editor' dot-expansion 'yes'
+zstyle ':prezto:module:utility:diff' color 'yes'
+zstyle ':prezto:module:utility:ls' color 'yes'
+zstyle ':prezto:module:utility:make' color 'yes'
+zstyle ':prezto:module:utility:wdiff' color 'yes'

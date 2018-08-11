@@ -3,19 +3,32 @@
 #       Author: KuoE0
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
-# zgen start
-source "$HOME/.zgen/zgen.zsh"
+# init zplug
+source "$HOME/.zplug/init.zsh"
+source "$KUOE0_ZSH/plugin-list.zsh"
 
-if ! zgen saved; then
-	export ZGEN_PREZTO_LOAD_DEFAULT=0 # *DON'T* load default prezto setting
-	source "$KUOE0_ZSH/plugin-list.zsh"
-	# save all to init script
-	zgen save
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+	zplug install
 fi
-# zgen end
+
+# Then, source plugins and add commands to $PATH
+zplug load # --verbose
+
+################################################################################
+# plugin config
 
 # Custom prompt for pure.zsh
 local PROMPT="%(?.%F{magenta}.%F{red}%?${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f "
+
+# zsh-history-substring-search
+if zplug check zsh-users/zsh-history-substring-search; then
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bold,underline'
+	HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white'
+	HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='l'
+    bindkey '\eOA' history-substring-search-up # up key
+    bindkey '\eOB' history-substring-search-down # down key
+fi
 
 ################################################################################
 # history setting

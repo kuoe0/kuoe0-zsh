@@ -56,15 +56,15 @@ for PKG in $PKG_LIST; do
 done
 
 ###
-# Install zgen (plugin manager for zsh)
+# Install zplug (plugin manager for zsh)
 ###
 
-# remove existed zgen
-remove_if_exists "$HOME/.zgen"
+# remove existed zplug
+remove_if_exists "$HOME/.zplug"
 
-# download zgen
-echo "Install \x1b[0;33mzgen\x1b[0m..."
-git clone --depth 1 https://github.com/tarjoilija/zgen "$HOME/.zgen"
+# download zplug
+echo "Install \x1b[0;33mzplug\x1b[0m..."
+curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
 
 ###
 # Setup Profile Location
