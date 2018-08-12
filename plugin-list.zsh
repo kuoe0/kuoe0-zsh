@@ -28,8 +28,9 @@ zplug "tarrasch/zsh-autoenv"
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
 zplug "unixorn/warhol.plugin.zsh"
 zplug "zdict/zdict.sh" # zdict completion scripts
+zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:2 # avoid the setting overwritten by zsh-syntax-highlighting
-zplug "zsh-users/zsh-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", defer:1 # avoid the setting overwritten by zsh-autosuggestions
 zstyle ':prezto:module:editor' dot-expansion 'yes'
 zstyle ':prezto:module:utility:diff' color 'yes'
 zstyle ':prezto:module:utility:ls' color 'yes'

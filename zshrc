@@ -31,6 +31,10 @@ if zplug check zsh-users/zsh-history-substring-search; then
     bindkey '\eOB' history-substring-search-down # down key
 fi
 
+if zplug check zsh-users/zsh-autosuggestions; then
+	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+fi
+
 ################################################################################
 # history setting
 
@@ -131,7 +135,6 @@ fi
 ################################################################################
 # Other
 ################################################################################
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="underline"
 
 # fix the issue of hanging when doing completion
 unsetopt cdablevars
