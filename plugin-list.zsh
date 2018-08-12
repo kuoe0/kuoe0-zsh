@@ -25,6 +25,7 @@ zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-util
 zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
+zplug "unixorn/warhol.plugin.zsh"
 zplug "zdict/zdict.sh" # zdict completion scripts
 zplug "zsh-users/zsh-history-substring-search", defer:2 # avoid the setting overwritten by zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting"

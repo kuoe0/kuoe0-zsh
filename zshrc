@@ -94,16 +94,6 @@ export GREP_COLOR='4;32'
 # raw control (-R), highlight search (-g), merge consecutive blank line (-s)
 export LESS="-RMgs"
 
-# auto use grc (Generic Colouriser) to process content
-if [ "$TERM" != dumb ] && command -v grc &> /dev/null; then
-	alias grc="nocorrect grc"
-	alias colourify="grc -es --colour=on"
-	alias configure='colourify ./configure'
-	alias netstat='colourify netstat'
-	alias ping='colourify ping'
-	alias traceroute='colourify /usr/sbin/traceroute'
-fi
-
 # function load
 source $KUOE0_ZSH/function.zsh
 
