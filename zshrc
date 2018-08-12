@@ -19,7 +19,8 @@ zplug load # --verbose
 # plugin config
 
 # Custom prompt for pure.zsh
-local PROMPT="%(?.%F{magenta}.%F{red}%?${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f "
+# Use single quote to allow the function to be evaluated every time not being evaluated while assigning the prompt.
+local PROMPT='%(?.%F{magenta}.%F{red}$(nice_exit_code)${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f '
 
 # zsh-history-substring-search
 if zplug check zsh-users/zsh-history-substring-search; then

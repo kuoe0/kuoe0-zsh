@@ -1,4 +1,5 @@
 zplug "bobthecow/git-flow-completion", use:"git-flow-completion.zsh" # completion for git-flow
+zplug "bric3/nice-exit-code"
 zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh" # base16 tomorrow color support
 zplug "djui/alias-tips" # remind me of my alias
 zplug "mafredri/zsh-async" # perform task asynchronously (needed by pure theme)
