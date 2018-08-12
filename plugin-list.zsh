@@ -22,6 +22,7 @@ zplug "modules/python", from:prezto
 zplug "modules/rsync", from:prezto
 zplug "modules/ruby", from:prezto
 zplug "modules/spectrum", from:prezto
+zplug "zpm-zsh/linuxbrew", if:"[ \"$(uname -s)\" = \"Linux\" ]"
 zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
 zplug "sindresorhus/pure", use:"pure.zsh", as:theme
