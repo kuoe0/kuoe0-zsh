@@ -27,6 +27,7 @@ zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
 zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
+zplug "TBSliver/zsh-plugin-extract" # extract from most types
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
 zplug "unixorn/warhol.plugin.zsh"
 zplug "zdict/zdict.sh" # zdict completion scripts
