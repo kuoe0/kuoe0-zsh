@@ -18,7 +18,7 @@ zplug "modules/gnu-utility", from:prezto
 zplug "modules/history", from:prezto
 zplug "modules/homebrew", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/node", from:prezto
-zplug "modules/osx", from:prezto
+zplug "modules/osx", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/python", from:prezto
 zplug "modules/rsync", from:prezto
 zplug "modules/ruby", from:prezto
