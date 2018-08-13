@@ -1,3 +1,4 @@
+zplug "TBSliver/zsh-plugin-extract" # extract from most types
 zplug "bobthecow/git-flow-completion", use:"git-flow-completion.zsh" # completion for git-flow
 zplug "bric3/nice-exit-code"
 zplug "chriskempson/base16-shell", use:"scripts/base16-tomorrow-night.sh" # base16 tomorrow color support
@@ -27,7 +28,6 @@ zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
 zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
-zplug "TBSliver/zsh-plugin-extract" # extract from most types
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
 zplug "unixorn/warhol.plugin.zsh"
 zplug "zdict/zdict.sh" # zdict completion scripts
