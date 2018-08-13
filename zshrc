@@ -14,26 +14,7 @@ fi
 
 # Then, source plugins and add commands to $PATH
 zplug load # --verbose
-
-################################################################################
-# plugin config
-
-# Custom prompt for pure.zsh
-# Use single quote to allow the function to be evaluated every time not being evaluated while assigning the prompt.
-local PROMPT='%(?.%F{magenta}.%F{red}$(nice_exit_code)${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f '
-
-# zsh-history-substring-search
-if zplug check zsh-users/zsh-history-substring-search; then
-    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bold,underline'
-	HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white'
-	HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='l'
-    bindkey '\eOA' history-substring-search-up # up key
-    bindkey '\eOB' history-substring-search-down # down key
-fi
-
-if zplug check zsh-users/zsh-autosuggestions; then
-	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
-fi
+source $KUOE0_ZSH/plugin-config.zsh
 
 ################################################################################
 # history setting

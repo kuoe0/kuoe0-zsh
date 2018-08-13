@@ -35,8 +35,3 @@ zplug "zpm-zsh/linuxbrew", if:"[ \"$(uname -s)\" = \"Linux\" ]"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "zsh-users/zsh-history-substring-search", defer:2 # avoid the setting overwritten by zsh-syntax-highlighting
 zplug "zsh-users/zsh-syntax-highlighting", defer:1 # avoid the setting overwritten by zsh-autosuggestions
-zstyle ':prezto:module:editor' dot-expansion 'yes'
-zstyle ':prezto:module:utility:diff' color 'yes'
-zstyle ':prezto:module:utility:ls' color 'yes'
-zstyle ':prezto:module:utility:make' color 'yes'
-zstyle ':prezto:module:utility:wdiff' color 'yes'
