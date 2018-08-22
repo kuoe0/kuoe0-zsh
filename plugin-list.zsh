@@ -27,6 +27,7 @@ zplug "modules/ruby", from:prezto
 zplug "modules/spectrum", from:prezto
 zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
+zplug "seletskiy/zsh-fuzzy-search-and-edit", hook-load:"alias fs=fuzzy-search-and-edit" # Find and open editor on matched line lightning-fast
 zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
