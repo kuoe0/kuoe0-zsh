@@ -7,6 +7,7 @@ zplug "chrissicool/zsh-256color"
 zplug "djui/alias-tips" # remind me of my alias
 zplug "felixr/docker-zsh-completion"
 zplug "hchbaw/zce.zsh", hook-load:"bindkey '^Xz' zce" # easymotion for zsh
+zplug "kuoe0/zsh-depot-tools", hook-build:"./install.sh" # download depot_tools and put it into $PATH
 zplug "mafredri/zsh-async" # perform task asynchronously (needed by zsh-clean theme)
 zplug "modules/archive", from:prezto
 zplug "modules/command-not-found", from:prezto, if:"[ \"$(uname -s)\" = \"Linux\" ]"
