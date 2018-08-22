@@ -12,9 +12,9 @@ if ! zplug check; then
 	zplug install
 fi
 
-# Then, source plugins and add commands to $PATH
+source $KUOE0_ZSH/plugin-config.pre.zsh
 zplug load # --verbose
-source $KUOE0_ZSH/plugin-config.zsh
+source $KUOE0_ZSH/plugin-config.post.zsh
 
 ################################################################################
 # history setting
