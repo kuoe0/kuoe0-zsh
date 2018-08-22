@@ -32,6 +32,7 @@ zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
 zplug "unixorn/warhol.plugin.zsh"
+zplug "wfxr/forgit", defer:1 # Fuzzy git, need to overwrite the alias from modules/git
 zplug "zdict/zdict.sh" # zdict completion scripts
 zplug "zpm-zsh/linuxbrew", if:"[ \"$(uname -s)\" = \"Linux\" ]"
 zplug "zsh-users/zsh-autosuggestions"
