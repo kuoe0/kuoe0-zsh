@@ -1,6 +1,6 @@
 if zplug check sindresorhus/pure; then
 	# Use single quote to allow the function to be evaluated every time not being evaluated while assigning the prompt.
-	local PROMPT='%(?.%F{magenta}.%F{red}$(nice_exit_code)${PURE_PROMPT_SYMBOL:-❯}%F{magemta})${PURE_PROMPT_SYMBOL:-❯}%f '
+	local PROMPT='%(?..%F{red}$(nice_exit_code)${PURE_PROMPT_SYMBOL:-❯})%F{magenta}${PURE_PROMPT_SYMBOL:-❯}%f '
 fi
 
 if zplug check zsh-users/zsh-history-substring-search; then
