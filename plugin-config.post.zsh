@@ -1,9 +1,14 @@
 if zplug check BrandonRoehl/zsh-clean; then
+	# customized symbol
+	zstyle ':vcs_info:*' stagedstr "%F{green}+%f"
+	zstyle ':vcs_info:*' unstagedstr "%F{yellow}♺%f"
+	zstyle ':vcs_info:*:clean:*' untrackedstr '%F{red}✱%f'
+
 	# Use single quote to allow the function to be evaluated every time not
 	# being evaluated while assigning the prompt.
 	local prompt_sym='%(!.#.❯)'
 	local prompt_path='%F{blue}%5v%f'
-	local prompt_vcs='%(1V. %F{242}%1v%2v%(3V. %F{cyan}%3v.)%f.)'
+	local prompt_vcs='%(1V. %F{242}$vcs_info_msg_0_$vcs_info_msg_1_%(3V. %F{cyan}$vcs_info_msg_2_.)%f.)'
 	local prompt_exec_time='%(4V. %F{215}%4v%f.)'
 	local prompt_error_code='%(?..%F{red}$(nice_exit_code)$prompt_sym)'
 	local prompt_last='%F{magenta}$prompt_sym%f '
