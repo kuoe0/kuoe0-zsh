@@ -1,3 +1,4 @@
+zplug "BrandonRoehl/zsh-clean", use:"clean.plugin.zsh", as:theme
 zplug "TBSliver/zsh-plugin-extract" # extract from most types
 zplug "bobthecow/git-flow-completion", use:"git-flow-completion.zsh" # completion for git-flow
 zplug "bric3/nice-exit-code"
@@ -6,7 +7,7 @@ zplug "chrissicool/zsh-256color"
 zplug "djui/alias-tips" # remind me of my alias
 zplug "felixr/docker-zsh-completion"
 zplug "hchbaw/zce.zsh", hook-load:"bindkey '^Xz' zce" # easymotion for zsh
-zplug "mafredri/zsh-async" # perform task asynchronously (needed by pure theme)
+zplug "mafredri/zsh-async" # perform task asynchronously (needed by zsh-clean theme)
 zplug "modules/archive", from:prezto
 zplug "modules/command-not-found", from:prezto, if:"[ \"$(uname -s)\" = \"Linux\" ]"
 zplug "modules/completion", from:prezto # auto-completion with menu
@@ -28,7 +29,6 @@ zplug "modules/spectrum", from:prezto
 zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
 zplug "seletskiy/zsh-fuzzy-search-and-edit", hook-load:"alias fs=fuzzy-search-and-edit" # Find and open editor on matched line lightning-fast
-zplug "sindresorhus/pure", use:"pure.zsh", as:theme
 zplug "tarrasch/zsh-autoenv"
 zplug "unixorn/git-extra-commands" # a collection of useful extra git scripts
 zplug "unixorn/warhol.plugin.zsh"
