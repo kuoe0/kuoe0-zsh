@@ -181,6 +181,6 @@ sync-dir() {
 	fi
 	SOURCE="$1"
 	TARGET="$2"
-	TMP="$3"
+	TMP="${3:-$TARGET}" # use target folder as tmp folder if not specified
 	rsync -ruv --iconv=utf-8,utf-8-mac --delete --temp-dir="$TMP" --exclude "lost+found" --exclude "#recycle" "$SOURCE" "$TARGET"
 }
