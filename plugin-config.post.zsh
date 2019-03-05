@@ -20,6 +20,10 @@ if zplug check BrandonRoehl/zsh-clean; then
 		$prompt_newline $prompt_error_code $prompt_last
 	)
 	PS1="${(j..)ps1}"
+
+	local prompt_timestamp=' %F{244}%*'
+	rps1=($prompt_timestamp)
+	RPS1="${rps1}"
 fi
 
 if zplug check zsh-users/zsh-history-substring-search; then
