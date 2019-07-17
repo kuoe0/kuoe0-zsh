@@ -106,7 +106,8 @@ if [ "$OS" = "Darwin" ]; then
 	open "$TMP_DIR/$THEME"
 
 	if [ -d /Applications/iTerm.app ]; then
-		if [[ $(grep "base16-tomorrow" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME") -ne "" ]]; then
+		grep "base16-tomorrow" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME" > /dev/null
+		if [ "$?" != "0" ]; then
 			# import color scheme iTerm2
 			URL="https://raw.githubusercontent.com/chriskempson/base16-iterm2/master/base16-tomorrow.dark.256.itermcolors"
 			THEME=$(basename "$URL")
