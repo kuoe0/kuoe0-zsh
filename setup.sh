@@ -119,11 +119,13 @@ fi
 
 # iTerm2 preference
 if [[ -d /Applications/iTerm.app ]]; then
+	MODEL=$(sysctl hw.model | cut -d' ' -f2 | tr [:upper:] [:lower:] | tr ',' '_')
+
 	killall iTerm
 	if [[ -f "$ITERM_PREF_LOCATION/$ITERM_PREF" ]]; then
 		defaults delete com.googlecode.iterm2
 	fi
-	yes | cp "$SCRIPTPATH/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
+	yes | cp "$SCRIPTPATH/iterm2-pref-$MODEL/$ITERM_PREF_NAME" "$ITERM_PREF_LOCATION/$ITERM_PREF_NAME"
 	defaults read -app iTerm
 fi
 
