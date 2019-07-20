@@ -9,6 +9,7 @@ else
 	export HOMEBREW="$(linuxbrew --prefix)/bin/brew"
 fi
 export HOMEBREW_PREFIX=$($HOMEBREW --prefix)
+export HOMEBREW_NO_AUTO_UPDATE=1
 
 if [ -d "$HOMEBREW_PREFIX" ]; then
 	# use package of homebrew
