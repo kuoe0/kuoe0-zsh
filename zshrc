@@ -4,7 +4,10 @@
 #        Email: kuoe0.tw@gmail.com
 #=============================================================================
 # init zplug
+# XXX: don't know why zplug can't find git in the $PATH
+alias git=/usr/bin/git
 source "$HOME/.zplug/init.zsh"
+unalias git
 source "$KUOE0_ZSH/plugin-list.zsh"
 
 # Install plugins if there are plugins that have not been installed
