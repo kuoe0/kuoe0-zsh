@@ -37,3 +37,9 @@ fi
 if zplug check zsh-users/zsh-autosuggestions; then
 	ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=236'
 fi
+
+if zplug check romkatv/powerlevel10k; then
+	# To customize prompt, run `p10k configure`,
+	# the result will be at ~/.p10k.zsh
+	source $HOME/.zsh/p10k.zsh
+fi
