@@ -28,6 +28,7 @@ zplug "modules/ruby", from:prezto
 zplug "modules/spectrum", from:prezto
 zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
+zplug "romkatv/gitstatus" # improved gitstatus
 zplug "romkatv/powerlevel10k", as:theme, depth:1
 zplug "seletskiy/zsh-fuzzy-search-and-edit", hook-load:"alias fs=fuzzy-search-and-edit" # Find and open editor on matched line lightning-fast
 zplug "tarrasch/zsh-autoenv"
