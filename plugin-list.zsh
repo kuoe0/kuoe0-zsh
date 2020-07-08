@@ -16,7 +16,7 @@ zplug "modules/editor", from:prezto
 zplug "modules/environment", from:prezto
 zplug "modules/fasd", from:prezto
 zplug "modules/git", from:prezto
-zplug "modules/gnu-utility", from:prezto
+zplug "modules/gnu-utility", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/history", from:prezto
 zplug "modules/homebrew", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/node", from:prezto
