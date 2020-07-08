@@ -28,8 +28,8 @@ fi
 
 if zplug check zsh-users/zsh-history-substring-search; then
     HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_FOUND='bold,underline'
-	HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white'
-	HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='l'
+    HISTORY_SUBSTRING_SEARCH_HIGHLIGHT_NOT_FOUND='bg=red,fg=white'
+    HISTORY_SUBSTRING_SEARCH_GLOBBING_FLAGS='l'
     bindkey '\eOA' history-substring-search-up # up key
     bindkey '\eOB' history-substring-search-down # down key
 fi
