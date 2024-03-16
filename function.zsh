@@ -182,5 +182,5 @@ sync-dir() {
 	SOURCE="$1"
 	TARGET="$2"
 	TMP="${3:-$TARGET}" # use target folder as tmp folder if not specified
-	rsync -ruv --iconv=utf-8,utf-8-mac --no-p --no-g --chmod=u=rwX --delete --temp-dir="$TMP" --exclude "lost+found" --exclude "#recycle" "$SOURCE" "$TARGET"
+	rsync -ruv --iconv=utf-8,utf-8-mac --no-p --no-g --chmod=u=rwX --delete --temp-dir="$TMP" --exclude ".DS_Store" --exclude "lost+found" --exclude "#recycle" "$SOURCE" "$TARGET"
 }
