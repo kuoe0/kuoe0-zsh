@@ -184,3 +184,10 @@ sync-dir() {
 	TMP="${3:-$TARGET}" # use target folder as tmp folder if not specified
 	rsync -ruv --iconv=utf-8,utf-8-mac --no-p --no-g --chmod=u=rwX --delete --temp-dir="$TMP" --exclude ".DS_Store" --exclude "lost+found" --exclude "#recycle" "$SOURCE" "$TARGET"
 }
+
+# p10k custom prompt for incognito status
+function prompt_incognito() {
+	if [[ -z $HISTFILE ]]; then
+		p10k segment -f 'white' -t 'incognito'
+	fi
+}
