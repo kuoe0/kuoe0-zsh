@@ -145,3 +145,8 @@ bashcompinit
 export NVM_DIR="$HOME/.nvm"
 # Load nvm
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+
+if [ -d "$HOMEBREW_PREFIX" ]; then
+	# use package of homebrew
+	export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+fi

@@ -2,9 +2,10 @@ export OS=$(uname)
 export KUOE0_ZSH="$HOME/.zsh"
 
 export PATH="$HOME/Dropbox/Works/scripts:/sbin:/usr/sbin:$PATH"
+export PATH="/Users/kuoe0/.local/bin:$PATH"
 
 if [ "$OS" = 'Darwin' ]; then
-	export HOMEBREW="/usr/local/bin/brew"
+	export HOMEBREW="/opt/homebrew/bin/brew"
 else
 	export HOMEBREW="$(linuxbrew --prefix)/bin/brew"
 fi
