@@ -18,14 +18,14 @@ zplug "modules/fasd", from:prezto
 zplug "modules/git", from:prezto
 zplug "modules/gnu-utility", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/history", from:prezto
-zplug "modules/homebrew", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
+# zplug "modules/homebrew", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/node", from:prezto
 zplug "modules/osx", from:prezto, if:"[ \"$(uname -s)\" = \"Darwin\" ]"
 zplug "modules/python", from:prezto
 zplug "modules/rsync", from:prezto
-zplug "modules/ruby", from:prezto
+# zplug "modules/ruby", from:prezto
 zplug "modules/spectrum", from:prezto
-zplug "modules/tmux", from:prezto
+# zplug "modules/tmux", from:prezto
 zplug "modules/utility", from:prezto, defer:1 # need to be loaded after gnu-utility
 zplug "romkatv/gitstatus" # improved gitstatus
 zplug "romkatv/powerlevel10k", as:theme, depth:1
