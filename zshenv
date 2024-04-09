@@ -79,3 +79,7 @@ export LC_ALL="en_US.UTF-8"
 
 # Report CPU usage for each command
 export REPORTTIME=10
+
+# Begin added by argcomplete
+fpath=( /Users/kuoe0/.pyenv/versions/3.11.0/lib/python3.11/site-packages/argcomplete/bash_completion.d "${fpath[@]}" )
+# End added by argcomplete
