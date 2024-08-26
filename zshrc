@@ -150,3 +150,8 @@ if [ -d "$HOMEBREW_PREFIX" ]; then
 	# use package of homebrew
 	export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 fi
+
+# Fix: "No valid UNIX locale exists" after upgrading to iTerm2 3.5+
+# https://gitlab.com/gnachman/iterm2/-/issues/11597
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
